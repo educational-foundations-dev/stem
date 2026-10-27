@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c1f33">
+<meta name="description" content="Laboratorio de formulación inorgánica: aprende, nombra, formula y explora iones y compuestos binarios, ternarios y cuaternarios.">
+<title>Laboratorio de Formulación Inorgánica · v0.5</title>
+<style>
+:root{--ink:#182b40;--muted:#62738a;--navy:#10263e;--navy2:#173952;--mint:#12a98a;--mint-deep:#088269;--mint-pale:#e8f8f3;--blue:#387bd5;--blue-pale:#eaf2ff;--amber:#e7a638;--amber-pale:#fff6df;--red:#c84e52;--red-pale:#fff0f0;--paper:#fff;--bg:#f2f5fa;--border:#dfe6ef;--shadow:0 14px 38px rgba(21,49,80,.07);--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);font-size:15px}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7ad7c2;outline-offset:2px}a{color:var(--mint-deep)}.hidden{display:none!important}
+.topbar{background:var(--navy);color:white;position:sticky;top:0;z-index:50;box-shadow:0 4px 20px rgba(0,0,0,.08)}.topline{max-width:1470px;margin:auto;display:flex;align-items:center;gap:15px;padding:10px 22px;min-height:70px}.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1}.logo{width:43px;height:43px;flex:none;border:1px solid #4b6b79;background:linear-gradient(135deg,#204a5c,#12695e);border-radius:13px;display:grid;place-items:center;font-size:22px}.brand h1{font-size:16px;line-height:1.25;letter-spacing:.2px;margin:0;font-weight:800}.brand small{display:block;color:#a5c1cd;font-size:11px;letter-spacing:.04em;margin-top:4px}.version{font-size:11px;color:#b0d8cd;border:1px solid #3e6570;border-radius:999px;padding:5px 8px;margin-left:4px}.nav{display:flex;gap:5px;align-items:center;flex-wrap:wrap}.navbtn{border:0;color:#bdcdda;background:transparent;border-radius:10px;padding:9px 12px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:7px}.navbtn:hover{background:#28465f;color:white}.navbtn.active{background:#d9f7ec;color:#095947}.icon{font-size:16px}.categorybar{background:white;border-bottom:1px solid var(--border)}.categoryinner{max-width:1470px;margin:auto;display:flex;align-items:center;gap:9px;padding:10px 22px;overflow-x:auto;scrollbar-width:thin}.category-label{color:#748299;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-right:7px;white-space:nowrap}.catbtn{white-space:nowrap;border:1px solid #d8e1ed;color:#41526a;background:#fff;border-radius:999px;padding:8px 15px;font-weight:750;font-size:13px;display:inline-flex;gap:7px;align-items:center}.catbtn.active{background:var(--navy);border-color:var(--navy);color:#fff}.catbtn.locked{color:#8492a4;border-style:dashed}.catbtn .mini{font-size:10px;opacity:.75;font-weight:500}.appwrap{max-width:1470px;padding:23px 22px 48px;margin:0 auto;display:grid;grid-template-columns:240px minmax(0,1fr) 266px;gap:18px;align-items:start}.sidebar,.aside{display:grid;gap:16px;align-content:start}.panel,.paper{border:1px solid var(--border);background:var(--paper);box-shadow:var(--shadow);border-radius:var(--radius)}.panel{padding:18px}.panel h3{margin:0 0 13px;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#6c7f93}.main{min-width:0}.paper{padding:26px;margin-bottom:16px}.eyebrow{display:flex;align-items:center;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:var(--mint-deep);font-weight:850;margin-bottom:10px}.h2{font-size:clamp(23px,2.4vw,32px);letter-spacing:-.03em;line-height:1.2;margin:0 0 9px;font-weight:850}.lead{font-size:14px;color:var(--muted);line-height:1.7;margin:0}.stack{display:grid;gap:10px}.pill{border-radius:999px;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;padding:5px 10px;line-height:1.2}.pill.mint{background:var(--mint-pale);color:#087b64}.pill.amber{background:var(--amber-pale);color:#926008}.pill.blue{background:var(--blue-pale);color:#2263b6}.pill.gray{background:#eef2f5;color:#627487}.btn{border:1px solid transparent;border-radius:11px;padding:11px 16px;font-weight:800;display:inline-flex;justify-content:center;align-items:center;gap:8px;font-size:13px;min-height:43px;text-align:center}.btn.primary{background:var(--mint);color:white}.btn.primary:hover{background:var(--mint-deep)}.btn.secondary{background:#fff;border-color:#cfdae5;color:#273e56}.btn.secondary:hover{background:#f5f9fc}.btn.soft{background:#e8f7f2;color:#126e5b}.btn.danger{background:white;border-color:#edcaca;color:#bd4246}.btn:disabled{opacity:.42;cursor:not-allowed}.btn.small{min-height:34px;padding:7px 11px;font-size:12px}.btn.full{width:100%}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.line{height:1px;background:var(--border);margin:22px 0}.aside-note{font-size:12px;line-height:1.65;color:#63778a}.chapter{display:flex;align-items:center;gap:11px;border:1px solid transparent;background:transparent;text-align:left;width:100%;padding:10px 9px;border-radius:11px;color:#3e5369;font-size:12px;font-weight:650}.chapter:hover{background:#f4f8fb}.chapter.active{background:var(--mint-pale);color:#076f5d;border-color:#cdece1}.chapter-number{display:grid;place-items:center;width:26px;height:26px;border-radius:9px;background:#edf1f6;color:#536e82;font-size:11px;font-weight:850;flex:none}.chapter.active .chapter-number{background:#bceadd;color:#126c59}.groupname{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8a99a9;font-weight:850;margin:16px 0 5px;padding-left:8px}.side-tile{border-radius:14px;background:#132f43;color:#d5e7eb;padding:17px;line-height:1.55;font-size:12px}.side-tile strong{color:#fff;display:block;font-size:14px;margin-bottom:7px}.stepbox{background:#f6f9fc;border:1px solid #e2e9f0;border-radius:14px;padding:18px;margin-top:17px}.stepbox h3{margin:0 0 12px;font-size:14px}.stepbox ol{margin:0;padding-left:22px;color:#415770;line-height:1.9;font-size:13px}.stepbox li{padding-left:3px}.lesson-body p{color:#465b72;line-height:1.75;margin:10px 0}.lesson-body strong{color:#183752}.formula{font-size:43px;letter-spacing:.015em;font-weight:800;color:#163751;line-height:1.22;overflow-wrap:anywhere}.formula sup{font-size:.55em;vertical-align:super}.formula sub{font-size:.55em;vertical-align:sub}.formula .aq{font-size:.37em;margin-left:6px;font-weight:650;color:#7790a1}.formula.sm{font-size:25px}.formula.xs{font-size:19px}.formulabox{text-align:center;background:linear-gradient(155deg,#e7f6f1,#f5fafd);border:1px solid #d4e9e7;border-radius:15px;padding:25px 12px;margin:19px 0}.subtext{display:block;color:#627a8b;font-size:12px;font-weight:650;margin-top:10px}.tip{display:flex;gap:10px;border-radius:12px;padding:13px 14px;background:var(--amber-pale);border:1px solid #f3e6b6;color:#806327;font-size:12px;line-height:1.65;margin-top:17px}.tip.blue{background:#eef5ff;border-color:#dce8fa;color:#375c91}.example-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.example-list span{background:#fff;border:1px solid #dce5ea;border-radius:9px;padding:7px 10px;font-size:12px;color:#3a5368;font-weight:650}.quiz{background:#102a40;color:#fff;border-radius:16px;padding:21px;margin-top:19px}.quiz small{color:#70dcc0;letter-spacing:.12em;text-transform:uppercase;font-size:10px;font-weight:850}.quiz h3{font-size:16px;line-height:1.5;margin:8px 0 15px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:9px}.answer-btn{min-height:48px;text-align:left;background:#203e55;border:1px solid #456378;color:#fff;border-radius:10px;padding:11px 12px;font-size:12px;font-weight:650}.answer-btn:hover{background:#2a506a}.answer-btn.correct{background:#116e5e;border-color:#46cfb0}.answer-btn.wrong{background:#713e49;border-color:#e4a0a5}.quiz-result{font-size:12px;line-height:1.6;background:#25445b;border-radius:9px;padding:12px;margin-top:12px}.stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.stat{background:#f5f8fb;border:1px solid #e4ebf2;border-radius:13px;padding:13px}.stat strong{display:block;font-size:24px;color:#1c3851;letter-spacing:-.04em}.stat small{display:block;color:#6a7c8d;font-size:11px;margin-top:2px}.progressbar{height:8px;border-radius:20px;background:#e3ebf2;overflow:hidden;margin:8px 0}.progressbar>span{height:100%;display:block;background:linear-gradient(90deg,#11a789,#69d7b6);border-radius:20px}.section-title{font-size:13px;font-weight:800;margin:0 0 14px;color:#27425b}.control-row{display:flex;align-items:end;flex-wrap:wrap;gap:10px;margin:18px 0 13px}.field{display:grid;gap:6px;min-width:155px;flex:1}.field label{font-size:11px;letter-spacing:.02em;font-weight:800;color:#62738b}.field select,.field input,.text-input{border:1px solid #cedae6;border-radius:11px;background:#fff;padding:11px 12px;color:#23384b;outline:none;width:100%;min-height:45px}.field select:focus,.field input:focus,.text-input:focus{border-color:var(--mint);box-shadow:0 0 0 3px #d8f5eb}.prompt{border:1px solid #d9e5ef;border-radius:16px;background:linear-gradient(145deg,#f7fafc,#edf7f6);padding:28px 15px;text-align:center;margin:17px 0 18px}.prompt .instruction{color:#587183;font-weight:750;font-size:12px;letter-spacing:.04em}.prompt .formula{margin:17px 0 12px}.prompt .name{font-size:clamp(21px,3vw,28px);font-weight:800;line-height:1.4;color:#183e51;margin:23px auto;max-width:550px}.prompt .familytag{font-size:11px;color:#768a99}.input-label{font-size:12px;font-weight:800;color:#41596c;display:block;margin-bottom:7px}.answer-input{font-size:17px!important;font-weight:650;min-height:52px!important}.keyboard{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 2px}.key{min-width:36px;height:34px;border:1px solid #d4dee8;border-radius:8px;background:white;font-weight:750;color:#4c6580}.key:hover{background:#e8f7f2}.feedback{border-radius:12px;border:1px solid #c7eadb;background:#effaf4;padding:14px;color:#146c53;margin:14px 0;line-height:1.6;font-size:13px}.feedback.error{border-color:#f0c9ca;background:#fff1f1;color:#9e3339}.feedback.neutral{background:#f2f7fe;border-color:#d0e1f5;color:#31597c}.feedback strong{display:block;font-size:14px;margin-bottom:3px}.feedback ul{margin:6px 0 0;padding-left:20px}.hint-list{display:grid;gap:7px;margin-top:12px}.hint{background:#f4f9fb;border-left:3px solid #74b9ce;border-radius:7px;padding:9px 11px;font-size:12px;color:#445c6f;line-height:1.5}.stepper{display:flex;justify-content:space-between;align-items:center;gap:10px}.subtle{font-size:12px;color:var(--muted)}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #d6e0e9;background:#fff;color:#435972;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:750}.chip.active{background:#e1f5ee;color:#057c65;border-color:#9dd6c4}.tiny{font-size:11px;color:#75899b}.result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:15px}.result{border:1px solid #dae5eb;border-radius:12px;background:#fff;padding:13px;text-align:left;min-height:91px}.result:hover,.result.active{border-color:#51b8a4;background:#f5fbf8}.result .resultname{font-size:11px;color:#617387;margin-top:6px;line-height:1.4}.detail-card{padding:19px;background:#f5f9fc;border:1px solid #dce7ef;border-radius:14px;margin-top:18px}.name-row{padding:10px 0;border-top:1px solid #dfe9f0;display:flex;gap:9px;justify-content:space-between;align-items:start}.name-row strong{font-size:13px;line-height:1.4}.name-row .pill{flex-shrink:0}.barrow{display:grid;grid-template-columns:110px 1fr 49px;gap:9px;align-items:center;margin:14px 0;font-size:12px}.barrow .progressbar{margin:0}.dash-hero{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:15px}.count-bubble{background:#eaf8f2;border:1px solid #c7e8d9;color:#147f67;border-radius:14px;padding:12px 16px;white-space:nowrap;font-size:12px;font-weight:750}.count-bubble strong{font-size:21px}.coming{background:linear-gradient(130deg,#122d46,#1c534f);color:white;border-radius:18px;padding:29px}.coming h2{font-size:25px;margin:8px 0}.coming p{color:#c8dce1;line-height:1.7}.coming-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:18px 0}.coming-grid div{border:1px solid #47736f;border-radius:11px;padding:12px;font-size:12px;background:#ffffff0d}.sticky-aside{position:sticky;top:94px}.empty{padding:27px;text-align:center;color:#687e92;font-size:13px;background:#f7fafc;border-radius:12px}.footer{text-align:center;color:#8591a3;font-size:11px;line-height:1.7;margin-top:22px}.footer a{color:#53758b;text-decoration:none}.kbd{background:#eef3f8;padding:2px 6px;border-radius:5px;font-weight:800}.sr-only{position:absolute;clip:rect(0,0,0,0);height:1px;width:1px;overflow:hidden;white-space:nowrap}button:disabled{pointer-events:none}
+@media(max-width:1170px){.appwrap{grid-template-columns:208px minmax(0,1fr)}.aside{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr)}.sticky-aside{position:static}.navbtn{padding:8px;font-size:12px}.brand h1{font-size:14px}}
+@media(max-width:750px){.topline{flex-wrap:wrap;padding:10px 14px;gap:7px}.brand{width:100%;flex:auto}.brand h1{font-size:14px}.logo{width:37px;height:37px}.nav{display:grid;grid-template-columns:repeat(5,1fr);width:100%;gap:3px}.navbtn{display:grid;justify-items:center;padding:8px 1px;font-size:10px;gap:2px}.navbtn .icon{font-size:17px}.categoryinner{padding:9px 12px}.category-label{display:none}.appwrap{display:block;padding:14px 12px 30px}.sidebar{display:block;margin-bottom:13px}.sidebar .panel{padding:12px}.side-chapters{display:flex;overflow-x:auto;gap:4px;align-items:center}.side-chapters .groupname{display:none}.side-chapters .chapter{white-space:nowrap;width:auto;flex-shrink:0;padding:7px}.side-tile{display:none}.paper{padding:18px}.aside{grid-template-columns:1fr;margin-top:14px}.aside .panel:nth-child(n+2){display:none}.result-list{grid-template-columns:1fr 1fr}.h2{font-size:23px}.formula{font-size:36px}.answers{grid-template-columns:1fr}.stats-grid{gap:6px}.stat{padding:9px}.stat strong{font-size:20px}.coming-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.result-list{grid-template-columns:1fr}.control-row{display:grid;grid-template-columns:1fr 1fr}.field{min-width:0}.control-row .btn{grid-column:1/-1}.coming-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){button,.result,.chip{transition:background .15s,border-color .15s,transform .15s}.btn.primary:hover{transform:translateY(-1px)}}
+.sticky-aside .formula.xs{font-size:16px;white-space:nowrap;flex-shrink:0;overflow-wrap:normal}.sticky-aside .stack>div{gap:8px!important}.sticky-aside .stack>div>span:last-child{min-width:0}
+
+/* v0.5 · Comparaciones, exploración química y constructor */
+.special-card,.reference-subpanel{margin:19px 0;padding:19px;background:#f7fafc;border:1px solid #dbe8ed;border-radius:16px}
+.special-card h3,.reference-subpanel h3{font-size:16px;color:#203a53;margin:15px 0 10px}
+.special-card p,.reference-subpanel p{font-size:13px;line-height:1.7;color:#546a7c}
+.special-tabs,.explore-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.special-molecules{display:flex;justify-content:space-evenly;align-items:center;border:1px solid #d5e7ea;border-radius:14px;background:white;gap:7px;padding:15px 7px;margin:12px 0}
+.special-arrow{color:var(--mint-deep);font-size:22px}
+.special-equation{text-align:center;font-weight:800;color:#1d4963;background:#e9f4fa;border-radius:9px;padding:12px 8px;font-size:14px}
+.periodic-scroll{width:100%;overflow-x:auto;padding-bottom:8px}
+.periodic-grid{display:grid;grid-template-columns:repeat(18,minmax(32px,1fr));grid-template-rows:repeat(9,51px);gap:3px;min-width:680px}
+.element-box{background:#e9f3f8;border:1px solid #d3e3ef;border-radius:6px;color:#1c4863;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2px;min-width:0}
+.element-box small{font-size:9px;line-height:1.2}.element-box strong{font-size:15px}.element-box:hover{background:#d8f1eb}
+.element-box.active{background:var(--mint);color:#fff;border-color:#138d75}
+.element-info,.build-result{padding:16px;background:white;border-radius:12px;border:1px solid #dbe7ef;margin-top:10px;font-size:13px;line-height:1.7}
+.build-result .formula{display:block;text-align:center;margin:10px}.build-result p{font-size:12px}
+.error-explain{display:block;color:#8a3c40;margin-top:8px;font-weight:650;line-height:1.6}
+@media(max-width:750px){.reference-subpanel,.special-card{padding:12px}.periodic-grid{min-width:660px}.special-card .formula.sm{font-size:23px}.special-tabs .chip{font-size:11px}.special-molecules{padding:12px 4px}}
+
+/* v0.5 periodic table refinements */
+.periodic-tools{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:12px 0}
+.periodic-tools input{flex:1;min-width:180px;padding:9px;border:1px solid #cbdce7;border-radius:10px;color:#204053}
+.periodic-grid{margin:11px auto}
+.element-box{position:relative;transition:opacity .15s ease,transform .15s ease}
+.element-box i{position:absolute;right:4px;top:3px;width:5px;height:5px;border-radius:50%;background:#12a17f}
+.element-box.active i{background:#fff}
+.element-box.dimmed{opacity:.15}
+.element-box:focus-visible{outline:2px solid #095e50;outline-offset:2px;z-index:2}
+.periodic-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f2f2f8;border:1px dashed #c8c9dc;border-radius:5px;font-size:8px;color:#566176}
+.periodic-placeholder span{font-size:12px}
+.periodic-legend{display:flex;flex-wrap:wrap;gap:15px;font-size:11px;color:#647a87;align-items:center;margin:12px 0}
+.element-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#12a17f;margin-right:5px}
+@media(max-width:750px){.periodic-grid{grid-template-rows:repeat(9,47px);min-width:680px}.periodic-tools input{min-width:120px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topline">
+  <div class="brand"><div class="logo" aria-hidden="true">⚗</div><div><h1>Laboratorio de Formulación Inorgánica <span class="version">v0.5</span></h1><small>Aprender química, comprendiendo cada fórmula</small></div></div>
+  <nav class="nav" id="modules" aria-label="Módulos principales"></nav>
+</div></header>
+<div class="categorybar"><div class="categoryinner" id="categories"><span class="category-label">Familias químicas</span></div></div>
+<div class="appwrap"><aside class="sidebar" id="sidebar"></aside><main class="main" id="main" aria-live="polite"></main><aside class="aside" id="aside"></aside></div>
+<script>
+'use strict';
+/* Datos revisados para el alcance didáctico de v0.5. Las denominaciones tradicionales se identifican explícitamente. */
+const ROMAN={1:'I',2:'II',3:'III',4:'IV',5:'V',6:'VI',7:'VII',8:'VIII'};
+const PREFIX={1:'mono',2:'di',3:'tri',4:'tetra',5:'penta',6:'hexa',7:'hepta',8:'octa'};
+const OXPRE={1:'monóxido',2:'dióxido',3:'trióxido',4:'tetraóxido',5:'pentaóxido',6:'hexaóxido',7:'heptaóxido'};
+const metals={
+ Li:{name:'litio',charges:[1],trad:{1:'lítico'}},Na:{name:'sodio',charges:[1],trad:{1:'sódico'}},K:{name:'potasio',charges:[1],trad:{1:'potásico'}},
+ Mg:{name:'magnesio',charges:[2],trad:{2:'magnésico'}},Ca:{name:'calcio',charges:[2],trad:{2:'cálcico'}},Ba:{name:'bario',charges:[2],trad:{2:'bárico'}},
+ Al:{name:'aluminio',charges:[3],trad:{3:'alumínico'}},Zn:{name:'zinc',charges:[2],trad:{}},Ag:{name:'plata',charges:[1],trad:{}},
+ Fe:{name:'hierro',charges:[2,3],trad:{2:'ferroso',3:'férrico'}},Cu:{name:'cobre',charges:[1,2],trad:{1:'cuproso',2:'cúprico'}},
+ Co:{name:'cobalto',charges:[2,3],trad:{2:'cobaltoso',3:'cobáltico'}},Ni:{name:'níquel',charges:[2,3],trad:{2:'niqueloso',3:'niquélico'}},
+ Sn:{name:'estaño',charges:[2,4],trad:{2:'estañoso',4:'estánnico'}},Pb:{name:'plomo',charges:[2,4],trad:{2:'plumboso',4:'plúmbico'}}
+};
+/* v0.5 · Cationes adicionales para especies reales seleccionadas. */
+Object.assign(metals,{
+ Rb:{name:'rubidio',charges:[1],trad:{}}, Cs:{name:'cesio',charges:[1],trad:{}},
+ Sr:{name:'estroncio',charges:[2],trad:{}}, Cd:{name:'cadmio',charges:[2],trad:{}},
+ Be:{name:'berilio',charges:[2],trad:{}}, Sc:{name:'escandio',charges:[3],trad:{}},
+ Ga:{name:'galio',charges:[3],trad:{}}, Cr:{name:'cromo',charges:[2,3],trad:{2:'cromoso',3:'crómico'}},
+ Mn:{name:'manganeso',charges:[2,3],trad:{2:'manganoso',3:'mangánico'}},
+ Ti:{name:'titanio',charges:[3,4],trad:{}}, Hg:{name:'mercurio',charges:[2],trad:{2:'mercúrico'}},
+ Bi:{name:'bismuto',charges:[3],trad:{}}, Au:{name:'oro',charges:[1,3],trad:{1:'auroso',3:'áurico'}}
+});
+const anions={Cl:{name:'cloruro',charge:-1},Br:{name:'bromuro',charge:-1},I:{name:'yoduro',charge:-1},F:{name:'fluoruro',charge:-1},S:{name:'sulfuro',charge:-2},Se:{name:'seleniuro',charge:-2},N:{name:'nitruro',charge:-3},P:{name:'fosfuro',charge:-3}};
+const compounds=[];
+const formulaAliases={
+ 'Mg(OH)Cl':['MgCl(OH)'], 'Cu(OH)Cl':['CuCl(OH)'], 'Zn(OH)Cl':['ZnCl(OH)'],
+ 'Al(OH)Cl2':['AlCl2(OH)'], 'Al(OH)2Cl':['AlCl(OH)2'],
+ 'Cu2(OH)3Cl':['Cu2Cl(OH)3'], 'Cu2CO3(OH)2':['Cu2(OH)2CO3'],
+ 'Zn5(CO3)2(OH)6':['Zn5(OH)6(CO3)2'], 'Pb3(CO3)2(OH)2':['Pb3(OH)2(CO3)2'],
+ 'AlK(SO4)2':['KAl(SO4)2'],'AlNa(SO4)2':['NaAl(SO4)2'],
+ 'CrK(SO4)2':['KCr(SO4)2'],'FeK(SO4)2':['KFe(SO4)2'],'FeNa(SO4)2':['NaFe(SO4)2']
+};
+const used=new Set();
+function entry(data){
+ if(used.has(data.formula))return;
+ used.add(data.formula);
+ data.id='c'+(compounds.length+1);
+ data.names=[...new Map(data.names.filter(x=>x&&x.text).map(x=>[normName(x.text),x])).values()];
+ compounds.push(data);
+}
+function nm(text,kind='Composición',note=''){return{text,kind,note}}
+function gcd(a,b){return b?gcd(b,a%b):a}
+function ionicFormula(left,lc,right,rc){const d=gcd(lc,Math.abs(rc)),nl=Math.abs(rc)/d,nr=lc/d;return left+(nl>1?nl:'')+right+(nr>1?nr:'')}
+function oxidationDescriptor(element,charge,showFixed=false){const m=metals[element];return m.name+((showFixed||m.charges.length>1)?'('+ROMAN[charge]+')':'')}
+function systematicBinary(an,anionCount,metalSymbol,metalCount){return (anionCount>1?PREFIX[anionCount]:'mono')+an+' de '+(metalCount>1?PREFIX[metalCount]:'')+metals[metalSymbol].name}
+function metalTraditional(stem,symbol,charge){const tr=metals[symbol].trad[charge];return tr?nm(stem+' '+tr,'Tradicional','Denominación tradicional; puede no ser preferente.'):null}
+function expandFixedStock(arr,stem,symbol,charge){const m=metals[symbol]; if(m.charges.length===1){arr.push(nm(stem+' de '+m.name+'('+ROMAN[charge]+')','Stock','El número de oxidación es opcional si el metal tiene un único estado habitual.'))}else{arr.push(nm(stem+' de '+m.name,'Composición (sin especificar)','El nombre sin número de oxidación es ambiguo en metales de valencia variable; no se usa aquí.'))}}
+/* IONES: todas las cargas se guardan separadamente de los subíndices. */
+const ionList=[
+ ['Li',1,'litio',null,'Catión monoatómico'],['Na',1,'sodio',null,'Catión monoatómico'],['K',1,'potasio',null,'Catión monoatómico'],['Ag',1,'plata',null,'Catión monoatómico'],
+ ['Mg',2,'magnesio',null,'Catión monoatómico'],['Ca',2,'calcio',null,'Catión monoatómico'],['Ba',2,'bario',null,'Catión monoatómico'],['Zn',2,'zinc',null,'Catión monoatómico'],['Al',3,'aluminio',null,'Catión monoatómico'],
+ ['Fe',2,'hierro','ferroso','Catión monoatómico'],['Fe',3,'hierro','férrico','Catión monoatómico'],['Cu',1,'cobre','cuproso','Catión monoatómico'],['Cu',2,'cobre','cúprico','Catión monoatómico'],
+ ['Sn',2,'estaño','estañoso','Catión monoatómico'],['Sn',4,'estaño','estánnico','Catión monoatómico'],['Pb',2,'plomo','plumboso','Catión monoatómico'],['Pb',4,'plomo','plúmbico','Catión monoatómico'],
+ ['Co',2,'cobalto','cobaltoso','Catión monoatómico'],['Co',3,'cobalto','cobáltico','Catión monoatómico'],['Ni',2,'níquel','niqueloso','Catión monoatómico'],['Ni',3,'níquel','niquélico','Catión monoatómico'],
+ ['H',1,'hidrógeno',null,'Catión monoatómico'],
+ ['F',-1,'fluoruro',null,'Anión monoatómico'],['Cl',-1,'cloruro',null,'Anión monoatómico'],['Br',-1,'bromuro',null,'Anión monoatómico'],['I',-1,'yoduro',null,'Anión monoatómico'],
+ ['O',-2,'óxido',null,'Anión monoatómico'],['S',-2,'sulfuro',null,'Anión monoatómico'],['Se',-2,'seleniuro',null,'Anión monoatómico'],['N',-3,'nitruro',null,'Anión monoatómico'],['P',-3,'fosfuro',null,'Anión monoatómico'],['H',-1,'hidruro',null,'Anión monoatómico'],
+ ['NH4',1,'amonio',null,'Ion poliatómico'],['OH',-1,'hidróxido',null,'Ion poliatómico'],['NO3',-1,'nitrato',null,'Oxoanión'],['NO2',-1,'nitrito',null,'Oxoanión'],
+ ['SO4',-2,'sulfato',null,'Oxoanión'],['SO3',-2,'sulfito',null,'Oxoanión'],['CO3',-2,'carbonato',null,'Oxoanión'],['HCO3',-1,'hidrogenocarbonato',null,'Ion ácido'],
+ ['PO4',-3,'fosfato',null,'Oxoanión'],['HPO4',-2,'hidrogenofosfato',null,'Ion ácido'],['H2PO4',-1,'dihidrogenofosfato',null,'Ion ácido'],
+ ['HSO4',-1,'hidrogenosulfato',null,'Ion ácido'],['ClO',-1,'hipoclorito',null,'Oxoanión'],['ClO2',-1,'clorito',null,'Oxoanión'],
+ ['ClO3',-1,'clorato',null,'Oxoanión'],['ClO4',-1,'perclorato',null,'Oxoanión'],['MnO4',-1,'permanganato',null,'Oxoanión'],
+ ['CrO4',-2,'cromato',null,'Oxoanión'],['Cr2O7',-2,'dicromato',null,'Oxoanión'],['CN',-1,'cianuro',null,'Ion poliatómico'],['O2',-2,'peróxido',null,'Ion poliatómico']
+];
+function chargeFormula(s,ch){return s+(Math.abs(ch)===1?(ch>0?'+':'-'):'^'+Math.abs(ch)+(ch>0?'+':'-'))}
+ionList.push(
+ ['Rb',1,'rubidio',null,'Catión monoatómico'],['Cs',1,'cesio',null,'Catión monoatómico'],
+ ['Sr',2,'estroncio',null,'Catión monoatómico'],['Cd',2,'cadmio',null,'Catión monoatómico'],
+ ['Be',2,'berilio',null,'Catión monoatómico'],['Sc',3,'escandio',null,'Catión monoatómico'],
+ ['Ga',3,'galio',null,'Catión monoatómico'],['Cr',2,'cromo','cromoso','Catión monoatómico'],
+ ['Cr',3,'cromo','crómico','Catión monoatómico'],['Mn',2,'manganeso','manganoso','Catión monoatómico'],
+ ['Ti',3,'titanio',null,'Catión monoatómico'],['Ti',4,'titanio',null,'Catión monoatómico'],
+ ['Hg',2,'mercurio','mercúrico','Catión monoatómico'],['Bi',3,'bismuto',null,'Catión monoatómico'],
+ ['Au',1,'oro','auroso','Catión monoatómico'],['Au',3,'oro','áurico','Catión monoatómico'],
+ ['BrO',-1,'hipobromito',null,'Oxoanión'],['BrO3',-1,'bromato',null,'Oxoanión'],
+ ['IO3',-1,'yodato',null,'Oxoanión'],['SeO4',-2,'selenato',null,'Oxoanión'],
+ ['MoO4',-2,'molibdato',null,'Oxoanión'],['WO4',-2,'wolframato',null,'Oxoanión'],
+ ['AsO4',-3,'arsenato',null,'Oxoanión'],['S2O3',-2,'tiosulfato',null,'Oxoanión'],
+ ['HSO3',-1,'hidrogenosulfito',null,'Ion ácido'],['HCrO4',-1,'hidrogenocromato',null,'Ion ácido'],
+ ['HS',-1,'hidrogenosulfuro',null,'Ion ácido']
+);
+ionList.forEach(([symbol,charge,name,trad,family])=>{
+ const formula=chargeFormula(symbol,charge),positive=charge>0;
+ const ionKind=positive&&metals[symbol]?.charges.length>1?'Stock':'Nombre aceptado';
+ const names=[nm('ión '+name+(positive&&metals[symbol]?.charges.length>1?'('+ROMAN[charge]+')':''),ionKind),nm((positive?'catión ':'anión ')+name+(positive&&metals[symbol]?.charges.length>1?'('+ROMAN[charge]+')':''),ionKind)];
+ if(positive&&metals[symbol]?.charges.length>1){names.push(nm('ión '+name+'('+Math.abs(charge)+'+)','Número de carga'),nm('catión '+name+'('+Math.abs(charge)+'+)','Número de carga'))}
+ if(positive&&metals[symbol]?.charges.length===1){names.push(nm('ión '+name+'('+ROMAN[charge]+')','Stock'))}
+ if(trad){names.push(nm('ión '+trad,'Tradicional'),nm('catión '+trad,'Tradicional'))}
+ if(!positive){names.push(nm(name,'Composición'))}
+ if(symbol==='NH4')names.push(nm('amonio','Nombre habitual'));
+ if(symbol==='H'&&charge===1)names.push(nm('protón','Nombre habitual'));
+ if(symbol==='HCO3')names.push(nm('ión bicarbonato','Tradicional'),nm('bicarbonato','Tradicional'));
+ if(symbol==='HSO4')names.push(nm('ión bisulfato','Tradicional'),nm('bisulfato','Tradicional'));
+ if(symbol==='OH')names.push(nm('hidróxido','Composición'));
+ if(symbol==='O2'&&charge===-2)names.push(nm('peróxido','Composición'));
+ entry({formula,category:'Iones',family,level:Math.abs(charge)===1?1:2,names,explain:`${positive?'Catión':'Anión'} con carga ${charge>0?'+':''}${charge}. ${positive?'Ha perdido electrones respecto al átomo neutro o es un ion molecular positivo.':'Ha ganado electrones respecto al átomo neutro o es un ion molecular negativo.'}`});
+});
+/* ÓXIDOS METÁLICOS: elementos seleccionados, estados de oxidación usuales. */
+const oxideMetals=[['Li',1],['Na',1],['K',1],['Mg',2],['Ca',2],['Ba',2],['Al',3],['Zn',2],['Ag',1],['Fe',2],['Fe',3],['Cu',1],['Cu',2],['Co',2],['Co',3],['Ni',2],['Ni',3],['Sn',2],['Sn',4],['Pb',2],['Pb',4]];
+oxideMetals.push(
+ ['Rb',1],['Cs',1],['Sr',2],['Cd',2],['Be',2],['Sc',3],['Ga',3],
+ ['Cr',2],['Cr',3],['Mn',2],['Ti',4],['Hg',2],['Bi',3]
+);
+oxideMetals.forEach(([symbol,n])=>{
+ const d=gcd(n,2),mc=2/d,oc=n/d,formula=symbol+(mc>1?mc:'')+'O'+(oc>1?oc:'');const m=metals[symbol];
+ const arr=[nm(OXPRE[oc]+' de '+(mc>1?PREFIX[mc]:'')+m.name,'Prefijos'),nm('óxido de '+oxidationDescriptor(symbol,n),'Stock')];
+ if(mc===1&&oc===1)arr.push(nm('monóxido de '+m.name,'Prefijos'));
+ if(mc===1&&oc===2)arr.push(nm('dióxido de '+m.name,'Prefijos'));
+ if(m.charges.length>1)arr.push(nm('óxido de '+m.name+'('+n+'+)','Número de carga'));
+ const tr=metalTraditional('óxido',symbol,n);if(tr)arr.push(tr);
+ entry({formula,category:'Binarios',family:'Óxidos metálicos',level:m.charges.length===1?1:2,names:arr,explain:`El oxígeno actúa con número de oxidación −2 y ${m.name} con +${n}. Se necesitan ${mc} átomo(s) de ${m.name} y ${oc} de oxígeno para que la suma sea cero.`});
+});
+/* ÓXIDOS NO METÁLICOS (selección de especies bien conocidas). */
+const oxideNonmetals=[
+ ['CO','monóxido de carbono','óxido de carbono(II)',null,'C +2 y O −2'],
+ ['CO2','dióxido de carbono','óxido de carbono(IV)','anhídrido carbónico','C +4 y O −2'],
+ ['SO2','dióxido de azufre','óxido de azufre(IV)','anhídrido sulfuroso','S +4 y O −2'],
+ ['SO3','trióxido de azufre','óxido de azufre(VI)','anhídrido sulfúrico','S +6 y O −2'],
+ ['N2O','monóxido de dinitrógeno','óxido de nitrógeno(I)','óxido nitroso','N +1 de media y O −2'],
+ ['NO','monóxido de nitrógeno','óxido de nitrógeno(II)','óxido nítrico','N +2 y O −2'],
+ ['NO2','dióxido de nitrógeno','óxido de nitrógeno(IV)',null,'N +4 y O −2'],
+ ['N2O3','trióxido de dinitrógeno','óxido de nitrógeno(III)','anhídrido nitroso','N +3 y O −2'],
+ ['N2O5','pentóxido de dinitrógeno','óxido de nitrógeno(V)','anhídrido nítrico','N +5 y O −2'],
+ ['P4O6','hexaóxido de tetrafósforo','óxido de fósforo(III)',null,'Óxido molecular de fósforo(III)'],
+ ['P4O10','decaóxido de tetrafósforo','óxido de fósforo(V)',null,'Óxido molecular de fósforo(V)'],
+ ['Cl2O','monóxido de dicloro','óxido de cloro(I)','anhídrido hipocloroso','Cl +1 y O −2'],
+ ['Cl2O7','heptaóxido de dicloro','óxido de cloro(VII)','anhídrido perclórico','Cl +7 y O −2'],
+ ['SiO2','dióxido de silicio','óxido de silicio(IV)','anhídrido silícico','Si +4 y O −2']
+];
+oxideNonmetals.push(
+ ['SeO2','dióxido de selenio','óxido de selenio(IV)','anhídrido selenioso','Se +4 y O −2'],
+ ['SeO3','trióxido de selenio','óxido de selenio(VI)','anhídrido selénico','Se +6 y O −2'],
+ ['B2O3','trióxido de diboro','óxido de boro(III)','anhídrido bórico','B +3 y O −2'],
+ ['As2O3','trióxido de diarsénico','óxido de arsénico(III)','anhídrido arsenioso','As +3 y O −2'],
+ ['As2O5','pentóxido de diarsénico','óxido de arsénico(V)','anhídrido arsénico','As +5 y O −2'],
+ ['I2O5','pentóxido de diyodo','óxido de yodo(V)','anhídrido yódico','I +5 y O −2'],
+ ['ClO2','dióxido de cloro','óxido de cloro(IV)',null,'Cl +4 y O −2'],
+ ['N2O4','tetróxido de dinitrógeno',null,null,'N +4 y O −2; dímero en equilibrio con NO₂']
+);
+oxideNonmetals.forEach(([formula,syst,stock,trad,why])=>{
+ const names=[nm(syst,'Prefijos')];if(stock)names.push(nm(stock,'Stock'));if(trad)names.push(nm(trad,'Tradicional','Denominación antigua; la IUPAC prioriza otros sistemas.'));
+ if(formula==='N2O5')names.push(nm('pentaóxido de dinitrógeno','Prefijos'));
+ if(formula==='P4O10')names.push(nm('decaóxido de tetrafósforo','Prefijos'));
+ entry({formula,category:'Binarios',family:'Óxidos no metálicos',level:3,names,explain:`${why}. En óxidos moleculares se conserva la fórmula de la especie, que no siempre coincide con la empírica.`});
+});
+/* PERÓXIDOS: el anión peróxido es O₂²⁻ (oxígeno −1); no se reduce su grupo O₂. */
+[
+ ['H2O2','hidrógeno',2,2,'agua oxigenada'],['Li2O2','litio',2,2,null],['Na2O2','sodio',2,2,null],['K2O2','potasio',2,2,null],
+ ['MgO2','magnesio',1,2,null],['CaO2','calcio',1,2,null],['BaO2','bario',1,2,null],['ZnO2','zinc',1,2,null]
+].forEach(([formula,name,metalCount,oxygenCount,traditional])=>{
+ let prefixMetal=metalCount>1?PREFIX[metalCount]:'';
+ let names=[nm('peróxido de '+name,'Composición'),nm('dióxido de '+prefixMetal+name,'Prefijos')];
+ if(traditional)names.push(nm(traditional,'Nombre común','Nombre corriente de sus disoluciones acuosas.'));
+ entry({formula,category:'Binarios',family:'Peróxidos',level:2,names,explain:'Contiene el grupo peróxido O₂²⁻: cada oxígeno tiene número de oxidación −1. El grupo O₂ no debe simplificarse.'});
+});
+/* HIDRUROS METÁLICOS */
+[
+ ['Li',1],['Na',1],['K',1],['Mg',2],['Ca',2],['Ba',2],['Al',3],['Zn',2],['Fe',2],['Cu',1]
+].forEach(([symbol,n])=>{
+ let m=metals[symbol],formula=symbol+'H'+(n>1?n:'');
+ let names=[nm((n>1?PREFIX[n]:'mono')+'hidruro de '+m.name,'Prefijos'),nm('hidruro de '+oxidationDescriptor(symbol,n),'Stock')];
+ if(n===1)names.push(nm('hidruro de '+m.name,'Composición'));
+ const tr=metalTraditional('hidruro',symbol,n);if(tr)names.push(tr);
+ entry({formula,category:'Binarios',family:'Hidruros metálicos',level:m.charges.length>1?2:1,names,explain:`H actúa aquí con −1; el ${m.name} se considera con +${n}. La proporción es 1:${n}.`});
+});
+/* HIDRUROS PROGENITORES NO METÁLICOS */
+[
+ ['NH3','trihidruro de nitrógeno','azano','amoníaco',null],
+ ['PH3','trihidruro de fósforo','fosfano','fosfina',null],
+ ['AsH3','trihidruro de arsénico','arsano','arsina',null],
+ ['CH4','tetrahidruro de carbono','metano',null,null],
+ ['SiH4','tetrahidruro de silicio','silano',null,null],
+ ['BH3','trihidruro de boro','borano',null,'La especie BH₃ aislada es muy reactiva y suele asociarse o estabilizarse en complejos.']
+].forEach(([formula,systematic,substitution,traditional,note])=>{
+ const names=[nm(systematic,'Prefijos'),nm(substitution,'Sustitución')];if(traditional)names.push(nm(traditional,'Tradicional / aceptado'));
+ entry({formula,category:'Binarios',family:'Hidruros no metálicos',level:2,names,explain:'Hidruro covalente no metálico. Son válidas denominaciones estequiométricas y, cuando existen, nombres de hidruros progenitores.'+(note?' '+note:'')});
+});
+/* HIDRÁCIDOS: se distingue el halogenuro de hidrógeno del ácido en disolución acuosa. */
+[
+ ['HCl','cloruro','clorhídrico'],['HBr','bromuro','bromhídrico'],['HI','yoduro','yodhídrico'],['HF','fluoruro','fluorhídrico'],
+ ['H2S','sulfuro','sulfhídrico'],['H2Se','seleniuro','selenhídrico']
+].forEach(([formula,salt,acid])=>{
+ const gasnames=[nm(salt+' de hidrógeno','Composición')];
+ if(formula==='H2S')gasnames.push(nm('sulfuro de dihidrógeno','Prefijos'));
+ if(formula==='H2Se')gasnames.push(nm('seleniuro de dihidrógeno','Prefijos'));
+ entry({formula,category:'Binarios',family:'Compuestos de hidrógeno',level:2,names:gasnames,explain:'Como sustancia pura, se nombra '+salt+' de hidrógeno. Su disolución acuosa recibe un nombre ácido distinto.'});
+ entry({formula:formula+'(aq)',category:'Binarios',family:'Hidrácidos (acuosos)',level:2,
+ names:[nm('ácido '+acid,'Tradicional aceptada'),nm(salt+' de hidrógeno en disolución acuosa','Composición')],
+ explain:'La indicación (ac) significa disolución acuosa. «Ácido '+acid+'» se usa para esa disolución; no como nombre general del gas puro.'});
+});
+/* SALES BINARIAS: solo parejas documentadas y estados de oxidación seleccionados. */
+const binarySaltPairs=[
+ ['Li',1,'Cl,F,Br,I'],['Na',1,'Cl,F,Br,I,S'],['K',1,'Cl,F,Br,I,S'],
+ ['Mg',2,'Cl,F,Br,S,N'],['Ca',2,'Cl,F,Br,I,S,N,P'],['Ba',2,'Cl,F,S'],
+ ['Al',3,'Cl,F,S,N,P'],['Zn',2,'Cl,F,Br,S'],['Ag',1,'Cl,Br,I,S'],
+ ['Fe',2,'Cl,Br,S,F'],['Fe',3,'Cl,F'],['Cu',1,'Cl,Br,I'],['Cu',2,'Cl,Br,S,F'],
+ ['Co',2,'Cl,Br,S'],['Co',3,'F'],['Ni',2,'Cl,Br,S'],['Sn',2,'Cl,F,S'],['Sn',4,'Cl,F'],['Pb',2,'Cl,Br,S'],['Pb',4,'Cl,F']
+];
+binarySaltPairs.push(
+ ['Rb',1,'Cl,F,Br,I,S'],['Cs',1,'Cl,F,Br,I,S'],['Sr',2,'Cl,F,Br,I,S'],
+ ['Cd',2,'Cl,F,Br,I,S'],['Be',2,'Cl,F'],['Sc',3,'Cl,F'],['Ga',3,'Cl,F'],
+ ['Cr',2,'Cl'],['Cr',3,'Cl,F'],['Mn',2,'Cl,F,Br,S'],
+ ['Ti',3,'Cl'],['Ti',4,'Cl,F'],['Hg',2,'Cl,Br,I,S'],
+ ['Bi',3,'Cl,F,Br'],['Au',1,'Cl,Br'],['Au',3,'Cl,Br']
+);
+binarySaltPairs.forEach(([m,n,anList])=>anList.split(',').forEach(a=>{
+ const an=anions[a],d=gcd(n,Math.abs(an.charge)),mc=Math.abs(an.charge)/d,ac=n/d,formula=m+(mc>1?mc:'')+a+(ac>1?ac:'');
+ const names=[nm((ac>1?PREFIX[ac]:'mono')+an.name+' de '+(mc>1?PREFIX[mc]:'')+metals[m].name,'Prefijos'),nm(an.name+' de '+oxidationDescriptor(m,n),'Stock')];
+ if(ac===1)names.push(nm(an.name+' de '+(mc>1?PREFIX[mc]:'')+metals[m].name,'Composición'));
+ let tr=metalTraditional(an.name,m,n);if(tr)names.push(tr);
+ entry({formula,category:'Binarios',family:'Sales binarias',level:metals[m].charges.length===1?1:2,names,explain:`${metals[m].name}: +${n}; ${an.name}: ${an.charge}. Al compensar sus cargas, la fórmula contiene ${mc} metal(es) y ${ac} anión(es).`});
+}));
+/* BINARIOS COVALENTES, conservando la composición molecular indicada. */
+[
+ ['PCl3','tricloruro de fósforo','cloruro de fósforo(III)'],['PCl5','pentacloruro de fósforo','cloruro de fósforo(V)'],
+ ['SF4','tetrafluoruro de azufre','fluoruro de azufre(IV)'],['SF6','hexafluoruro de azufre','fluoruro de azufre(VI)'],
+ ['CCl4','tetracloruro de carbono','cloruro de carbono(IV)'],['SiCl4','tetracloruro de silicio','cloruro de silicio(IV)'],
+ ['BF3','trifluoruro de boro','fluoruro de boro(III)'],['NCl3','tricloruro de nitrógeno','cloruro de nitrógeno(III)'],
+ ['SCl2','dicloruro de azufre','cloruro de azufre(II)'],['PBr3','tribromuro de fósforo','bromuro de fósforo(III)']
+].forEach(([formula,sys,stock])=>entry({formula,category:'Binarios',family:'Binarios covalentes',level:3,names:[nm(sys,'Prefijos'),nm(stock,'Stock')],explain:'Dos no metales forman un compuesto binario covalente. Los prefijos describen cuántos átomos hay en la molécula.'}));
+/* v0.5 · Compuestos ternarios. Combinaciones curadas, sin combinatoria química indiscriminada. */
+/* HIDRÓXIDOS: el anión hidróxido se mantiene como unidad OH−. */
+const hydroxidePairs=[['Li',1],['Na',1],['K',1],['Mg',2],['Ca',2],['Ba',2],['Al',3],['Zn',2],['Fe',2],['Fe',3],['Cu',1],['Cu',2],['Co',2],['Co',3],['Ni',2],['Ni',3],['Sn',2],['Sn',4],['Pb',2],['Pb',4]];
+hydroxidePairs.push(
+ ['Rb',1],['Cs',1],['Sr',2],['Cd',2],['Be',2],['Sc',3],['Ga',3],
+ ['Cr',3],['Mn',2],['Bi',3]
+);
+hydroxidePairs.forEach(([symbol,n])=>{
+ const metal=metals[symbol],formula=symbol+(n===1?'OH':`(OH)${n}`),name=metal.name;
+ const names=[nm('hidróxido de '+oxidationDescriptor(symbol,n),'Stock'),nm((n===1?'mono':PREFIX[n])+'hidróxido de '+name,'Prefijos')];
+ if(metal.charges.length>1)names.push(nm('hidróxido de '+name+'('+n+'+)','Número de carga'));
+ const tr=metalTraditional('hidróxido',symbol,n);if(tr)names.push(tr);
+ entry({formula,category:'Ternarios',family:'Hidróxidos',level:metal.charges.length===1?1:2,names,
+ explain:`El grupo OH⁻ tiene carga −1. El ${name} actúa aquí con carga +${n}, de modo que ${n===1?'se necesita un grupo OH':'se necesitan '+n+' grupos OH'} para neutralizarla. ${n>1?'Los paréntesis agrupan el ion poliatómico.':''}`});
+});
+/* OXOÁCIDOS: fórmulas y denominaciones registradas una a una. Las variantes marcadas
+   como históricas se admiten sin recomendarlas como nomenclatura principal. */
+const oxoAcids=[
+ // fórmula, tradicional, tipo de nombre de hidrógeno, de adición, histórica, nivel, nota
+ ['HNO2','ácido nitroso','hidrógeno(dioxidonitrato)','hidroxidooxidonitrógeno','ácido dioxonítrico(III)',2,'Nitrógeno en estado de oxidación +3.'],
+ ['HNO3','ácido nítrico','hidrógeno(trioxidonitrato)','hidroxidodioxidonitrógeno','ácido trioxonítrico(V)',1,'Nitrógeno en estado de oxidación +5.'],
+ ['H2SO3','ácido sulfuroso','dihidrógeno(trioxidosulfato)','dihidroxidooxidoazufre','ácido trioxosulfúrico(IV)',2,'El azufre presenta número de oxidación +4.'],
+ ['H2SO4','ácido sulfúrico','dihidrógeno(tetraoxidosulfato)','dihidroxidodioxidoazufre','ácido tetraoxosulfúrico(VI)',1,'El azufre presenta número de oxidación +6.'],
+ ['H2CO3','ácido carbónico','dihidrógeno(trioxidocarbonato)','dihidroxidooxidocarbono','ácido trioxocarbónico(IV)',1,'Es un ácido débil en equilibrio con CO₂ disuelto en agua.'],
+ ['H3PO4','ácido fosfórico','trihidrógeno(tetraoxidofosfato)','trihidroxidooxidofósforo','ácido tetraoxofosfórico(V)',2,'Es el oxoácido fosfórico habitual, también llamado ortofosfórico.'],
+ ['H3PO3','ácido fosforoso',null,null,null,3,'Su estructura HPO(OH)₂ tiene un enlace P−H; solo dos de sus tres hidrógenos son ácidos. No se formula como si los tres fuesen grupos OH.'],
+ ['HClO','ácido hipocloroso','hidrógeno(oxidoclorato)','hidroxidocloro',null,2,'Cloro con número de oxidación +1.'],
+ ['HClO2','ácido cloroso','hidrógeno(dioxidoclorato)','hidroxidooxidocloro',null,2,'Cloro con número de oxidación +3.'],
+ ['HClO3','ácido clórico','hidrógeno(trioxidoclorato)','hidroxidodioxidocloro',null,2,'Cloro con número de oxidación +5.'],
+ ['HClO4','ácido perclórico','hidrógeno(tetraoxidoclorato)','hidroxidotrioxidocloro','ácido tetraoxoclórico(VII)',2,'Cloro con número de oxidación +7.'],
+ ['HBrO','ácido hipobromoso','hidrógeno(oxidobromato)','hidroxidobromo',null,3,'Bromo con número de oxidación +1; especie presente principalmente en disolución.'],
+ ['HBrO2','ácido bromoso','hidrógeno(dioxidobromato)','hidroxidooxidobromo',null,3,'Bromo con número de oxidación +3; especie poco estable, incluida por su interés didáctico.'],
+ ['HBrO3','ácido brómico','hidrógeno(trioxidobromato)','hidroxidodioxidobromo',null,3,'Bromo con número de oxidación +5.'],
+ ['HBrO4','ácido perbrómico','hidrógeno(tetraoxidobromato)','hidroxidotrioxidobromo',null,3,'Bromo con número de oxidación +7.'],
+ ['HIO','ácido hipoyodoso','hidrógeno(oxidoyodato)','hidroxidoyodo',null,3,'Yodo con número de oxidación +1; especie poco estable.'],
+ ['HIO2','ácido yodoso','hidrógeno(dioxidoyodato)','hidroxidooxidoyodo',null,3,'Yodo con número de oxidación +3; especie poco estable.'],
+ ['HIO3','ácido yódico','hidrógeno(trioxidoyodato)','hidroxidodioxidoyodo',null,3,'Yodo con número de oxidación +5.'],
+ ['HIO4','ácido peryódico','hidrógeno(tetraoxidoyodato)','hidroxidotrioxidoyodo',null,3,'Es el ácido metaperyódico, con yodo en estado de oxidación +7.'],
+ ['H3BO3','ácido bórico','trihidrógeno(trioxidoborato)','trihidroxidoboro',null,3,'Estructura B(OH)₃. Aunque contiene tres OH, en agua se comporta principalmente como ácido de Lewis.'],
+ ['H4SiO4','ácido ortosilícico','tetrahidrógeno(tetraoxidosilicato)','tetrahidroxidosilicio',null,3,'Forma monomérica del ácido ortosilícico presente en disolución.'],
+ ['H2SeO3','ácido selenioso','dihidrógeno(trioxidoselenato)','dihidroxidooxidoselenio',null,3,'Selenio con número de oxidación +4.'],
+ ['H2SeO4','ácido selénico','dihidrógeno(tetraoxidoselenato)','dihidroxidodioxidoselenio',null,3,'Selenio con número de oxidación +6.'],
+ ['H2CrO4','ácido crómico','dihidrógeno(tetraoxidocromato)','dihidroxidodioxidocromo',null,3,'Cromo con número de oxidación +6.'],
+ ['H2Cr2O7','ácido dicrómico','dihidrógeno(heptaoxidodicromato)',null,null,3,'Dos átomos de cromo; se relaciona con el equilibrio cromato/dicromato.'],
+ ['HMnO4','ácido permangánico','hidrógeno(tetraoxidomanganato)',null,null,3,'Manganeso con número de oxidación +7.'],
+ ['H2MnO4','ácido mangánico','dihidrógeno(tetraoxidomanganato)',null,null,3,'Manganeso con número de oxidación +6, distinto del ácido permangánico.'],
+ ['H4P2O7','ácido difosfórico','tetrahidrógeno(heptaoxidodifosfato)',null,null,3,'También llamado ácido pirofosfórico. Se obtiene conceptualmente por condensación de dos H₃PO₄ con pérdida de agua.'],
+ ['H2S2O7','ácido disulfúrico','dihidrógeno(heptaoxidodisulfato)',null,null,3,'También llamado ácido pirosulfúrico. Dos unidades de H₂SO₄ pierden una molécula de agua.']
+];
+oxoAcids.forEach(([formula,trad,hydrogen,addition,historical,level,note])=>{
+ const names=[nm(trad,'Tradicional aceptada')];
+ if(hydrogen)names.push(nm(hydrogen,'Hidrógeno'));
+ if(addition)names.push(nm(addition,'Adición'));
+ if(historical)names.push(nm(historical,'Histórica / desaconsejada','Se reconoce en materiales antiguos, pero no es una forma recomendada por la RSEQ para enseñarla actualmente.'));
+ if(formula==='H3PO4')names.push(nm('ácido ortofosfórico','Tradicional aceptada'));
+ if(formula==='H4P2O7')names.push(nm('ácido pirofosfórico','Tradicional aceptada'));
+ if(formula==='H2S2O7')names.push(nm('ácido pirosulfúrico','Tradicional aceptada'));
+ if(formula==='HIO4')names.push(nm('ácido periódico','Tradicional aceptada'),nm('ácido metaperyódico','Tradicional aceptada'));
+ entry({formula,category:'Ternarios',family:'Oxoácidos',level,names,
+ explain:`Oxoácido ternario de hidrógeno, oxígeno y otro elemento. ${note} El nombre tradicional es «${trad}». No debe confundirse con una oxosal ni con otro estado de oxidación.`});
+});
+/* OXOSALES NEUTRAS: se usan oxoaniones reales y parejas de cationes seleccionadas.
+   La corrección acepta tradicional/Stock, composición estequiométrica y adición
+   cuando los nombres resultantes son adecuados. */
+const MULTI={2:'bis',3:'tris',4:'tetrakis',5:'pentakis'};
+const oxoAnionOxidation={NO3:5,NO2:3,SO4:6,SO3:4,CO3:4,PO4:5,ClO:1,ClO2:3,ClO3:5,ClO4:7,MnO4:7,CrO4:6,Cr2O7:6,BrO3:5,IO3:5};
+const oxosaltAnions=[
+ {symbol:'NO3',charge:-1,trad:'nitrato',composition:'trioxidonitrato',cations:'Na1,K1,Li1,Mg2,Ca2,Al3,Fe2,Fe3,Cu2,Zn2,Ag1,Pb2'},
+ {symbol:'NO2',charge:-1,trad:'nitrito',composition:'dioxidonitrato',cations:'Na1,K1,Ca2,Mg2,Ag1,Zn2'},
+ {symbol:'SO4',charge:-2,trad:'sulfato',composition:'tetraoxidosulfato',cations:'Li1,Na1,K1,Mg2,Ca2,Ba2,Al3,Fe2,Fe3,Cu2,Co2,Ni2,Zn2,Pb2'},
+ {symbol:'SO3',charge:-2,trad:'sulfito',composition:'trioxidosulfato',cations:'Na1,K1,Ca2,Mg2,Fe2,Zn2'},
+ {symbol:'CO3',charge:-2,trad:'carbonato',composition:'trioxidocarbonato',cations:'Li1,Na1,K1,Mg2,Ca2,Ba2,Fe2,Zn2,Ag1,Pb2'},
+ {symbol:'PO4',charge:-3,trad:'fosfato',composition:'tetraoxidofosfato',cations:'Na1,K1,Ca2,Mg2,Al3,Zn2,Fe3,Ag1'},
+ {symbol:'ClO',charge:-1,trad:'hipoclorito',composition:'oxidoclorato',cations:'Na1,K1,Ca2'},
+ {symbol:'ClO2',charge:-1,trad:'clorito',composition:'dioxidoclorato',cations:'Na1,K1'},
+ {symbol:'ClO3',charge:-1,trad:'clorato',composition:'trioxidoclorato',cations:'Na1,K1,Ca2,Ba2'},
+ {symbol:'ClO4',charge:-1,trad:'perclorato',composition:'tetraoxidoclorato',cations:'Na1,K1,Mg2'},
+ {symbol:'MnO4',charge:-1,trad:'permanganato',composition:'tetraoxidomanganato',cations:'Na1,K1'},
+ {symbol:'CrO4',charge:-2,trad:'cromato',composition:'tetraoxidocromato',cations:'Na1,K1,Ca2,Ba2,Pb2,Zn2'},
+ {symbol:'Cr2O7',charge:-2,trad:'dicromato',composition:'heptaoxidodicromato',cations:'Na1,K1'},
+ {symbol:'BrO3',charge:-1,trad:'bromato',composition:'trioxidobromato',cations:'Na1,K1,Ag1'},
+ {symbol:'IO3',charge:-1,trad:'yodato',composition:'trioxidoyodato',cations:'Na1,K1,Ca2'}
+];
+function saltFormula(symbol,n,anion){
+ const d=gcd(n,-anion.charge),mc=-anion.charge/d,ac=n/d;
+ return {formula:symbol+(mc>1?mc:'')+(ac>1?'('+anion.symbol+')'+ac:anion.symbol),mc,ac};
+}
+/* Extensión restringida a sales habituales, sin extrapolar a cualquier catión. */
+Object.assign(oxoAnionOxidation,{SeO4:6,MoO4:6,WO4:6,AsO4:5});
+const v05OxoExtra={
+ NO3:'Rb1,Cs1,Sr2,Cd2,Be2,Cr3,Mn2,Bi3', NO2:'Rb1,Cs1,Sr2',
+ SO4:'Rb1,Cs1,Sr2,Cd2,Be2,Cr3,Mn2,Ga3', SO3:'Rb1,Cs1,Sr2,Cd2',
+ CO3:'Rb1,Cs1,Sr2,Cd2,Mn2', PO4:'Rb1,Cs1,Sr2,Cd2,Mn2,Ga3',
+ ClO3:'Rb1,Cs1,Sr2', ClO4:'Rb1,Cs1,Sr2,Cd2',
+ MnO4:'Rb1,Cs1', CrO4:'Rb1,Cs1,Sr2,Cd2',Cr2O7:'Rb1,Cs1',
+ BrO3:'Rb1,Cs1,Sr2',IO3:'Rb1,Cs1,Sr2'
+};
+for(const a of oxosaltAnions)if(v05OxoExtra[a.symbol])a.cations+=','+v05OxoExtra[a.symbol];
+oxosaltAnions.push(
+ {symbol:'SeO4',charge:-2,trad:'selenato',composition:'tetraoxidoselenato',cations:'Na1,K1,Mg2,Ca2'},
+ {symbol:'MoO4',charge:-2,trad:'molibdato',composition:'tetraoxidomolibdato',cations:'Na1,K1,Ca2,Ba2'},
+ {symbol:'WO4',charge:-2,trad:'wolframato',composition:'tetraoxidowolframato',cations:'Na1,K1,Ca2'},
+ {symbol:'AsO4',charge:-3,trad:'arsenato',composition:'tetraoxidoarseniato',cations:'Na1,K1,Ca2,Fe3'}
+);
+oxosaltAnions.forEach(anion=>{
+ anion.cations.split(',').forEach(code=>{
+  const match=code.match(/^([A-Z][a-z]?)([1-4])$/);if(!match)return;
+  const symbol=match[1],n=Number(match[2]);const metal=metals[symbol];if(!metal)return;
+  const {formula,mc,ac}=saltFormula(symbol,n,anion);
+  const name=metal.name,descriptor=oxidationDescriptor(symbol,n);
+  const names=[nm(anion.trad+' de '+descriptor,'Stock / tradicional')];
+  if(metal.charges.length>1)names.push(nm(anion.trad+' de '+name+'('+n+'+)','Número de carga'));
+  const tradMetal=metalTraditional(anion.trad,symbol,n);if(tradMetal)names.push(tradMetal);
+  const compAn=ac===1?anion.composition:MULTI[ac]+'('+anion.composition+')';
+  const compCat=(mc>1?PREFIX[mc]:'')+name;
+  names.push(nm(compAn+' de '+compCat,'Composición'));
+  const addCation=name+(metal.charges.length>1?'('+n+'+)':'');
+  names.push(nm(anion.composition+'('+(-anion.charge)+'−) de '+addCation,'Adición'));
+  names.push(nm(anion.composition+'('+ROMAN[oxoAnionOxidation[anion.symbol]]+') de '+descriptor,'Composición (n.º oxidación)')); 
+  // Algunas referencias describen los oxoaniones por número de oxidación.
+  const level=(metal.charges.length>1||ac>1||mc>1)?2:1;
+  entry({formula,category:'Ternarios',family:'Oxosales neutras',level:n===3||ac>=3?3:level,names,
+   explain:`Oxosal formada por ${metal.name} con carga +${n} y el anión ${anion.trad} (${anion.symbol}${Math.abs(anion.charge)===1?'':'^'+Math.abs(anion.charge)}−). La combinación necesita ${mc} catión(es) y ${ac} anión(es), con carga total cero.${ac>1?' El grupo poliatómico se coloca entre paréntesis.':''}`});
+ });
+});
+/* SALES ÁCIDAS DE HIDRÁCIDOS: conservan H en el anión; tres elementos distintos. */
+[
+ ['NaHS','hidrogenosulfuro de sodio','Na',1,1],['KHS','hidrogenosulfuro de potasio','K',1,1],
+ ['Ca(HS)2','hidrogenosulfuro de calcio','Ca',2,2],['Mg(HS)2','hidrogenosulfuro de magnesio','Mg',2,2],
+ ['NaHSe','hidrogenoseleniuro de sodio','Na',1,1]
+].forEach(([formula,base,m,n,count])=>{
+ const names=[nm(base,'Composición')];
+ if(count>1)names.push(nm('bis(hidrogenosulfuro) de '+metals[m].name,'Prefijos'));
+ entry({formula,category:'Ternarios',family:'Sales ácidas de hidrácidos',level:3,names,
+ explain:`Contiene tres elementos y un anión hidrogenado, no un oxoanión. ${n===2?'Hay dos iones HS⁻ por cada catión metálico de carga +2.':'La carga del catión compensa la del anión.'} No es una oxosal ácida (estas suelen contener cuatro elementos).`});
+});
+/* Repertorio adicional de nombres de adición para oxoaniones YA presentes en v0.1. */
+const ionAdditionNames={NO3:'trioxidonitrato',NO2:'dioxidonitrato',SO4:'tetraoxidosulfato',SO3:'trioxidosulfato',CO3:'trioxidocarbonato',PO4:'tetraoxidofosfato',ClO:'oxidoclorato',ClO2:'dioxidoclorato',ClO3:'trioxidoclorato',ClO4:'tetraoxidoclorato',MnO4:'tetraoxidomanganato',CrO4:'tetraoxidocromato',Cr2O7:'heptaoxidodicromato',BrO:'oxidobromato',BrO3:'trioxidobromato',IO3:'trioxidoyodato',SeO4:'tetraoxidoselenato',MoO4:'tetraoxidomolibdato',WO4:'tetraoxidowolframato',AsO4:'tetraoxidoarseniato'};
+ionList.forEach(([symbol,charge,name,trad,family])=>{
+ if(!ionAdditionNames[symbol])return;
+ const c=compounds.find(x=>x.formula===chargeFormula(symbol,charge));if(!c)return;
+ const extra=ionAdditionNames[symbol]+'('+Math.abs(charge)+'−)';
+ if(!c.names.some(x=>normName(x.text)===normName(extra))){
+   c.names.push(nm(extra,'Adición'),nm('ión '+extra,'Adición'));
+ }
+});
+
+/* v0.5 — compuestos cuaternarios. Generación restringida a familias y especies documentadas.
+   En cada caso se cuentan cuatro ELEMENTOS distintos; los hidratos (que añaden H)
+   no se incluyen en el bloque de sales dobles anhidras. */
+const ACID_SALT_ANIONS=[
+ {ion:'HSO4',charge:-1,base:'hidrogenosulfato',oxy:'hidrogenotetraoxidosulfato(VI)',acid:'sulfato ácido',formulaAcid:'H2SO4',pairs:'Na1,K1,Li1,Ca2,Mg2,Fe2,Fe3,Cu2,Zn2,Al3',note:'Procede de la neutralización parcial del ácido sulfúrico.'},
+ {ion:'HSO3',charge:-1,base:'hidrogenosulfito',oxy:'hidrogenotrioxidosulfato(IV)',acid:'sulfito ácido',formulaAcid:'H2SO3',pairs:'Na1,K1,Ca2,Mg2,Cu2',note:'El anión conserva un H de la especie sulfito.'},
+ {ion:'HCO3',charge:-1,base:'hidrogenocarbonato',oxy:'hidrogenotrioxidocarbonato(IV)',acid:'carbonato ácido',formulaAcid:'H2CO3',pairs:'Na1,K1,Li1,Ca2,Mg2,Ba2',note:'Los hidrogenocarbonatos de calcio y magnesio se encuentran sobre todo en disolución.'},
+ {ion:'H2PO4',charge:-1,base:'dihidrogenofosfato',oxy:'dihidrogenotetraoxidofosfato(V)',acid:'fosfato diácido',formulaAcid:'H3PO4',pairs:'Na1,K1,Li1,Ca2,Mg2,Zn2,Al3',note:'Conserva dos hidrógenos del ácido fosfórico H₃PO₄.'},
+ {ion:'HPO4',charge:-2,base:'hidrogenofosfato',oxy:'hidrogenotetraoxidofosfato(V)',acid:'fosfato ácido',formulaAcid:'H3PO4',pairs:'Na1,K1,Ca2,Mg2,Ba2,Fe2,Zn2',note:'Conserva un hidrógeno y el oxoanión tiene carga −2.'},
+ {ion:'HCr2O7',charge:-1,base:'hidrogenodicromato',oxy:'hidrogenoheptaoxidodicromato(VI)',acid:'dicromato ácido',formulaAcid:'H2Cr2O7',pairs:'Na1,K1',note:'El oxoanión ácido contiene dos átomos de cromo; no equivale al cromato.'}
+];
+function qAcidFormula(metalSymbol,charge,anion){
+ const d=gcd(charge,-anion.charge),nMetal=-anion.charge/d,nAnion=charge/d;
+ return {formula:metalSymbol+(nMetal===1?'':nMetal)+(nAnion===1?anion.ion:'('+anion.ion+')'+nAnion),nMetal,nAnion};
+}
+const QPFX={2:'bis',3:'tris',4:'tetrakis'};
+ACID_SALT_ANIONS.forEach(anion=>{
+ anion.pairs.split(',').forEach(pair=>{
+  const match=pair.match(/^([A-Z][a-z]?)([1-4])$/);if(!match)return;
+  const metalSym=match[1],charge=Number(match[2]),metal=metals[metalSym];if(!metal)return;
+  const {formula,nMetal,nAnion}=qAcidFormula(metalSym,charge,anion);
+  const metalNm=oxidationDescriptor(metalSym,charge);
+  const names=[nm(`${anion.base} de ${metalNm}`,'Stock / tradicional'),nm(`${anion.oxy} de ${metalNm}`,'Composición (n.º oxidación)')];
+  if(nAnion>1){names.push(nm(`${QPFX[nAnion]}(${anion.base}) de ${metalNm}`,'Composición'))}
+  if(metal.charges.length>1)names.push(nm(`${anion.base} de ${metal.name}(${charge}+)`,'Número de carga'));
+  names.push(nm(`${anion.acid} de ${metalNm}`,'Tradicional (uso histórico)','Nombre reconocido en materiales tradicionales; se recomienda la forma con hidrógeno.'));
+  if(anion.ion==='HCO3'){
+    names.push(nm(`bicarbonato de ${metalNm}`,'Nombre usual','Nombre frecuente, especialmente para el hidrogenocarbonato de sodio; no es la nomenclatura sistemática preferente.'));
+    const t=metal.trad[charge];if(t)names.push(nm('bicarbonato '+t,'Nombre usual'));
+  }
+  if(anion.ion==='HSO4')names.push(nm(`bisulfato de ${metalNm}`,'Nombre tradicional','Nombre histórico de uso habitual, no preferente.'));
+  if(anion.ion==='H2PO4'&&nAnion===1)names.push(nm(`fosfato diácido de ${metalNm}`,'Tradicional (uso histórico)'));
+  entry({formula,category:'Cuaternarios',family:'Oxosales ácidas',level:(charge===1&&anion.ion!=='HCr2O7')?2:3,names,
+   explain:`Sal ácida procedente de ${anion.formulaAcid}. El oxoanión ${anion.ion} tiene carga ${anion.charge}; el catión ${metal.name} tiene +${charge}. Se combinan ${nMetal} catión(es) con ${nAnion} anión(es): la carga neta es cero. ${nAnion>1?'El oxoanión completo lleva paréntesis. ':''}${anion.note}`});
+ });
+});
+
+/* Sales básicas: cationes unidos a dos clases de aniones, una de ellas OH−.
+   No se inventan combinaciones mediante el simple cruce de valencias. */
+const BASIC_SALTS=[
+ {formula:'Mg(OH)Cl',names:[['cloruro hidróxido de magnesio','Composición'],['hidroxicloruro de magnesio','Tradicional / uso común'],['cloruro básico de magnesio','Tradicional (uso histórico)']],balance:'Mg²⁺ + OH⁻ + Cl⁻ = 0',note:'Un solo OH y un solo cloruro compensan la carga +2 del magnesio.'},
+ {formula:'Cu(OH)Cl',names:[['cloruro hidróxido de cobre(II)','Stock / composición'],['hidroxicloruro de cobre(II)','Tradicional / uso común'],['cloruro básico de cobre(II)','Tradicional (uso histórico)','Denominación genérica ambigua; puede referirse a más de una sal básica de cobre.']],balance:'Cu²⁺ + OH⁻ + Cl⁻ = 0',note:'No debe confundirse con Cu₂(OH)₃Cl, que presenta otra proporción.'},
+ {formula:'Zn(OH)Cl',names:[['cloruro hidróxido de zinc','Composición'],['hidroxicloruro de zinc','Tradicional / uso común'],['cloruro básico de zinc','Tradicional (uso histórico)']],balance:'Zn²⁺ + OH⁻ + Cl⁻ = 0',note:'El zinc se combina con los aniones hidróxido y cloruro.'},
+ {formula:'Al(OH)Cl2',names:[['dicloruro hidróxido de aluminio','Composición'],['hidroxidicloruro de aluminio','Composición'],['cloruro básico de aluminio','Tradicional (uso histórico)']],balance:'Al³⁺ + OH⁻ + 2Cl⁻ = 0',note:'Un hidróxido y dos cloruros neutralizan Al³⁺.'},
+ {formula:'Al(OH)2Cl',names:[['cloruro dihidróxido de aluminio','Composición'],['dihidroxicloruro de aluminio','Composición']],balance:'Al³⁺ + 2OH⁻ + Cl⁻ = 0',note:'No equivale a Al(OH)Cl₂: contiene dos grupos OH.'},
+ {formula:'Cu2(OH)3Cl',names:[['cloruro trihidróxido de dicobre','Composición'],['hidroxicloruro de cobre(II)','Nombre genérico','Puede referirse a varios compuestos: es ambiguo sin estequiometría.'],['cloruro básico de cobre(II)','Tradicional (uso histórico)','Puede referirse a diferentes proporciones; se conserva como denominación genérica.']],balance:'2Cu²⁺ + 3OH⁻ + Cl⁻ = 0',note:'Fórmula característica de polimorfos de cloruro básico de cobre, como la atacamita.'},
+ {formula:'Cu2CO3(OH)2',names:[['carbonato dihidróxido de dicobre','Composición'],['carbonato básico de cobre(II)','Tradicional / nombre habitual'],['hidroxicarbonato de cobre(II)','Tradicional / nombre habitual']],balance:'2Cu²⁺ + CO₃²⁻ + 2OH⁻ = 0',note:'Corresponde a la composición de la malaquita. Aquí la ordenación CO₃(OH)₂ se conserva como escritura usual.'},
+ {formula:'Zn5(CO3)2(OH)6',names:[['bis(carbonato) hexahidróxido de pentazinc','Composición'],['carbonato básico de zinc','Tradicional / nombre habitual']],balance:'5Zn²⁺ + 2CO₃²⁻ + 6OH⁻ = 0',note:'Composición de la hidrocincita; contiene grupos carbonato e hidróxido.'},
+ {formula:'Pb3(CO3)2(OH)2',names:[['bis(carbonato) dihidróxido de triplomo','Composición'],['carbonato básico de plomo(II)','Tradicional / nombre habitual']],balance:'3Pb²⁺ + 2CO₃²⁻ + 2OH⁻ = 0',note:'Fórmula del carbonato básico de plomo, conocido históricamente como albayalde.'}
+];
+BASIC_SALTS.forEach((item,i)=>{
+ const names=item.names.filter(n=>!(n[0]==='cloruro básico de cobre(II)'||((i===5)&&n[1].includes('genérico')))).map(([text,kind,note])=>nm(text,kind,note||''));
+ entry({formula:item.formula,category:'Cuaternarios',family:'Sales básicas',level:i>=5?3:2,names,
+ explain:`Sal básica: tiene OH⁻ y otro anión. Balance de cargas: ${item.balance}. ${item.note} Los términos genéricos como «cloruro básico» pueden ser ambiguos sin conocer la proporción.`});
+});
+/* Sales dobles ANHIDRAS, con dos cationes y un tipo de oxoanión.
+   Solo se incluyen ejemplos seleccionados de sulfatos dobles; no se infieren hidratos. */
+const DOUBLE_SALTS=[
+ // fórmula, denominación composicional exacta, denominación clásica del sulfato doble, nombre común si es anhidro, nota
+ ['AlK(SO4)2','bis(sulfato) de aluminio y potasio','sulfato de aluminio y potasio',null,'El alumbre potásico habitual suele tener doce aguas de cristalización: su fórmula completa es diferente.'],
+ ['AlNa(SO4)2','bis(sulfato) de aluminio y sodio','sulfato de aluminio y sodio',null,'Anhidro; existe también en formulaciones hidratadas.'],
+ ['CrK(SO4)2','bis(sulfato) de cromo(III) y potasio','sulfato de cromo(III) y potasio',null,'El alumbre de cromo habitual contiene agua de hidratación.'],
+ ['FeK(SO4)2','bis(sulfato) de hierro(III) y potasio','sulfato de hierro(III) y potasio',null,'Fórmula anhidra de una sal doble con dos cationes diferentes.'],
+ ['FeNa(SO4)2','bis(sulfato) de hierro(III) y sodio','sulfato de hierro(III) y sodio',null,'Fórmula anhidra de una sal doble de hierro y sodio.'],
+ ['K2Mg(SO4)2','bis(sulfato) de magnesio y dipotasio','sulfato doble de magnesio y potasio',null,'La picromerita/schönita lleva agua de cristalización; no confundir su hidrato con la composición anhidra.'],
+ ['K2Ca(SO4)2','bis(sulfato) de calcio y dipotasio','sulfato doble de calcio y potasio',null,'La singenita contiene agua de cristalización; este ejercicio usa la parte anhidra.'],
+ ['K2Zn(SO4)2','bis(sulfato) de dipotasio y zinc','sulfato doble de potasio y zinc',null,'También puede presentarse hidratado.'],
+ ['K2Mg2(SO4)3','tris(sulfato) de dimagnesio y dipotasio',null,'langbeinita','Langbeinita es una sal doble anhidra; distinta de K₂Mg(SO₄)₂ por su proporción de cationes y sulfatos.']
+];
+DOUBLE_SALTS.forEach(([formula,systematic,trad,common,note])=>{
+ const names=[nm(systematic,'Composición')];
+ if(trad)names.push(nm(trad,'Tradicional / uso común','Nombre de clase; en casos más complejos puede requerirse especificar las proporciones.'));
+ if(common)names.push(nm(common,'Nombre mineralógico','Nombre propio de una fase anhidra conocida.'));
+ entry({formula,category:'Cuaternarios',family:'Sales dobles',level:3,names,
+ explain:`Sal doble con dos cationes distintos y sulfato SO₄²⁻. ${note} Verifica la neutralidad sumando las cargas de todos los cationes y aniones; los hidratos se escriben por separado y no pertenecen a esta categoría de cuatro elementos.`});
+});
+
+/* v0.5 · Familias especiales revisadas: se evita confundir el uso escolar
+   de las fórmulas unitarias meta con moléculas aisladas estables. */
+[
+ {formula:'HBO2',names:[nm('ácido metabórico','Nombre tradicional aceptado')],level:3,
+  explain:'HBO₂ es la fórmula de la unidad composicional del ácido metabórico. Las especies habituales presentan estructuras asociadas o poliméricas, a menudo indicadas como (HBO₂)n. Corresponde formalmente a H₃BO₃ − H₂O; no debe inferirse una molécula aislada a partir de la operación.'},
+ {formula:'H2SiO3',names:[nm('ácido metasilícico','Nombre tradicional aceptado')],level:3,
+  explain:'H₂SiO₃ expresa la unidad composicional del ácido metasilícico, frecuente en estructuras condensadas o poliméricas representadas por (H₂SiO₃)n; H₄SiO₄ representa el ortosilícico. La relación formal es H₄SiO₄ − H₂O.'},
+ {formula:'HPO3',names:[nm('ácido metafosfórico','Nombre tradicional aceptado')],level:3,
+  explain:'La fórmula HPO₃ representa la unidad composicional de especies metafosfóricas (HPO₃)n, no necesariamente una molécula individual aislada. Puede relacionarse de manera formal con H₃PO₄ − H₂O.'},
+ {formula:'H5IO6',names:[nm('ácido ortoperyódico','Nombre tradicional aceptado'),nm('pentahidrógeno(hexaoxidoyodato)','Hidrógeno'),nm('pentahidroxidooxidoyodo','Adición')],level:3,
+  explain:'H₅IO₆ contiene yodo en +7, como HIO₄. La fórmula es diferente porque corresponde al ácido ortoperyódico; HIO₄ es ácido peryódico o metaperyódico. En este par el prefijo orto- sí resulta distintivo.'}
+].forEach(x=>entry({category:'Ternarios',family:'Oxoácidos',...x}));
+/* Nomenclaturas alternativas generadas de forma controlada, no por sustitución
+   arbitraria de terminaciones. Solo se añaden a una especie inequívoca. */
+const safeNameAliases={
+ 'H3BO3':['ácido ortobórico'],
+ 'H4SiO4':['ácido silícico'],
+ 'HIO4':['ácido metaperiódico'],
+ 'H5IO6':['ácido ortoperiódico'],
+ 'H4P2O7':['ácido pirofosfórico'],
+ 'H2S2O7':['ácido pirosulfúrico']
+};
+for(const c of compounds){
+ const extras=safeNameAliases[c.formula]||[];
+ for(const text of extras)if(!c.names.some(n=>normName(n.text)===normName(text)))
+   c.names.push(nm(text,'Tradicional (variante)', 'Forma equivalente de uso documentado; consulta los matices de nomenclatura.'));
+ // En nombres con nº de oxidación fijo resulta posible, aunque redundante,
+ // indicarlo si el metal tiene un único estado habitual en el repertorio.
+ if(['Óxidos metálicos','Hidruros metálicos','Hidróxidos','Sales binarias','Oxosales neutras','Oxosales ácidas'].includes(c.family)){
+   const metal=Object.keys(metals).find(k=>c.formula.startsWith(k)&&metals[k].charges.length===1);
+   if(metal){let n=metals[metal].charges[0];
+     for(const item of [...c.names]){
+       const suffix=' de '+metals[metal].name;
+       if((item.kind.includes('Stock')||item.kind.includes('Composición'))&&item.text.endsWith(suffix)){
+         const alias=item.text+'('+ROMAN[n]+')';
+         if(!c.names.some(v=>normName(v.text)===normName(alias)))c.names.push(nm(alias,'Stock (número opcional)','Indicador redundante para un estado de oxidación fijo.'));
+       }
+     }
+   }
+ }
+}
+
+/* v0.5: sustancias moleculares, sales adicionales y variantes controladas. */
+const v05BinaryMolecules=[
+ ['CS2','disulfuro de carbono','sulfuro de carbono(IV)'],
+ ['BCl3','tricloruro de boro','cloruro de boro(III)'],
+ ['SiF4','tetrafluoruro de silicio','fluoruro de silicio(IV)'],
+ ['PF3','trifluoruro de fósforo','fluoruro de fósforo(III)'],
+ ['PF5','pentafluoruro de fósforo','fluoruro de fósforo(V)'],
+ ['PBr5','pentabromuro de fósforo','bromuro de fósforo(V)'],
+ ['IF5','pentafluoruro de yodo','fluoruro de yodo(V)'],
+ ['IF7','heptafluoruro de yodo','fluoruro de yodo(VII)'],
+ ['BrF3','trifluoruro de bromo','fluoruro de bromo(III)'],
+ ['ClF3','trifluoruro de cloro','fluoruro de cloro(III)'],
+ ['ClF5','pentafluoruro de cloro','fluoruro de cloro(V)'],
+ ['XeF2','difluoruro de xenón','fluoruro de xenón(II)'],
+ ['XeF4','tetrafluoruro de xenón','fluoruro de xenón(IV)'],
+ ['XeF6','hexafluoruro de xenón','fluoruro de xenón(VI)'],
+ ['OF2','difluoruro de oxígeno','fluoruro de oxígeno(II)']
+];
+for(const [formula,prefix,stock] of v05BinaryMolecules){
+ entry({formula,category:'Binarios',family:'Binarios covalentes',level:3,
+  names:[nm(prefix,'Prefijos'),nm(stock,'Stock')],
+  explain:'Compuesto binario covalente registrado con su fórmula molecular. Los prefijos expresan el número de átomos y el número romano indica el estado de oxidación correspondiente.'});
+}
+/* Aniones añadidos directamente, con nombres de composición seguros. */
+const v05SaltExtras=[
+ ['Na2S2O3','tiosulfato de sodio','Sal de tiosulfato y sodio; el ion S₂O₃²⁻ contiene azufres con entornos químicos diferentes.'],
+ ['K2S2O3','tiosulfato de potasio','Dos cationes K⁺ compensan el anión S₂O₃²⁻.'],
+ ['CaS2O3','tiosulfato de calcio','El catión Ca²⁺ neutraliza la carga −2 de S₂O₃²⁻.'],
+ ['RbHCO3','hidrogenocarbonato de rubidio','Rb⁺ neutraliza HCO₃⁻.'],
+ ['CsHCO3','hidrogenocarbonato de cesio','Cs⁺ neutraliza HCO₃⁻.'],
+ ['Sr(HCO3)2','hidrogenocarbonato de estroncio','Representa una composición iónica, principalmente relevante en disolución.'],
+ ['Na2B4O7','tetraborato de sodio','Sal conocida como tetraborato sódico anhidro; no confundir con el bórax decahidratado.'],
+ ['NaBO2','metaborato de sodio','Metaborato de sodio, sal del ácido metabórico; el anión corresponde a unidades BO₂⁻.'],
+ ['KBO2','metaborato de potasio','Metaborato de potasio; la fórmula expresa proporción de elementos en su red.'],
+ ['Na2SiO3','metasilicato de sodio','Silicato de sodio representado por la composición Na₂SiO₃; la estructura puede formar redes.'],
+ ['K2SiO3','metasilicato de potasio','Silicato de potasio con proporción K₂SiO₃.'],
+ ['CaSiO3','metasilicato de calcio','La wollastonita se representa por CaSiO₃, con unidades de silicato polimerizadas.'],
+ ['MgSiO3','metasilicato de magnesio','La enstatita corresponde a MgSiO₃, un silicato de cadena.']
+];
+for(const [formula,name,explain] of v05SaltExtras){
+ const category=(formula.match(/[A-Z][a-z]?/g)||[]).filter((x,i,a)=>a.indexOf(x)===i).length===4?'Cuaternarios':'Ternarios';
+ const family=category==='Cuaternarios'?'Oxosales ácidas':'Oxosales neutras';
+ entry({formula,category,family,level:3,names:[nm(name,'Composición / nombre aceptado')],explain});
+}
+/* Sincronizar sin duplicar variantes: corrección por fórmulas registradas. */
+for(const c of compounds){c.names=[...new Map(c.names.map(n=>[normName(n.text),n])).values()];}
+
+/* RECURSOS DIDÁCTICOS */
+const lessons=[
+ {chapter:'Fundamentos',title:'1 · Leer el lenguaje de las fórmulas',lead:'Una fórmula no es una palabra abreviada: indica qué elementos hay y en qué proporción aparecen.',body:[
+ 'Los símbolos químicos comienzan con <strong>mayúscula</strong>. Cuando tienen dos letras, la segunda se escribe en minúscula: Co es cobalto, pero CO contiene carbono y oxígeno.',
+ 'Los <strong>subíndices</strong> indican cuántos átomos hay. En H₂O aparecen dos átomos de hidrógeno y uno de oxígeno. Cuando no se ve un subíndice, se entiende que vale 1.',
+ 'Los <strong>superíndices</strong> indican la carga de un ion: Ca²⁺ tiene carga +2, y SO₄²⁻ tiene carga −2. Nunca se deben confundir con el número de átomos.'
+ ],steps:['Reconoce correctamente cada símbolo químico.','Identifica los subíndices, incluidos los 1 que no se escriben.','Comprueba si hay alguna carga indicada como superíndice.'],example:'Fe2O3',examplename:'Dos átomos de hierro y tres de oxígeno',warning:'Fe₂O₃ no tiene carga neta. Fe³⁺ sí es un ion positivo.',quiz:['¿Cuántos átomos de oxígeno hay en Fe₂O₃?',['2','3','5','1'],1,'El subíndice 3 corresponde únicamente al oxígeno.']},
+ {chapter:'Fundamentos',title:'2 · Cargas y números de oxidación',lead:'Un ion tiene carga eléctrica. El número de oxidación es una herramienta para interpretar y formular compuestos.',body:[
+ 'Un <strong>catión</strong> posee carga positiva porque ha perdido electrones; un <strong>anión</strong> posee carga negativa porque ha ganado electrones o pertenece a una especie molecular cargada.',
+ 'En compuestos habituales el sodio tiene número de oxidación +1; el calcio +2; el oxígeno suele tener −2, <strong>excepto en los peróxidos</strong>, donde tiene −1.',
+ 'Los números de oxidación se escriben con signo: +3, −2. Las cargas reales de iones se escriben como superíndices, por ejemplo Al³⁺.'
+ ],steps:['Distingue entre un átomo neutro y un ion.','Consulta la carga habitual de cada ion.','Recuerda que un mismo metal puede formar varios cationes: Fe²⁺ y Fe³⁺.'],example:'Fe^3+',examplename:'Catión hierro(III) · carga +3',warning:'Una carga iónica y un número de oxidación están relacionados, pero no son conceptos idénticos en todos los compuestos.',quiz:['¿Cuál es la carga del ion sulfuro?',['+2','−1','−2','+1'],2,'El anión sulfuro es S²⁻.']},
+ {chapter:'Fundamentos',title:'3 · Equilibrar las cargas',lead:'Una fórmula eléctrica y químicamente neutra necesita que la suma de cargas sea cero.',body:[
+ 'Al³⁺ y O²⁻ no pueden combinarse en proporción 1:1 para dar un compuesto neutro. Necesitamos <strong>dos</strong> iones Al³⁺ (+6 en total) y <strong>tres</strong> iones O²⁻ (−6 en total).',
+ 'El procedimiento del “cruce de valencias” puede servir como atajo, pero el fundamento es la <strong>neutralidad eléctrica</strong>. Simplifica las proporciones cuando sea adecuado.',
+ 'Hay una excepción importante: el grupo peróxido O₂²⁻ se considera como unidad. Por eso CaO₂ es peróxido de calcio; no debe reducirse como si fueran iones óxido separados.'
+ ],steps:['Escribe el catión y el anión con sus cargas.','Busca la proporción entera más pequeña que deja carga total 0.','Escribe los subíndices y verifica la suma.'],example:'Al2O3',examplename:'2 × (+3) + 3 × (−2) = 0',warning:'No escribas Ca₂O₂ para el óxido de calcio: la proporción se simplifica a CaO.',quiz:['¿Qué fórmula es neutra al combinar Mg²⁺ y Cl⁻?',['MgCl','Mg₂Cl','MgCl₂','Mg₂Cl₂'],2,'Un Mg²⁺ (+2) requiere dos Cl⁻ (−2).']},
+ {chapter:'Fundamentos',title:'4 · Nomenclaturas: varias formas de nombrar',lead:'Un compuesto puede poseer más de un nombre válido. Lo decisivo es que el nombre identifique correctamente la sustancia.',body:[
+ 'La <strong>nomenclatura de composición con prefijos</strong> informa del número de átomos: Fe₂O₃ es trióxido de dihierro.',
+ 'La <strong>composición con número de oxidación</strong> (llamada habitualmente Stock en clase) utiliza números romanos: óxido de hierro(III). La <strong>composición con número de carga</strong> indica, cuando corresponde, (3+).',
+ 'La <strong>nomenclatura tradicional</strong> mantiene nombres históricos, como óxido férrico. Algunos siguen siendo de uso habitual y otros resultan desaconsejados. Las nomenclaturas de <strong>sustitución y adición</strong> se emplean en familias donde son aplicables; en la v0.5 encontrarás nombres de sustitución como fosfano o silano.'
+ ],steps:['Reconoce la familia de la sustancia.','Identifica si el nombre utiliza prefijos, números romanos, cargas o terminaciones tradicionales.','Usa cualquier denominación válida para la especie concreta.'],example:'Fe2O3',examplename:'Trióxido de dihierro = óxido de hierro(III) = óxido férrico',warning:'No todas las nomenclaturas se aplican a todas las especies. La app reconoce las alternativas registradas y no acepta nombres químicos inventados.',quiz:['¿Cuál de estos nombres corresponde a Fe₂O₃?',['Óxido ferroso','Óxido de hierro(II)','Trióxido de dihierro','Monóxido de hierro'],2,'El compuesto tiene dos Fe y tres O.']},
+ {chapter:'Iones',title:'5 · Cationes y aniones monoatómicos',lead:'Antes de formular compuestos conviene reconocer sus iones más habituales.',body:[
+ 'Los <strong>cationes monoatómicos</strong> más frecuentes son Na⁺, K⁺, Ca²⁺, Mg²⁺ y Al³⁺. El hierro también da Fe²⁺ y Fe³⁺, y el cobre Cu⁺ y Cu²⁺.',
+ 'Los <strong>aniones monoatómicos</strong> suelen terminar en -uro: cloruro Cl⁻, bromuro Br⁻, sulfuro S²⁻ y nitruro N³⁻. El anión O²⁻ se llama óxido.',
+ 'Cuando un elemento forma más de un catión, especificamos el estado correspondiente: hierro(II) y hierro(III).'
+ ],steps:['Separa el símbolo químico de la carga.','Averigua si es positivo (catión) o negativo (anión).','Para elementos de valencia variable, indica su estado en el nombre.'],example:'Fe^2+',examplename:'Ion hierro(II) · ion ferroso',warning:'Fe²⁺ y Fe³⁺ no son el mismo ion.',quiz:['¿Cuál es el ion cloruro?',['Cl⁺','Cl⁻','Cl²⁻','Cl₂'],1,'El cloruro es Cl⁻, con carga −1.']},
+ {chapter:'Iones',title:'6 · Iones poliatómicos y oxoaniones',lead:'Algunos iones están formados por varios átomos y actúan como una unidad.',body:[
+ 'El <strong>amonio</strong> NH₄⁺ es un catión poliatómico. El <strong>hidróxido</strong> OH⁻ es un anión poliatómico muy frecuente.',
+ 'Entre los oxoaniones importantes están nitrato NO₃⁻, sulfato SO₄²⁻, carbonato CO₃²⁻ y fosfato PO₄³⁻.',
+ 'También existen iones ácidos como HCO₃⁻ (hidrogenocarbonato, llamado también bicarbonato) y HSO₄⁻ (hidrogenosulfato). Sus sales aparecen en el apartado Cuaternarios.'
+ ],steps:['Aprende la fórmula y carga de cada ion como una unidad.','Distingue entre nitrato/nitrito o sulfato/sulfito.','Usa la carga de TODO el grupo al formular compuestos.'],example:'SO4^2-',examplename:'Ion sulfato · carga −2',warning:'El 4 de SO₄²⁻ indica cuatro oxígenos; el 2− es la carga total del ion.',quiz:['¿Qué ion tiene fórmula NO₃⁻?',['Nitrito','Nitrato','Sulfito','Carbonato'],1,'Nitrato es NO₃⁻, mientras que nitrito es NO₂⁻.']},
+ {chapter:'Binarios',title:'7 · Óxidos metálicos',lead:'Un óxido metálico reúne un metal y oxígeno con número de oxidación −2.',body:[
+ 'El catión metálico determina el número de átomos de oxígeno necesario para compensar las cargas. Por ejemplo, Fe³⁺ y O²⁻ producen Fe₂O₃.',
+ 'Puede nombrarse <strong>trióxido de dihierro</strong> (prefijos), <strong>óxido de hierro(III)</strong> (número de oxidación) u <strong>óxido férrico</strong> (tradicional).',
+ 'En metales de número de oxidación habitual único, como el sodio, normalmente no es necesario escribir un número romano: óxido de sodio, Na₂O.'
+ ],steps:['Anota el número de oxidación del metal y −2 para O.','Iguala la carga total y simplifica.','Comprueba la fórmula y practica varias nomenclaturas.'],example:'Fe2O3',examplename:'Trióxido de dihierro · óxido de hierro(III) · óxido férrico',warning:'No confundas óxido ferroso (FeO) con óxido férrico (Fe₂O₃).',quiz:['¿Qué fórmula corresponde al óxido de hierro(II)?',['Fe₂O₃','FeO','FeO₂','Fe₃O₂'],1,'Fe²⁺ y O²⁻ se compensan en proporción 1:1.']},
+ {chapter:'Binarios',title:'8 · Óxidos no metálicos',lead:'Muchos no metales forman óxidos moleculares que se nombran claramente con prefijos.',body:[
+ 'El dióxido de carbono CO₂ tiene un átomo de carbono y dos de oxígeno. El trióxido de azufre SO₃ tiene tres oxígenos.',
+ 'Las denominaciones de composición con prefijos son particularmente útiles: dióxido, trióxido, pentóxido, etc. En algunos casos existe una denominación con número de oxidación.',
+ 'Nombres como <strong>anhídrido sulfuroso</strong> o <strong>anhídrido carbónico</strong> pertenecen a la nomenclatura tradicional histórica.'
+ ],steps:['Identifica los elementos presentes.','Cuenta los átomos indicados por los subíndices.','Escribe el nombre con los prefijos adecuados.'],example:'SO3',examplename:'Trióxido de azufre · óxido de azufre(VI)',warning:'No presupongas que todo óxido molecular puede expresarse sustituyendo la fórmula por la proporción empírica.',quiz:['¿Qué es SO₂?',['Monóxido de azufre','Dióxido de azufre','Trióxido de azufre','Dióxido de silicio'],1,'SO₂ tiene dos oxígenos, de ahí el prefijo di-.']},
+ {chapter:'Binarios',title:'9 · Peróxidos',lead:'Un peróxido contiene el grupo O₂²⁻. El oxígeno presenta aquí número de oxidación −1.',body:[
+ 'El <strong>peróxido de sodio</strong> es Na₂O₂, y el <strong>peróxido de calcio</strong> es CaO₂.',
+ 'La nomenclatura de composición puede indicarlo como peróxido de calcio o dióxido de calcio. El peróxido de hidrógeno H₂O₂ es conocido también como agua oxigenada.',
+ 'En la formulación a partir de iones, el grupo peróxido se conserva como O₂²⁻, sin tratar cada oxígeno como ion óxido O²⁻.'
+ ],steps:['Reconoce el grupo O₂²⁻.','Combínalo con el catión que corresponda.','Mantén el grupo peróxido en la fórmula final.'],example:'CaO2',examplename:'Peróxido de calcio · dióxido de calcio',warning:'CaO = óxido de calcio; CaO₂ = peróxido de calcio. Son sustancias distintas.',quiz:['¿Cuál es el peróxido de sodio?',['Na₂O','NaO₂','Na₂O₂','NaO'],2,'El catión Na⁺ exige dos sodios para compensar O₂²⁻.']},
+ {chapter:'Binarios',title:'10 · Hidruros metálicos',lead:'En hidruros metálicos, el hidrógeno se considera con número de oxidación −1.',body:[
+ 'El hidruro de sodio tiene fórmula NaH; el hidruro de calcio, CaH₂; el hidruro de aluminio, AlH₃.',
+ 'Se nombran como hidruro de metal, o con prefijos: dihidruro de calcio, trihidruro de aluminio.',
+ 'Algunos metales presentan varias combinaciones. Por ejemplo, FeH₂ se puede denominar hidruro de hierro(II) o dihidruro de hierro.'
+ ],steps:['Escribe la carga positiva del metal.','Asigna −1 al hidrógeno.','Coloca tantos H como se necesiten para compensar.'],example:'CaH2',examplename:'Hidruro de calcio · dihidruro de calcio',warning:'No uses H +1 aquí: en un hidruro metálico H se considera −1.',quiz:['¿Qué fórmula corresponde al hidruro de aluminio?',['AlH','AlH₂','AlH₃','Al₃H'],2,'Al suele presentar +3 en este compuesto, y tres H⁻ compensan +3.']},
+ {chapter:'Binarios',title:'11 · Hidruros no metálicos',lead:'Algunos no metales producen hidruros covalentes con nombres de sustitución propios.',body:[
+ 'NH₃ puede denominarse <strong>trihidruro de nitrógeno</strong> o <strong>azano</strong>; también es conocido como <strong>amoníaco</strong>.',
+ 'PH₃ es trihidruro de fósforo o fosfano (nombre habitual anterior: fosfina). CH₄ es tetrahidruro de carbono o metano.',
+ 'Estos nombres no siempre se explican mediante un simple cruce de valencias: aprender los hidruros progenitores es importante.'
+ ],steps:['Reconoce el hidruro molecular.','Cuenta los átomos de hidrógeno para usar prefijos.','Relaciona el compuesto con su nombre de sustitución o nombre aceptado.'],example:'NH3',examplename:'Amoníaco · azano · trihidruro de nitrógeno',warning:'Los nombres de sustitución no están disponibles para cualquier combinación imaginaria.',quiz:['¿Qué nombre corresponde a PH₃?',['Silano','Metano','Fosfano','Azano'],2,'PH₃ es fosfano, también llamado fosfina.']},
+ {chapter:'Binarios',title:'12 · Hidrácidos y disoluciones acuosas',lead:'Un nombre ácido describe la sustancia en agua, y no necesariamente el compuesto gaseoso puro.',body:[
+ 'HCl puro se denomina <strong>cloruro de hidrógeno</strong>. Cuando se encuentra en disolución acuosa, HCl(ac), se denomina <strong>ácido clorhídrico</strong>.',
+ 'El mismo criterio se aplica a HBr y HBr(ac), o H₂S y H₂S(ac). La indicación (ac) describe el medio acuoso.',
+ 'La app distingue deliberadamente ambos casos para que la corrección sea científicamente rigurosa.'
+ ],steps:['Observa si la fórmula incluye (ac).','Si es una especie pura, utiliza su nombre de composición.','Si es la disolución acuosa, reconoce el nombre de ácido correspondiente.'],example:'HCl(aq)',examplename:'Ácido clorhídrico · cloruro de hidrógeno en disolución acuosa',warning:'HCl(g) no debería llamarse sin más ácido clorhídrico.',quiz:['¿Cuál es el ácido clorhídrico?',['HCl puro','HCl(ac)','NaCl','Cl₂'],1,'La denominación ácido clorhídrico se refiere a la disolución acuosa.']},
+ {chapter:'Binarios',title:'13 · Sales binarias',lead:'Una sal binaria combina un catión metálico con un anión formado por otro elemento.',body:[
+ 'NaCl se conoce como <strong>cloruro de sodio</strong>. FeCl₃ es <strong>cloruro de hierro(III)</strong> o <strong>tricloruro de hierro</strong>.',
+ 'Al formular, combina las cargas de ambos iones. Para Ca²⁺ y N³⁻ se necesitan tres cationes calcio y dos aniones nitruro: Ca₃N₂.',
+ 'El nombre del anión suele terminar en -uro: fluoruro, cloruro, bromuro, yoduro, sulfuro, nitruro, fosfuro.'
+ ],steps:['Identifica el anión terminado en -uro.','Obtén las cargas del metal y del no metal.','Busca la proporción neutra más simple.'],example:'FeCl3',examplename:'Cloruro de hierro(III) · tricloruro de hierro · cloruro férrico',warning:'El cloruro de hierro(II) es FeCl₂, no FeCl₃.',quiz:['¿Qué fórmula corresponde al sulfuro de aluminio?',['AlS','Al₂S₃','Al₃S₂','AlS₂'],1,'Al³⁺ y S²⁻ exigen 2 Al y 3 S.']},
+ {chapter:'Binarios',title:'14 · Binarios entre no metales',lead:'En algunos compuestos moleculares de dos no metales, los prefijos expresan directamente la composición.',body:[
+ 'PCl₃ es <strong>tricloruro de fósforo</strong>; PCl₅, <strong>pentacloruro de fósforo</strong>. Son dos compuestos diferentes.',
+ 'SF₆ es hexafluoruro de azufre. También se emplean denominaciones con número de oxidación, cuando resultan adecuadas.',
+ 'En el generador se incluyen solo ejemplos seleccionados y conocidos, no combinaciones arbitrarias entre cualquier par de no metales.'
+ ],steps:['Reconoce el elemento que aparece al final de la fórmula.','Cuenta sus átomos y aplica el prefijo correspondiente.','Completa el nombre del otro elemento.'],example:'SF6',examplename:'Hexafluoruro de azufre',warning:'No se pueden deducir todas las fórmulas covalentes mediante el simple cruce de números de oxidación.',quiz:['¿Qué es PCl₅?',['Tricloruro de fósforo','Pentacloruro de fósforo','Cloruro de fósforo(I)','Cloruro de potasio'],1,'Hay cinco átomos de cloro: penta-.']}
+];
+/* Lecciones nuevas: se añaden al itinerario anterior, que permanece intacto. */
+lessons.push(
+ {chapter:'Ternarios',title:'15 · Hidróxidos: el grupo OH',lead:'Un hidróxido metálico une un catión con el anión hidróxido, OH⁻, de carga −1.',body:[
+  'El ion <strong>hidróxido OH⁻</strong> tiene dos elementos, pero actúa como <strong>un solo grupo</strong>. El sodio forma NaOH y el calcio forma Ca(OH)₂.',
+  'Los paréntesis son necesarios cuando aparecen varios grupos OH: Al(OH)₃ significa tres oxígenos y tres hidrógenos. AlOH₃ no representa la misma composición.',
+  'Se admiten nombres como <strong>hidróxido de hierro(III)</strong>, <strong>trihidróxido de hierro</strong> e <strong>hidróxido férrico</strong> (este último tradicional e históricamente utilizado).'
+ ],steps:['Busca la carga del catión metálico.','Usa un ion OH⁻ por cada unidad de carga positiva.','Si necesitas varios OH, escríbelos entre paréntesis.'],example:'Cu(OH)2',examplename:'Hidróxido de cobre(II) · dihidróxido de cobre',warning:'No confundas CuOH (cobre(I)) y Cu(OH)₂ (cobre(II)).',quiz:['¿Por qué se escribe Ca(OH)₂ con paréntesis?',['Porque el calcio tiene dos protones','Porque hay dos grupos OH completos','Porque el H tiene carga +2','Porque el oxígeno es diatómico'],1,'El calcio es Ca²⁺ y necesita dos iones OH⁻ completos.']},
+ {chapter:'Ternarios',title:'16 · Oxoácidos: H, elemento central y O',lead:'Un oxoácido contiene hidrógeno, oxígeno y otro elemento; su nombre depende del compuesto concreto.',body:[
+  'En oxoácidos sencillos, la fórmula suele escribirse como HₐXOᵦ. Por ejemplo, HNO₃ contiene hidrógeno, nitrógeno y oxígeno.',
+  'Para calcular el número de oxidación del elemento central, considera H habitualmente +1 y O habitualmente −2. Así, en HNO₃: 1 + x − 6 = 0, por tanto x = +5.',
+  'No se pueden construir todas las especies reales a partir de una combinación arbitraria de números de oxidación. En el laboratorio se trabajan <strong>oxoácidos conocidos</strong>. '
+ ],steps:['Identifica H, O y el elemento central.','Calcula el número de oxidación cuando sea útil.','Relaciona la fórmula con un oxoácido registrado y su nombre admitido.'],example:'HNO3',examplename:'Ácido nítrico · hidrógeno(trioxidonitrato)',warning:'HNO₂ (ácido nitroso) y HNO₃ (ácido nítrico) son especies diferentes.',quiz:['¿Cuál es el número de oxidación del nitrógeno en HNO₃?',['+3','+4','+5','−3'],2,'La suma 1 + x + 3·(−2) = 0 exige x = +5.']},
+ {chapter:'Ternarios',title:'17 · Serie de oxoácidos del cloro',lead:'El nombre tradicional permite diferenciar cuatro oxoácidos mediante hipo-, -oso, -ico y per-.',body:[
+  '<strong>HClO</strong> es ácido hipocloroso, <strong>HClO₂</strong> es ácido cloroso, <strong>HClO₃</strong> es ácido clórico y <strong>HClO₄</strong> es ácido perclórico.',
+  'El cloro tiene, respectivamente, números de oxidación +1, +3, +5 y +7. Cada incremento de dos unidades añade un oxígeno si H y Cl permanecen iguales.',
+  'Esta pauta también explica las parejas de aniones: hipoclorito, clorito, clorato y perclorato. No se traslada indiscriminadamente a todos los elementos.'
+ ],steps:['Identifica cuántos oxígenos aparecen.','Relaciona 1, 2, 3 o 4 oxígenos con hipo-…-oso, -oso, -ico o per-…-ico.','Verifica el número de oxidación del cloro.'],example:'HClO4',examplename:'Ácido perclórico · hidrógeno(tetraoxidoclorato)',warning:'«Ácido clórico» y «ácido perclórico» tienen fórmulas diferentes.',quiz:['¿Qué fórmula corresponde al ácido cloroso?',['HClO','HClO₂','HClO₃','HClO₄'],1,'Cloroso corresponde al segundo miembro, HClO₂.']},
+ {chapter:'Ternarios',title:'18 · Oxoácidos del N, S y C',lead:'Aprende las series más frecuentes y razona el estado de oxidación.',body:[
+  'Nitrógeno: <strong>HNO₂</strong> es ácido nitroso y <strong>HNO₃</strong> es ácido nítrico.',
+  'Azufre: <strong>H₂SO₃</strong> es ácido sulfuroso y <strong>H₂SO₄</strong> es ácido sulfúrico. Carbono: <strong>H₂CO₃</strong> es ácido carbónico.',
+  'Relaciona cada ácido con el oxoanión correspondiente: nitrito/nitrato, sulfito/sulfato y carbonato. Para neutralizar el ácido pueden sustituirse los H ácidos por cationes.'
+ ],steps:['Diferencia terminaciones -oso (estado inferior) e -ico (superior) dentro de cada serie.','Comprueba el número de oxígenos.','Distingue el oxoácido de su oxoanión sin hidrógeno.'],example:'H2SO4',examplename:'Ácido sulfúrico · dihidrógeno(tetraoxidosulfato)',warning:'SO₄²⁻ es el ion sulfato; H₂SO₄ es el ácido sulfúrico.',quiz:['¿Qué ácido corresponde al sulfato, SO₄²⁻?',['H₂SO₃','H₂SO₄','HNO₃','H₂CO₃'],1,'Dos H⁺ compensan la carga −2 del sulfato.']},
+ {chapter:'Ternarios',title:'19 · Oxoácidos especiales: orto, meta, di y piro',lead:'Las fórmulas de algunos oxoácidos se relacionan formalmente mediante agua, pero esa regla escolar no describe por sí sola su estructura real.',body:[
+  '<strong>1. ¿Por qué son especiales?</strong> En los oxoácidos habituales suele haber H, un elemento central y O. Sus hidrógenos pueden estar unidos a O (grupos OH), pero no basta mirar los subíndices para determinar cuántos protones ácidos puede ceder.',
+  '<strong>2. ¿Qué significaban orto- y meta-?</strong> Tradicionalmente distinguen composiciones relacionadas por pérdida o incorporación formal de agua: la forma <em>orto</em> presenta mayor contenido de H y O; <em>meta</em>, menor. Es un recurso para comparar fórmulas, <strong>no un procedimiento universal de síntesis</strong>.',
+  '<strong>3. Fósforo(V):</strong> H₃PO₄ es <strong>ácido fosfórico</strong> (también ortofosfórico). La composición metafosfórica se expresa como <strong>(HPO₃)ₙ</strong>: la unidad HPO₃ equivale formalmente a H₃PO₄ − H₂O. El ácido fosfórico común no necesita el prefijo orto-.',
+  '<strong>4. Boro(III):</strong> H₃BO₃ es <strong>ácido bórico</strong> (u ortobórico) y el metabórico se representa por la composición <strong>(HBO₂)ₙ</strong>. Los dos contienen B con número de oxidación +3. En disolución acuosa el ácido bórico se comporta principalmente como ácido de Lewis, de modo que no conviene inferir su acidez solo por los tres OH.',
+  '<strong>5. Silicio(IV):</strong> H₄SiO₄ es <strong>ácido ortosilícico</strong>, y la composición metasilícica puede expresarse como <strong>(H₂SiO₃)ₙ</strong>. Estas especies pueden formar redes o cadenas; una fórmula empírica no obliga a que haya moléculas aisladas H₂SiO₃.',
+  '<strong>6. Yodo(VII):</strong> HIO₄ es <strong>ácido peryódico</strong>, también llamado <em>metaperyódico</em>. H₅IO₆ es <strong>ácido ortoperyódico</strong>. Aquí el prefijo orto- <strong>sí distingue</strong> una composición concreta; no debe omitirse si queremos nombrar H₅IO₆.',
+  '<strong>7. Ácidos di- y piro-:</strong> 2 H₃PO₄ − H₂O = <strong>H₄P₂O₇</strong> (ácido <strong>difosfórico</strong>, tradicionalmente pirofosfórico). Igualmente 2 H₂SO₄ − H₂O = <strong>H₂S₂O₇</strong> (ácido <strong>disulfúrico</strong>, tradicionalmente pirosulfúrico). En nomenclatura se prefiere <em>di-</em> para estos casos.',
+  '<strong>8. No confundas H₃PO₄ con H₃PO₃:</strong> H₃PO₄ contiene fósforo(+5) y se representa P(O)(OH)₃. La estructura habitual de H₃PO₃ es <strong>HP(O)(OH)₂</strong>: contiene un enlace P–H y <strong>solo dos hidrógenos ácidos</strong>. En nomenclatura sistemática se denomina ácido fosfónico; en libros escolares aparece ácido fosforoso.',
+  '<strong>9. Tres sistemas de nombres:</strong> para H₃PO₄: <em>ácido fosfórico</em> (tradicional conservado), <em>trihidrógeno(tetraoxidofosfato)</em> (hidrógeno) y <em>trihidroxidooxidofósforo</em> (adición). La nomenclatura de hidrógeno no presupone una determinada conectividad; la de adición puede expresarla.',
+  '<strong>10. Nombres que NO conviene generar mecánicamente:</strong> las formas antiguas «ácido tetraoxofosfórico(V)» o «ácido tetraoxosulfúrico(VI)» pueden encontrarse en materiales docentes, pero no sustituyen los sistemas actuales de nomenclatura de hidrógeno y adición. Tampoco todo prefijo piro- se obtiene simplemente anteponiéndolo a cualquier ácido.'
+ ],steps:['Identifica el elemento central y calcula su estado de oxidación con H +1 y O −2 cuando proceda.','Compara la fórmula concreta con otras de la misma familia; no deduzcas propiedades estructurales solo del balance formal de agua.','Distingue las composiciones orto y meta, sin olvidar los casos poliméricos.','En condensaciones, suma primero los ácidos y resta H₂O equilibrando todos los átomos.','Para nombrar, usa el nombre tradicional conservado o uno sistemático registrado y comprueba si el prefijo realmente distingue la sustancia.'],example:'H4P2O7',examplename:'Ácido difosfórico · nombre tradicional: pirofosfórico',warning:'Los oxoácidos contienen oxígeno, hidrógeno y otro elemento: son ternarios, no binarios. Los prefijos orto-/meta- no sirven como una receta universal, y H₃PO₃ solo tiene dos protones ácidos.',quiz:['¿Qué afirmación es químicamente correcta?',['H₃PO₃ libera necesariamente tres H⁺ porque tiene tres H','H₅IO₆ es ácido ortoperyódico y no tiene la misma fórmula que HIO₄','Todas las fórmulas meta son moléculas monoméricas estables','Piro- es el prefijo sistemático preferente para todos los ácidos condensados'],1,'HIO₄ y H₅IO₆ contienen yodo(+7) pero distintas composiciones; el prefijo orto- distingue H₅IO₆.']},
+ {chapter:'Ternarios',title:'20 · Oxosales neutras: del anión a la sal',lead:'Una oxosal neutra se obtiene al combinar un catión con un oxoanión sin hidrógeno ácido.',body:[
+  'NaNO₃ es <strong>nitrato de sodio</strong> y CaCO₃ es <strong>carbonato de calcio</strong>. Ambos se forman compensando las cargas de sus iones.',
+  'Los aniones poliatómicos conservan la unidad: NO₃⁻, SO₄²⁻, CO₃²⁻ y PO₄³⁻. La sal debe tener carga total cero.',
+  'Además de nitrato de calcio, Ca(NO₃)₂ puede llamarse bis(trioxidonitrato) de calcio. La nomenclatura de adición puede indicar la carga del oxoanión.'
+ ],steps:['Reconoce el oxoanión y su carga.','Determina la carga del catión.','Busca cuántas unidades de cada ion compensan la carga total.'],example:'Ca(NO3)2',examplename:'Nitrato de calcio · bis(trioxidonitrato) de calcio',warning:'Las oxosales ácidas con cuatro elementos se abordarán en Cuaternarios.',quiz:['¿Qué fórmula corresponde al carbonato de sodio?',['NaCO₃','Na₂CO₃','Na(CO₃)₂','Na₃CO₃'],1,'CO₃²⁻ necesita dos Na⁺.']},
+ {chapter:'Ternarios',title:'21 · Oxosales: paréntesis y prefijos multiplicadores',lead:'Los paréntesis de las oxosales representan repeticiones de un ion entero.',body:[
+  'Fe₂(SO₄)₃ contiene <strong>dos</strong> cationes Fe³⁺ y <strong>tres</strong> aniones SO₄²⁻. Carga total: 2·(+3) + 3·(−2) = 0.',
+  'Para una unidad del anión basta escribirlo sin paréntesis: CaSO₄. Cuando hay más de una, usamos, por ejemplo, Ca(NO₃)₂.',
+  'La nomenclatura de composición utiliza <strong>bis(…)</strong>, <strong>tris(…)</strong> y <strong>tetrakis(…)</strong> para grupos complejos repetidos.'
+ ],steps:['Calcula la proporción catión:anión.','Agrupa con paréntesis el anión poliatómico solo cuando se repite.','Comprueba la suma de cargas y la nomenclatura propuesta.'],example:'Fe2(SO4)3',examplename:'Sulfato de hierro(III) · tris(tetraoxidosulfato) de dihierro',warning:'FeSO₄ corresponde al hierro(II), no al hierro(III).',quiz:['¿Cuántos átomos de oxígeno tiene Fe₂(SO₄)₃?',['3','4','7','12'],3,'Hay tres grupos SO₄: 3 × 4 = 12 oxígenos.']},
+ {chapter:'Ternarios',title:'22 · Tres modos actuales de nombrar oxoácidos',lead:'Tradicional, adición e hidrógeno pueden describir el mismo oxoácido de formas distintas.',body:[
+  'Para H₂SO₄ se admite <strong>ácido sulfúrico</strong> (tradicional), <strong>dihidroxidodioxidoazufre</strong> (adición) y <strong>dihidrógeno(tetraoxidosulfato)</strong> (nomenclatura de hidrógeno).',
+  'La nomenclatura de <strong>adición</strong> describe los grupos unidos al átomo central cuando la estructura lo permite. La de <strong>hidrógeno</strong> indica el número de H y nombra la parte aniónica.',
+  'En materiales antiguos encontrarás expresiones como «ácido tetraoxosulfúrico(VI)». La aplicación puede reconocer ciertas formas históricas, pero las señalará como desaconsejadas.'
+ ],steps:['Identifica la familia y la fórmula antes de escoger el sistema de nombres.','Si se usa adición, cuenta los grupos OH y los oxígenos enlazados al elemento central.','Si se usa nomenclatura de hidrógeno, indica H y el oxoanión entre paréntesis.'],example:'H2CO3',examplename:'Ácido carbónico · dihidrógeno(trioxidocarbonato)',warning:'No se extrapolan por algoritmo nombres de adición a estructuras desconocidas.',quiz:['¿Qué nombre describe H₂SO₄ por nomenclatura de hidrógeno?',['Hidrógeno(trioxidosulfato)','Dihidrógeno(tetraoxidosulfato)','Dihidrógeno(trioxidocarbonato)','Hidrógeno(dioxidonitrato)'],1,'Tiene dos hidrógenos y cuatro oxígenos alrededor del azufre.']},
+ {chapter:'Ternarios',title:'23 · Sales ácidas de hidrácidos',lead:'Existen sales ternarias con hidrógeno que no son oxosales ácidas.',body:[
+  'NaHS contiene <strong>Na, H y S</strong>: es una sal ácida de un hidrácido y se nombra <strong>hidrogenosulfuro de sodio</strong>.',
+  'En Ca(HS)₂, los dos grupos HS⁻ neutralizan el Ca²⁺. El anión hidrogenosulfuro no contiene oxígeno.',
+  'No debe confundirse esta familia de <strong>tres elementos</strong> con las oxosales ácidas como NaHCO₃, de <strong>cuatro elementos</strong>, que se trabajan en Cuaternarios.'
+ ],steps:['Comprueba que la fórmula tenga un metal, hidrógeno y un no metal sin oxígeno.','Reconoce el anión HS⁻ u otro anión ácido correspondiente.','Compensa su carga con la del catión.'],example:'NaHS',examplename:'Hidrogenosulfuro de sodio',warning:'NaHS y NaHCO₃ no pertenecen a la misma categoría de número de elementos.',quiz:['¿Por qué NaHS es ternario?',['Porque tiene tres átomos en total','Porque contiene tres elementos distintos','Porque contiene oxígeno','Porque contiene tres grupos OH'],1,'Contiene Na, H y S: tres elementos diferentes.']}
+);
+
+/* Itinerario v0.5: se añade DESPUÉS de las 23 lecciones previas. */
+lessons.push(
+ {chapter:'Cuaternarios',title:'24 · ¿Qué es un compuesto cuaternario?',lead:'Cuaternario significa que la fórmula contiene cuatro elementos distintos, no cuatro átomos.',body:[
+  'Observa <strong>NaHCO₃</strong>: aparecen Na, H, C y O. En cambio, Ca(OH)₂ solo contiene Ca, O y H: es ternario.',
+  'En este apartado estudiaremos <strong>oxosales ácidas</strong>, <strong>sales básicas</strong> y <strong>sales dobles</strong> de cuatro elementos. Los iones siguen teniendo su propia categoría.',
+  'El número de elementos es distinto del número total de átomos. KAl(SO₄)₂ contiene cuatro elementos, pero doce átomos en cada unidad fórmula.'
+ ],steps:['Descompón correctamente cada símbolo químico.','Cuenta elementos distintos, no átomos.','Reconoce si hay hidrógeno ácido, OH⁻ o dos cationes diferentes.'],example:'NaHCO3',examplename:'Hidrogenocarbonato de sodio',warning:'Al añadir agua de cristalización a una sal anhidra pueden aparecer elementos adicionales.',quiz:['¿Cuántos elementos distintos hay en NaHCO₃?',['3','4','5','6'],1,'Na, H, C y O son cuatro elementos.']},
+ {chapter:'Cuaternarios',title:'25 · Oxosales ácidas: conservar hidrógeno',lead:'Una oxosal ácida conserva uno o varios H del oxoácido cuando este no se neutraliza completamente.',body:[
+  'El ácido sulfúrico <strong>H₂SO₄</strong> puede perder un H⁺ y originar <strong>HSO₄⁻</strong>. Si ese anión se combina con Na⁺, obtenemos <strong>NaHSO₄</strong>.',
+  'El ácido carbónico H₂CO₃ origina HCO₃⁻, cuyo nombre recomendado es <strong>hidrogenocarbonato</strong>. La palabra «bicarbonato» es muy frecuente, pero no es el sistema preferente.',
+  'El ácido fosfórico H₃PO₄ forma dos aniones ácidos habituales: <strong>H₂PO₄⁻</strong> y <strong>HPO₄²⁻</strong>; no tienen la misma carga.'
+ ],steps:['Parte del oxoácido y determina los H que permanecen en el anión.','Identifica la carga del oxoanión ácido.','Equilibra esa carga con el catión y coloca paréntesis si necesitas varios oxoaniones.'],example:'Ca(HSO4)2',examplename:'Hidrogenosulfato de calcio',warning:'Na₂SO₄ es una oxosal neutra ternaria; NaHSO₄ es una oxosal ácida cuaternaria.',quiz:['¿Qué anión contiene el hidrogenosulfato de calcio?',['SO₄²⁻','HSO₄⁻','H₂SO₄','OH⁻'],1,'El hidrogenosulfato es HSO₄⁻, de carga −1.']},
+ {chapter:'Cuaternarios',title:'26 · Oxosales ácidas: fórmulas y paréntesis',lead:'El anión ácido completo se mantiene unido cuando hace falta más de una unidad.',body:[
+  'En el hidrogenosulfato de hierro(III), Fe³⁺ se combina con tres HSO₄⁻. La fórmula es <strong>Fe(HSO₄)₃</strong>.',
+  'En los fosfatos ácidos, <strong>H₂PO₄⁻</strong> y <strong>HPO₄²⁻</strong> requieren cantidades diferentes del mismo catión. Por ejemplo, KH₂PO₄ y K₂HPO₄.',
+  'Cuando un oxoanión se repite, los paréntesis abarcan el grupo <strong>entero</strong>, incluidos los H conservados.'
+ ],steps:['Escribe el catión y el anión con sus cargas.','Calcula la mínima proporción entera que da carga cero.','Escribe el anión entre paréntesis únicamente si se repite.'],example:'Fe(HSO4)3',examplename:'Hidrogenosulfato de hierro(III)',warning:'FeHSO₄ no es neutra si el hierro tiene número de oxidación +3.',quiz:['¿Cuál es la fórmula del dihidrogenofosfato de calcio?',['CaH₂PO₄','Ca(H₂PO₄)₂','Ca₂H₂PO₄','Ca(HPO₄)₂'],1,'Ca²⁺ necesita dos aniones H₂PO₄⁻.']},
+ {chapter:'Cuaternarios',title:'27 · Oxosales ácidas: formas de nombrar',lead:'En los nombres actuales se indica cuántos hidrógenos permanecen en el oxoanión.',body:[
+  'Nombres como <strong>hidrogenosulfato de sodio</strong>, <strong>dihidrogenofosfato de potasio</strong> o <strong>hidrogenofosfato de calcio</strong> expresan la presencia de H en el anión.',
+  'En materiales anteriores aparecen «sulfato ácido de sodio», «fosfato diácido» o «bicarbonato». La aplicación puede reconocerlos, pero señala que no son las formas sistemáticas preferentes.',
+  'También hay nomenclatura composicional, por ejemplo <strong>hidrogenotetraoxidosulfato(VI) de sodio</strong>. No todos los sistemas de nomenclatura se usan por igual con todas las familias.'
+ ],steps:['Reconoce el oxoanión sin H.','Añade hidrógeno- o dihidrógeno- según los H conservados.','Completa con el catión y su número de oxidación cuando es necesario.'],example:'KH2PO4',examplename:'Dihidrogenofosfato de potasio',warning:'El prefijo bi- de bicarbonato no significa que haya dos átomos de carbono.',quiz:['¿Cuál es el nombre preferible de NaHCO₃?',['Carbonato de sodio','Hidrogenocarbonato de sodio','Ácido carbónico de sodio','Hidróxido de sodio'],1,'El anión presente es el hidrogenocarbonato, HCO₃⁻.']},
+ {chapter:'Cuaternarios',title:'28 · Sales básicas: dos clases de aniones',lead:'Una sal básica contiene OH⁻ y otro anión; no equivale a un hidróxido corriente.',body:[
+  'En <strong>Mg(OH)Cl</strong> hay un catión Mg²⁺, un OH⁻ y un Cl⁻. La suma +2 −1 −1 es cero.',
+  'En <strong>Cu₂CO₃(OH)₂</strong> intervienen los aniones carbonato CO₃²⁻ e hidróxido OH⁻. La composición corresponde a la malaquita.',
+  'Los nombres de composición indican los aniones y sus multiplicidades. Los términos tradicionales como «carbonato básico» pueden ser menos precisos porque no describen necesariamente las proporciones.'
+ ],steps:['Identifica OH⁻ y el otro anión.','Calcula la suma de todas las cargas negativas.','Compénsala con los cationes y nombra las unidades según su cantidad.'],example:'Cu2CO3(OH)2',examplename:'Carbonato dihidróxido de dicobre',warning:'No toda sal que contiene OH se formula cruzando dos cargas: hay que comprobar la composición concreta.',quiz:['¿Qué aniones tiene Mg(OH)Cl?',['Solo OH⁻','OH⁻ y Cl⁻','SO₄²⁻ y Cl⁻','O²⁻ y H⁻'],1,'El hidróxido y el cloruro son dos aniones distintos.']},
+ {chapter:'Cuaternarios',title:'29 · Sales básicas: razona la neutralidad',lead:'La neutralidad eléctrica sigue siendo una regla, pero la composición depende de la especie concreta.',body:[
+  'En <strong>Cu₂(OH)₃Cl</strong>, dos iones Cu²⁺ suman +4. Tres OH⁻ y un Cl⁻ suman −4.',
+  'El compuesto Al(OH)Cl₂ contiene un OH y dos Cl; en Al(OH)₂Cl, en cambio, hay dos OH y un Cl. Ambos satisfacen la neutralidad con Al³⁺, pero <strong>no son la misma fórmula</strong>.',
+  'Por esta razón, en la aplicación estas sales se consultan mediante un repertorio de composiciones concretas, no por cruces de cargas indiscriminados.'
+ ],steps:['Cuenta primero cationes y su carga total.','Suma por separado OH⁻ y los demás aniones.','Verifica la igualdad de cargas y que la proporción coincide con la especie propuesta.'],example:'Cu2(OH)3Cl',examplename:'Cloruro trihidróxido de dicobre',warning:'La electroneutralidad por sí sola no determina qué sal básica se ha formado.',quiz:['¿Cuánto suman las cargas negativas en Cu₂(OH)₃Cl?',['−2','−3','−4','−5'],2,'Tres OH⁻ aportan −3 y Cl⁻ añade −1, total −4.']},
+ {chapter:'Cuaternarios',title:'30 · Sales dobles: dos cationes distintos',lead:'Una sal doble contiene dos clases de cationes independientes, equilibradas con aniones.',body:[
+  'En <strong>AlK(SO₄)₂</strong> el aluminio(III) aporta +3, el potasio +1, y dos sulfatos aportan −4. Se trata de un sulfato doble.',
+  'No debes confundir una sal doble con un ion complejo: los nombres dependen de qué entidades químicas aparecen en la estructura.',
+  'Algunos alumbres, como el alumbre potásico, cristalizan con doce aguas: <strong>AlK(SO₄)₂·12H₂O</strong>. Su fórmula hidratada tiene cinco elementos distintos, por eso aquí practicamos por separado la composición anhidra.'
+ ],steps:['Reconoce los dos cationes y sus cargas.','Suma las cargas positivas.','Calcula los sulfatos necesarios y distingue la fórmula anhidra de su hidrato.'],example:'AlK(SO4)2',examplename:'Bis(sulfato) de aluminio y potasio',warning:'AlK(SO₄)₂ y AlK(SO₄)₂·12H₂O describen composiciones diferentes.',quiz:['¿Cuántos sulfatos neutralizan Al³⁺ y K⁺?',['Uno','Dos','Tres','Cuatro'],1,'La carga total +4 se neutraliza con dos SO₄²⁻.']},
+ {chapter:'Cuaternarios',title:'31 · Sales dobles: nombrar y formular',lead:'La nomenclatura de composición identifica los dos cationes y el anión con sus proporciones.',body:[
+  'La fórmula <strong>K₂Mg(SO₄)₂</strong> contiene dos cationes potasio (+2), uno magnesio (+2) y dos sulfatos (−4).',
+  'Un nombre composicional indica esas proporciones, por ejemplo <strong>bis(sulfato) de magnesio y dipotasio</strong>. También se usan denominaciones tradicionales como «sulfato doble de magnesio y potasio».',
+  'En la práctica se encuentran muchas sales dobles hidratadas. El agua de cristalización se añade a la fórmula y no se omite cuando el enunciado se refiere específicamente al hidrato.'
+ ],steps:['Distingue los dos elementos metálicos.','Calcula cuántos iones hay de cada clase.','Emplea los prefijos para expresar la proporción si el nombre lo exige.'],example:'K2Mg(SO4)2',examplename:'Bis(sulfato) de magnesio y dipotasio',warning:'Escribir solo «sulfato de potasio» ignoraría el magnesio: sería otra sustancia.',quiz:['¿Qué suma de cargas tienen 2K⁺ y Mg²⁺?',['+2','+3','+4','+6'],2,'Los dos iones K⁺ suman +2 y Mg²⁺ aporta +2.']},
+ {chapter:'Cuaternarios',title:'32 · Reconocer la familia correcta',lead:'Aprende a identificar cada familia a partir de los grupos presentes en la fórmula.',body:[
+  'Una <strong>oxosal ácida</strong> conserva hidrógeno en el oxoanión, como NaHSO₄. Una <strong>sal básica</strong> incluye OH⁻ junto a otro anión, como Cu₂CO₃(OH)₂.',
+  'Una <strong>sal doble</strong> tiene dos cationes diferentes, como AlK(SO₄)₂. No basta contar elementos: hay que comprender qué unidades iónicas forman el compuesto.',
+  'Vuelve a Nombrar y Formular para practicar todas las familias y consulta Explorar si necesitas ver las nomenclaturas reconocidas.'
+ ],steps:['Cuenta los elementos distintos.','Identifica si hay un oxoanión con H, un OH⁻ adicional o dos cationes.','Comprueba las cargas y el nombre apropiado.'],example:'NaHSO4',examplename:'Hidrogenosulfato de sodio · oxosal ácida',warning:'Las reglas de familias son una guía escolar; la clasificación de compuestos complejos puede requerir información estructural.',quiz:['¿Qué opción es una sal doble de cuatro elementos?',['NaHSO₄','Mg(OH)Cl','AlK(SO₄)₂','Ca(OH)₂'],2,'AlK(SO₄)₂ contiene Al, K, S y O, y dos cationes distintos.']}
+);
+
+const modules=[['learn','📖','Aprender'],['name','✏️','Nombrar'],['formula','⚗️','Formular'],['explore','🔎','Explorar'],['progress','📊','Progreso']];
+const categories=[['Iones','⚡',false],['Binarios','🧪',false],['Ternarios','🔬',false],['Cuaternarios','🧬',false]];
+const perCategoryFamilies={
+ Iones:['Todas','Catión monoatómico','Anión monoatómico','Ion poliatómico','Oxoanión','Ion ácido'],
+ Binarios:['Todas','Óxidos metálicos','Óxidos no metálicos','Peróxidos','Hidruros metálicos','Hidruros no metálicos','Compuestos de hidrógeno','Hidrácidos (acuosos)','Sales binarias','Binarios covalentes'],
+ Ternarios:['Todas','Hidróxidos','Oxoácidos','Oxosales neutras','Sales ácidas de hidrácidos'],
+ Cuaternarios:['Todas','Oxosales ácidas','Sales básicas','Sales dobles']
+};
+const defaults={section:'learn',category:'Iones',family:'Todas',level:'Todos',promptScheme:'Todas',lesson:0,quizAnswers:{},exercise:null,entered:'',answerState:null,hints:0,locked:false,detailId:null,search:'',showLimit:16,recent:[],mobileKeyboard:true,specialCase:0,exploreTab:'biblioteca',elementFilter:'',builderMetal:'Na1',builderAnion:'SO4'};
+const state={...defaults};
+const blankProgress=()=>({correct:0,wrong:0,skipped:0,byFamily:{},completedLessons:[],history:[],errors:{}});
+let progress=blankProgress();
+try{const saved=JSON.parse(localStorage.getItem('inorg_v01_progress')||'null');if(saved&&typeof saved==='object'&&Number.isFinite(saved.correct)&&saved.byFamily&&Array.isArray(saved.completedLessons))progress={...blankProgress(),...saved,errors:saved.errors||{}}}catch(e){}
+function persist(){try{localStorage.setItem('inorg_v01_progress',JSON.stringify(progress))}catch(e){}}
+const htmlEscape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function normName(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[−–—]/g,'-').replace(/\s+/g,' ').replace(/\s*\(\s*/g,'(').replace(/\s*\)\s*/g,')').replace(/\s*,\s*/g,',').trim()}
+function normFormula(s){
+ let str=String(s).trim().replace(/[\s\u00a0]/g,'').replace(/₀/g,'0').replace(/₁/g,'1').replace(/₂/g,'2').replace(/₃/g,'3').replace(/₄/g,'4').replace(/₅/g,'5').replace(/₆/g,'6').replace(/₇/g,'7').replace(/₈/g,'8').replace(/₉/g,'9');
+ str=str.replace(/\((ac|aq)\)$/i,'(aq)').replace(/−/g,'-');
+ const smap={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'};
+ str=str.replace(/([⁰¹²³⁴⁵⁶⁷⁸⁹]*)([⁺⁻])$/,(_,digits,sign)=>(digits?'^'+Array.from(digits).map(x=>smap[x]).join(''):'')+(sign==='⁺'?'+':'-'));
+ str=str.replace(/^([A-Z][a-z]?)(\d+)([+-])$/,(_,el,charge,sign)=>el+'^'+charge+sign);
+ str=str.replace(/\^1([+-])$/,'$1');
+ return str;
+}
+function chemHTML(formula){
+ const clean=String(formula),aq=clean.endsWith('(aq)'),base=aq?clean.slice(0,-4):clean;
+ const m=base.match(/\^(\d+)([+-])$|([+-])$/);
+ let atom=base,charge='';
+ if(m){atom=base.slice(0,m.index);charge=(m[1]||'')+(m[2]||m[3]);}
+ const atoms=htmlEscape(atom).replace(/(\d+)/g,'<sub>$1</sub>');
+ return atoms+(charge?'<sup>'+htmlEscape(charge.replace('-','−'))+'</sup>':'')+(aq?'<span class="aq">(ac)</span>':'');
+}
+const f=(val,cls='')=>'<span class="formula '+cls+'">'+chemHTML(val)+'</span>';
+function choose(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function familyCounts(category){return compounds.filter(c=>c.category===category).length}
+function available(){return compounds.filter(c=>c.category===state.category&&(state.family==='Todas'||c.family===state.family)&&(state.level==='Todos'||c.level<=Number(state.level))&&(state.section!=='formula'||state.promptScheme==='Todas'||c.names.some(n=>n.kind.toLowerCase().includes(state.promptScheme.toLowerCase()))))}
+function formatName(name){return htmlEscape(name)}
+function answersText(c){return c.names.map(n=>n.text).join(' · ')}
+function uniqueByFamily(){return [...new Set(compounds.map(x=>x.family))]}
+function getRelevantLessons(){return lessons.map((x,i)=>({...x,i})).filter(x=>x.chapter==='Fundamentos'||x.chapter===state.category)}
+function lessonAllowed(index){const l=lessons[index];return l&&(l.chapter==='Fundamentos'||l.chapter===state.category)}
+function chooseLessonCategory(){const li=getRelevantLessons();if(!lessonAllowed(state.lesson))state.lesson=li[0]?.i||0}
+function familyLevel(c){return ['','Inicial','Intermedio','Avanzado'][c.level]||'Intermedio'}
+function taxonomyLabel(c){return c.category+' · '+c.family}
+function render(){
+ renderModules();renderCategories();renderSidebar();renderMain();renderAside();
+}
+function renderModules(){document.getElementById('modules').innerHTML=modules.map(([id,ic,name])=>`<button class="navbtn ${state.section===id?'active':''}" data-action="module" data-value="${id}" aria-current="${state.section===id?'page':'false'}"><span class="icon" aria-hidden="true">${ic}</span><span>${name}</span></button>`).join('')}
+function renderCategories(){document.getElementById('categories').innerHTML='<span class="category-label">Familias químicas</span>'+categories.map(([name,ico,locked])=>`<button class="catbtn ${state.category===name?'active':''} ${locked?'locked':''}" data-action="category" data-value="${name}" aria-pressed="${state.category===name}">${ico} ${name}${locked?'<span class="mini">· próximamente</span>':''}</button>`).join('')}
+function renderSidebar(){const el=document.getElementById('sidebar');
+ if(state.section==='learn'){
+ const rl=getRelevantLessons();let last='';el.innerHTML=`<div class="panel"><h3>Itinerario de aprendizaje</h3><div class="side-chapters">${rl.map(l=>{
+ const header=l.chapter!==last?`<div class="groupname">${l.chapter}</div>`:'';last=l.chapter;
+ return header+`<button class="chapter ${state.lesson===l.i?'active':''}" data-action="lesson" data-value="${l.i}" title="${htmlEscape(l.title)}"><span class="chapter-number">${progress.completedLessons.includes(l.i)?'✓':l.i+1}</span>${htmlEscape(l.title.replace(/^\d+ · /,''))}</button>`}).join('')}</div></div><div class="side-tile"><strong>💡 Aprende antes de memorizar</strong>Empieza identificando las cargas y termina resolviendo familias completas. Las lecciones se marcan al superar el reto.</div>`;
+ }else if(state.section==='progress'){
+ el.innerHTML=`<div class="panel"><h3>Tu progreso</h3><div class="stack"><span class="pill mint">✓ ${progress.correct} respuestas correctas</span><span class="pill amber">◌ ${progress.wrong} intentos fallidos</span><span class="pill blue">▣ ${progress.completedLessons.length} lecciones superadas</span></div></div>`;
+ }else{
+ el.innerHTML=`<div class="panel"><h3>Selecciona una familia</h3><div class="stack">${perCategoryFamilies[state.category].map(family=>`<button class="chapter ${state.family===family?'active':''}" data-action="family" data-value="${htmlEscape(family)}"><span class="chapter-number">${family==='Todas'?'∞':'◈'}</span>${htmlEscape(family)}</button>`).join('')}</div></div><div class="side-tile"><strong>⚗️ Generación por reglas</strong>Las familias se combinan con elementos y cargas compatibles. No se mezclan sustancias inventadas para aumentar las preguntas.</div>`;
+ }
+ const carousel=el.querySelector('.side-chapters');if(carousel&&window.innerWidth<=750){const selected=carousel.querySelector('.chapter.active');if(selected)carousel.scrollLeft=selected.offsetLeft-carousel.offsetLeft-14;}
+}
+function renderMain(){const el=document.getElementById('main');
+ if(state.section==='learn')renderLearn(el);
+ if(state.section==='name'||state.section==='formula')renderPractice(el);
+ if(state.section==='explore')renderExplore(el);
+ if(state.section==='progress')renderProgress(el);
+}
+function renderAside(){const el=document.getElementById('aside');
+ const byCat=familyCounts(state.category);
+ let keys=state.category==='Iones'?[['Na+','Catión sodio'],['Fe^3+','Catión hierro(III)'],['SO4^2-','Ion sulfato'],['NH4+','Ion amonio']]:[['Fe2O3','Óxido de hierro(III)'],['CaO2','Peróxido de calcio'],['CaH2','Hidruro de calcio'],['FeCl3','Cloruro de hierro(III)']];
+ if(state.category==='Ternarios')keys=[['Cu(OH)2','Hidróxido de cobre(II)'],['H2SO4','Ácido sulfúrico'],['Fe2(SO4)3','Sulfato de hierro(III)'],['NaHS','Hidrogenosulfuro de sodio']];
+ if(state.category==='Cuaternarios')keys=[['NaHCO3','Hidrogenocarbonato de sodio'],['Fe(HSO4)3','Hidrogenosulfato de hierro(III)'],['Cu2CO3(OH)2','Carbonato básico de cobre(II)'],['AlK(SO4)2','Sulfato doble de aluminio y potasio']];
+ el.innerHTML=`<div class="panel sticky-aside"><h3>📌 Referencia rápida</h3><div class="stack">${keys.map(([formula,label])=>`<div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><span>${f(formula,'xs')}</span><span style="font-size:11px;color:#667c8e;text-align:right">${label}</span></div>`).join('')}</div><div class="line" style="margin:15px 0"></div><div class="aside-note"><strong>${byCat} especies disponibles</strong> en esta categoría. Puedes practicar con varias nomenclaturas aceptadas.</div></div>
+ <div class="panel"><h3>🧭 Consejo</h3><p class="aside-note" style="margin:0">Si dudas, vuelve a <strong>Aprender</strong> para revisar las reglas. En los ejercicios puedes pedir pistas y consultar una explicación de cada fórmula.</p></div>
+ <div class="panel"><h3>📚 Fuentes y criterio</h3><p class="aside-note" style="margin:0">Referencias: recomendaciones IUPAC (Libro Rojo) y materiales para Secundaria de la RSEQ. Los nombres tradicionales históricos se etiquetan, y los ácidos se distinguen de los gases. El corrector reconoce las denominaciones registradas para cada especie; no deduce cualquier nombre posible.</p><p class="aside-note"><a href="https://rseq.org/mat-didacticos/resumen-de-las-normas-iupac-2005-de-nomenclatura-de-quimica-inorganica-para-su-uso-en-ensenanza-secundaria-y-recomendaciones-didacticas/" target="_blank" rel="noopener noreferrer">Consultar recomendaciones RSEQ ↗</a></p><p class="aside-note"><a href="https://iupac.qmul.ac.uk/BriefGuide/inorganic.html" target="_blank" rel="noopener noreferrer">Guía breve IUPAC ↗</a></p></div>`;
+}
+const specialOxoCases=[
+ {label:'Fósforo · orto/meta',left:'H3PO4',right:'HPO3',formula:'H₃PO₄ − H₂O = HPO₃',heading:'Fosfórico y metafosfórico',description:'La forma meta suele escribirse como (HPO₃)n para representar especies poliméricas. H₃PO₄ es ácido fosfórico; ortofosfórico es un nombre tradicional alternativo.'},
+ {label:'Fósforo · di/piro',left:'H3PO4',right:'H4P2O7',formula:'2 H₃PO₄ − H₂O = H₄P₂O₇',heading:'Ácido difosfórico',description:'“Pirofosfórico” es un nombre tradicional que se reconoce. Para señalar dos átomos de P en esta familia se prefiere “difosfórico”.'},
+ {label:'Boro · orto/meta',left:'H3BO3',right:'HBO2',formula:'H₃BO₃ − H₂O = HBO₂',heading:'Bórico y metabórico',description:'H₃BO₃ es ácido bórico, también ortobórico. HBO₂ suele representar la unidad de composición de (HBO₂)n; la reacción escrita es una relación estequiométrica formal.'},
+ {label:'Silicio · orto/meta',left:'H4SiO4',right:'H2SiO3',formula:'H₄SiO₄ − H₂O = H₂SiO₃',heading:'Ortosilícico y metasilícico',description:'En soluciones y materiales silíceos aparecen especies y estructuras condensadas. Una fórmula reducida no describe por sí sola su estructura.'},
+ {label:'Yodo · meta/orto',left:'HIO4',right:'H5IO6',formula:'HIO₄ + 2 H₂O = H₅IO₆',heading:'Peryódico y ortoperyódico',description:'I tiene +7 en las dos fórmulas. HIO₄ es ácido peryódico (metaperyódico); H₅IO₆ es ortoperyódico. Aquí “orto-” diferencia inequívocamente las composiciones.'},
+ {label:'H₃PO₃ · estructura',left:'H3PO3',right:'H3PO4',formula:'H₃PO₃: HP(O)(OH)₂   ·   H₃PO₄: P(O)(OH)₃',heading:'Fosforoso no es fosfórico',description:'H₃PO₃ tiene un enlace P–H y solo dos H pertenecen a OH. En H₃PO₄ los tres H pertenecen a grupos OH. La comparación es estructural, no una reacción.'}
+];
+function specialOxoPanel(){const c=specialOxoCases[state.specialCase]||specialOxoCases[0];return `<div class="special-card"><div class="eyebrow">🔬 Casos especiales · comparación interactiva</div><div class="special-tabs" role="group" aria-label="Comparar familias de oxoácidos">${specialOxoCases.map((x,i)=>`<button class="chip ${state.specialCase===i?'active':''}" data-action="special" data-value="${i}" aria-pressed="${state.specialCase===i}">${htmlEscape(x.label)}</button>`).join('')}</div><h3>${htmlEscape(c.heading)}</h3><div class="special-molecules"><div>${f(c.left,'sm')}</div><div class="special-arrow">⇄</div><div>${f(c.right,'sm')}</div></div><div class="special-equation">${htmlEscape(c.formula)}</div><p>${htmlEscape(c.description)}</p><div class="tiny">La igualdad es una relación de composición; no afirma que la reacción suceda tal cual ni que ambas fórmulas sean moléculas aisladas.</div></div>`}
+
+function renderLearn(el){
+ chooseLessonCategory();const l=lessons[state.lesson];const rl=getRelevantLessons();const at=rl.findIndex(x=>x.i===state.lesson);const quizVal=state.quizAnswers[state.lesson];const correct=quizVal===l.quiz[2];
+ el.innerHTML=`<section class="paper"><div class="eyebrow">📖 Aprender las reglas <span class="pill mint">${htmlEscape(l.chapter)}</span></div>
+ <div class="dash-hero"><div><h2 class="h2">${htmlEscape(l.title.replace(/^\d+ · /,''))}</h2><p class="lead">${htmlEscape(l.lead)}</p></div><div class="count-bubble">${at+1} / ${rl.length}</div></div>
+ <div class="line"></div><div class="lesson-body">${l.body.map(x=>`<p>${x}</p>`).join('')}</div>
+ ${state.lesson===18?specialOxoPanel():''}
+ <div class="stepbox"><h3>🧭 Procedimiento paso a paso</h3><ol>${l.steps.map(x=>'<li>'+htmlEscape(x)+'</li>').join('')}</ol></div>
+ <div class="formulabox">${f(l.example)}<span class="subtext">${htmlEscape(l.examplename)}</span></div>
+ <div class="tip"><span>💡</span><span><strong>Ten en cuenta:</strong> ${htmlEscape(l.warning)}</span></div>
+ <div class="quiz"><small>Mini reto · comprueba lo aprendido</small><h3>${htmlEscape(l.quiz[0])}</h3><div class="answers">${l.quiz[1].map((a,i)=>`<button class="answer-btn ${quizVal!==undefined?(i===l.quiz[2]?'correct':i===quizVal?'wrong':''):''}" data-action="quiz" data-value="${i}" ${quizVal!==undefined?'disabled':''}>${String.fromCharCode(65+i)}. ${htmlEscape(a)}</button>`).join('')}</div>
+ ${quizVal!==undefined?`<div class="quiz-result">${correct?'✅ ¡Correcto!':'🔍 No es correcto.'} ${htmlEscape(l.quiz[3])} ${!correct?'<button class="btn small secondary" style="margin-top:8px" data-action="retry-quiz">Volver a intentarlo</button>':''}</div>`:''}</div>
+ <div class="line"></div><div class="stepper"><button class="btn secondary" data-action="lesson" data-value="${Math.max(0,at-1)>=0?rl[Math.max(0,at-1)].i:state.lesson}" ${at===0?'disabled':''}>← Anterior</button>
+ ${at<rl.length-1?`<button class="btn primary" data-action="lesson" data-value="${rl[at+1].i}">Siguiente lección →</button>`:`<button class="btn primary" data-action="module" data-value="name">Practicar lo aprendido →</button>`}</div></section>
+ <p class="footer">La calificación del mini reto se guarda únicamente en este navegador.</p>`;
+}
+function promptName(c){const names=c.names.filter(n=>state.promptScheme==='Todas'||n.kind.toLowerCase().includes(state.promptScheme.toLowerCase()));return choose(names.length?names:c.names)}
+function newExercise(){
+ let list=available();if(!list.length){state.exercise=null;return}
+ const alternatives=list.filter(x=>!state.recent.includes(x.id));
+ const chosen=choose(alternatives.length?alternatives:list);
+ state.recent.push(chosen.id);if(state.recent.length>Math.min(18,Math.ceil(list.length/2)))state.recent.shift();
+ state.exercise={id:chosen.id,prompt:promptName(chosen)};
+ state.entered='';state.answerState=null;state.locked=false;state.hints=0;
+}
+function renderPractice(el){
+ const isName=state.section==='name';if(state.exercise&&!available().some(x=>x.id===state.exercise.id))state.exercise=null;if(!state.exercise)newExercise();
+ const c=compounds.find(x=>x.id===state.exercise?.id);const list=available();
+ let schemeOptions=['Todas','Prefijos','Stock','Tradicional','Sustitución','Composición','Adición','Hidrógeno','Número de carga','Histórica'];
+ el.innerHTML=`<section class="paper"><div class="eyebrow">${isName?'✏️ Identifica el nombre':'⚗️ Construye la fórmula'} <span class="pill mint">${htmlEscape(state.category)}</span></div>
+ <h2 class="h2">${isName?'Aprende a nombrar':'Aprende a formular'}</h2><p class="lead">${isName?'Escribe una denominación válida para la fórmula. Se aceptan las nomenclaturas registradas para esa sustancia, incluso las históricas señaladas.':'Escribe la fórmula correcta a partir del nombre mostrado. Respeta símbolos, subíndices y cargas.'}</p>
+ <div class="control-row">
+ <div class="field"><label for="levelfield">Nivel máximo</label><select id="levelfield" data-setting="level">${[['Todos','Todos'],['1','Inicial'],['2','Intermedio'],['3','Avanzado']].map(([v,label])=>`<option value="${v}" ${state.level===v?'selected':''}>${label}</option>`).join('')}</select></div>
+ ${!isName?`<div class="field"><label for="schemefield">Tipo de nombre propuesto</label><select id="schemefield" data-setting="promptScheme">${schemeOptions.map(v=>`<option ${state.promptScheme===v?'selected':''}>${v}</option>`).join('')}</select></div>`:''}
+ <button class="btn secondary" data-action="next" type="button">↻ Nuevo ejercicio</button></div>
+ <div class="tiny">${list.length} sustancias compatibles con estos filtros · ${state.family==='Todas'?'Todas las familias':htmlEscape(state.family)}</div>
+ ${!c?`<div class="empty">No hay ejercicios para esta combinación de filtros. Prueba con «Todas».</div>`:
+ `<div class="prompt"><div class="instruction">${isName?'ESCRIBE EL NOMBRE DE':'ESCRIBE LA FÓRMULA DE'}</div>
+ ${isName?'<div>'+f(c.formula)+'</div>':'<div class="name">'+htmlEscape(state.exercise.prompt.text)+'</div>'}
+ <span class="familytag">${htmlEscape(taxonomyLabel(c))} · ${familyLevel(c)}</span></div>
+ <form id="answer-form" novalidate><label class="input-label" for="answer">${isName?'Nombre del compuesto o ion':'Fórmula química'}</label>
+ <input type="text" id="answer" class="text-input answer-input" placeholder="${isName?'Ej.: óxido de hierro(III)':'Ej.: Fe2(SO4)3 / SO4^2-'}" value="${htmlEscape(state.entered)}" autocomplete="off" autocapitalize="off" spellcheck="false" ${state.locked?'disabled':''} aria-describedby="inputhelp">
+ <div id="inputhelp" class="tiny" style="margin-top:6px">${isName?'Se admiten acentos opcionales y espacios alrededor de paréntesis. Los símbolos y números sí deben ser correctos.':'Puedes escribir números normales (Fe2O3) y ^2− para las cargas (SO4^2-). Las mayúsculas de los símbolos son importantes.'}</div>
+ ${!isName?`<div class="keyboard" aria-label="Teclado de símbolos">${['0','1','2','3','4','5','6','7','8','9','(',')','^','+','−'].map(v=>`<button class="key" type="button" data-action="insert" data-value="${v==='−'?'-':v}" aria-label="Insertar ${v}">${v}</button>`).join('')}</div>`:''}
+ <div class="actions" style="margin-top:16px"><button type="submit" class="btn primary" ${state.locked?'disabled':''}>✓ Comprobar respuesta</button><button type="button" class="btn secondary" data-action="hint" ${state.hints>=3||state.locked?'disabled':''}>💡 Pista (${state.hints}/3)</button><button type="button" class="btn secondary" data-action="reveal" ${state.locked?'disabled':''}>Ver solución</button></div></form>
+ <div class="hint-list">${Array.from({length:state.hints},(_,i)=>'<div class="hint">'+htmlEscape(hintText(c,i,isName))+'</div>').join('')}</div>
+ ${state.answerState?feedbackHTML(c,isName):''}
+ ${state.locked?'<div style="margin-top:17px"><button class="btn primary full" data-action="next">Siguiente ejercicio →</button></div>':''}`}
+ </section><div class="paper" style="padding:17px"><div class="section-title">Cómo usar el laboratorio</div><p class="aside-note" style="margin:0">El corrector distingue cargas y estados, identifica errores frecuentes y reconoce las variantes de nomenclatura registradas o deducidas mediante reglas comprobadas. No acepta cualquier nombre inventado. Si no conoces una respuesta, pide una pista y revisa la justificación antes de continuar.</p></div>`;
+}
+function hintText(c,step,isName){
+ if(step===0)return `Familia: ${c.family}. Nivel: ${familyLevel(c)}.`;
+ if(c.category==='Cuaternarios'&&step===1){
+  if(c.family==='Oxosales ácidas')return 'Busca el anión que todavía conserva H: HSO₄⁻, HCO₃⁻, H₂PO₄⁻ o HPO₄²⁻. Equilibra las cargas.';
+  if(c.family==='Sales básicas')return 'Contiene OH⁻ y otro anión: comprueba la proporción de cationes y de ambos aniones.';
+  return 'Hay dos cationes distintos. Suma sus cargas y neutralízalas con los iones sulfato SO₄²⁻.';
+ }
+ if(c.category==='Cuaternarios'&&step===2)return isName?'Comprueba si el nombre debe especificar hidrógeno, dos aniones o dos cationes.':'Los grupos poliatómicos repetidos necesitan paréntesis y el balance total debe ser cero.';
+ if(c.category==='Ternarios'&&step===1){
+  if(c.family==='Hidróxidos')return 'El grupo OH⁻ lleva carga −1 y se mantiene unido en la fórmula.';
+  if(c.family==='Oxosales neutras')return 'Identifica el oxoanión (por ejemplo SO₄²⁻) y equilibra su carga con el catión.';
+  if(c.family==='Oxoácidos')return 'Calcula el número de oxidación del elemento central: H suele ser +1 y O suele ser −2.';
+  return 'Busca el anión ácido con hidrógeno, sin oxígeno, y equilibra las cargas.';
+ }
+ if(c.category==='Ternarios'&&step===2)return isName?'Revisa la terminación tradicional o los prefijos y cargas admitidos.':'Comprueba que los paréntesis abarcan grupos enteros cuando se repiten.';
+ if(step===1){if(isName)return c.category==='Iones'?'Identifica primero si la carga es positiva o negativa y comprueba si el ion es monoatómico o poliatómico.':'Cuenta los átomos y localiza el número de oxidación cuando sea necesario.';
+ return c.category==='Iones'?'Recuerda que la carga se escribe como superíndice; con magnitud superior a uno puedes escribir ^2+ o ^3-.':'Construye una fórmula que respete la neutralidad eléctrica y los subíndices.'}
+ return isName?'Puede tener varios nombres correctos. Prueba con la nomenclatura de composición, el número de oxidación o el nombre tradicional si existe.':'Revisa si hay que simplificar una proporción o mantener intacto un grupo característico como O₂²⁻.';
+}
+/* Diagnóstico conservador: solo indica una causa cuando los datos la permiten.
+   No modifica los nombres admitidos ni inventa un nombre químico. */
+function formulaTokens(raw){
+ const s=normFormula(raw).replace(/\(aq\)$/i,'').replace(/\^(?:\d+)?[+-]$/,'').replace(/[+-]$/,'');
+ let i=0;const valid=/^[A-Z][a-z]?$/;
+ function parse(stop){const counts={};while(i<s.length){if(s[i]===')'){if(stop){i++;return counts}return null}
+ let sub;
+ if(s[i]==='('){i++;sub=parse(true);if(!sub)return null}
+ else{const m=s.slice(i).match(/^[A-Z][a-z]?/);if(!m||!valid.test(m[0]))return null;sub={[m[0]]:1};i+=m[0].length}
+ const m=s.slice(i).match(/^\d+/);const k=m?+m[0]:1;if(m)i+=m[0].length;if(!k||k>10000)return null;
+ for(const [x,n] of Object.entries(sub))counts[x]=(counts[x]||0)+n*k;
+ }return stop?null:counts}
+ return parse(false);
+}
+function formulaDiagnostic(c,input){
+ const target=normFormula(c.formula),got=normFormula(input);
+ if(!got)return ['Fórmula vacía','Escribe una fórmula para comprobarla.'];
+ if((target.endsWith('(aq)')!==got.endsWith('(aq)'))&&target.replace(/\(aq\)$/,'')===got.replace(/\(aq\)$/,''))
+   return ['Estado de la sustancia','La indicación (ac) distingue la disolución acuosa del compuesto puro; revisa el estado pedido.'];
+ const targetCharge=(target.match(/\^(\d+)?([+-])$/)||target.match(/([+-])$/)||[]).slice(-2).join('');
+ const gotCharge=(got.match(/\^(\d+)?([+-])$/)||got.match(/([+-])$/)||[]).slice(-2).join('');
+ if(targetCharge!==gotCharge)return ['Carga del ion','Comprueba magnitud y signo de la carga; no confundas el superíndice con los subíndices.'];
+ const want=formulaTokens(target),have=formulaTokens(got);
+ if(!have)return ['Sintaxis química','Revisa símbolos (primera letra mayúscula), paréntesis y números escritos detrás de los símbolos.'];
+ if(!want)return ['Fórmula','Revisa que la fórmula introducida corresponda a la especie del enunciado.'];
+ const differ=Object.keys({...want,...have}).filter(k=>want[k]!==have[k]);
+ if(differ.length){const absent=differ.filter(k=>!(k in want));const missing=differ.filter(k=>!(k in have));
+  if(absent.length||missing.length)return ['Elementos distintos',`Comprueba los símbolos químicos. ${missing.length?'Faltan: '+missing.join(', ')+'. ':''}${absent.length?'Sobran: '+absent.join(', ')+'.':''}`];
+  return ['Subíndices y proporciones','Los elementos son los adecuados, pero las cantidades de '+differ.join(', ')+' no coinciden. Comprueba el balance de cargas.'];
+ }
+ return ['Agrupación y escritura','El recuento de elementos coincide. Comprueba los paréntesis, la estructura y el orden convencional de la fórmula, y el estado físico si procede.'];
+}
+function diagnoseAnswer(c,input,isName){
+ if(!isName)return formulaDiagnostic(c,input);
+ const key=normName(input);const other=compounds.find(x=>x.id!==c.id&&x.names.some(n=>normName(n.text)===key));
+ if(other)return ['Compuesto diferente',`Ese nombre está registrado para ${other.formula} (${other.family}), no para ${c.formula}. Comprueba la fórmula del enunciado.`];
+ if(/\([ivx]+\)/i.test(input)||/\([1-4]\+\)/.test(input))return ['Estado de oxidación','Revisa el número romano o el número de carga y comprueba que corresponda al elemento y a la especie pedidos.'];
+ if(/\b(hipo|per|meta|orto|piro)/i.test(input))return ['Prefijo especial','Revisa si el prefijo corresponde al oxoácido concreto. Meta, orto y di no son intercambiables.'];
+ return ['Nombre no reconocido','Esa denominación no figura entre las variantes aceptadas de esta especie. Revisa composición, cargas y terminaciones; también puedes consultar Explorar.'];
+}
+function weakestFamily(){
+ return Object.entries(progress.byFamily).filter(([name,v])=>v.wrong>0)
+ .map(([family,v])=>({family,wrong:v.wrong,tries:v.correct+v.wrong,category:compounds.find(c=>c.family===family)?.category}))
+ .filter(x=>x.category).sort((a,b)=>b.wrong/(b.tries||1)-a.wrong/(a.tries||1)||b.wrong-a.wrong)[0];
+}
+function feedbackHTML(c,isName){const a=state.answerState,ok=a.type==='correct',reveal=a.type==='reveal';
+ const cls=ok?'':reveal?'neutral':'error';const title=ok?'¡Correcto! '+(a.matched?'Has usado «'+a.matched+'».':''):reveal?'Solución explicada':'Respuesta no válida todavía';
+ return `<div class="feedback ${cls}" role="status"><strong>${ok?'✅ ':reveal?'📘 ':'🔍 '}${htmlEscape(title)}</strong>
+ ${!ok&&!reveal?`<span class="error-explain"><strong>${htmlEscape(a.reason||'Revisar respuesta')}:</strong> ${htmlEscape(a.message||'Comprueba de nuevo símbolos, cargas y nombre.')}</span><div class="tiny" style="margin-top:7px">Puedes volver a intentarlo o pedir una pista. No se muestra la solución hasta que la solicites.</div>`:
+ `<div style="margin-top:7px">${isName?'Fórmula: '+htmlEscape(c.formula):'Fórmula correcta: '+htmlEscape(c.formula)}${!isName&&formulaAliases[c.formula]?' (también: '+formulaAliases[c.formula].map(htmlEscape).join(', ')+')':''}</div>
+ <div style="margin-top:7px"><strong style="font-size:12px">Denominaciones registradas:</strong><ul>${c.names.map(n=>`<li>${htmlEscape(n.text)} <small>(${htmlEscape(n.kind)})</small>${n.note?'<span class="tiny"> · '+htmlEscape(n.note)+'</span>':''}</li>`).join('')}</ul></div><div style="margin-top:8px">${htmlEscape(c.explain)}</div>`}
+ </div>`;
+}
+function updateStats(c,status,reason){
+ const family=c.family;
+ if(!progress.byFamily[family])progress.byFamily[family]={correct:0,wrong:0,skipped:0};
+ progress[status]++;progress.byFamily[family][status]++;if(status==='wrong'&&reason){progress.errors[reason]=(progress.errors[reason]||0)+1;}
+ progress.history.unshift({formula:c.formula,kind:state.section,status,family,reason:reason||'',date:new Date().toISOString()});progress.history=progress.history.slice(0,30);persist();
+}
+function checkAnswer(){if(state.locked||!state.exercise)return;const c=compounds.find(x=>x.id===state.exercise.id),answer=document.getElementById('answer')?.value||'';state.entered=answer;
+ if(!answer.trim()){state.answerState={type:'error'};renderMain();return}
+ let match;
+ if(state.section==='name')match=c.names.find(n=>normName(n.text)===normName(answer));
+ else match=[c.formula,...(formulaAliases[c.formula]||[])].some(form=>normFormula(answer)===normFormula(form))?{kind:'Fórmula correcta'}:null;
+ if(match){updateStats(c,'correct');state.locked=true;state.answerState={type:'correct',matched:state.section==='name'?match.kind:''}}
+ else{const [reason,message]=diagnoseAnswer(c,answer,state.section==='name');updateStats(c,'wrong',reason);state.answerState={type:'error',reason,message}}
+ renderMain();if(!state.locked)document.getElementById('answer')?.focus();
+}
+/* v0.5 · Tabla periódica de consulta con los 118 elementos y
+   algunos elementos del repertorio. Posiciones reales de la tabla larga. */
+const periodicElements=[[1,"H","Hidrógeno",1,1,"+1; −1 (hidruros)","No metales",1,1],[2,"He","Helio",1,18,"0","Gases nobles",18,1],[3,"Li","Litio",2,1,"+1","Alcalinos",1,2],[4,"Be","Berilio",2,2,"+2","Alcalinotérreos",2,2],[5,"B","Boro",2,13,"+3","Metaloides",13,2],[6,"C","Carbono",2,14,"−4; +2; +4","No metales",14,2],[7,"N","Nitrógeno",2,15,"−3; +3; +5","No metales",15,2],[8,"O","Oxígeno",2,16,"−2; −1 (peróxidos)","No metales",16,2],[9,"F","Flúor",2,17,"−1","Halógenos",17,2],[10,"Ne","Neón",2,18,"0","Gases nobles",18,2],[11,"Na","Sodio",3,1,"+1","Alcalinos",1,3],[12,"Mg","Magnesio",3,2,"+2","Alcalinotérreos",2,3],[13,"Al","Aluminio",3,13,"+3","Otros metales",13,3],[14,"Si","Silicio",3,14,"+4","Metaloides",14,3],[15,"P","Fósforo",3,15,"−3; +3; +5","No metales",15,3],[16,"S","Azufre",3,16,"−2; +4; +6","No metales",16,3],[17,"Cl","Cloro",3,17,"−1; +1; +3; +5; +7","Halógenos",17,3],[18,"Ar","Argón",3,18,"0","Gases nobles",18,3],[19,"K","Potasio",4,1,"+1","Alcalinos",1,4],[20,"Ca","Calcio",4,2,"+2","Alcalinotérreos",2,4],[21,"Sc","Escandio",4,3,"+3","Metales de transición",3,4],[22,"Ti","Titanio",4,4,"+2; +3; +4","Metales de transición",4,4],[23,"V","Vanadio",4,5,"+2; +3; +4; +5","Metales de transición",5,4],[24,"Cr","Cromo",4,6,"+2; +3; +6","Metales de transición",6,4],[25,"Mn","Manganeso",4,7,"+2; +4; +7","Metales de transición",7,4],[26,"Fe","Hierro",4,8,"+2; +3","Metales de transición",8,4],[27,"Co","Cobalto",4,9,"+2; +3","Metales de transición",9,4],[28,"Ni","Níquel",4,10,"+2; +3","Metales de transición",10,4],[29,"Cu","Cobre",4,11,"+1; +2","Metales de transición",11,4],[30,"Zn","Zinc",4,12,"+2","Metales de transición",12,4],[31,"Ga","Galio",4,13,"+3","Otros metales",13,4],[32,"Ge","Germanio",4,14,"+4","Metaloides",14,4],[33,"As","Arsénico",4,15,"−3; +3; +5","Metaloides",15,4],[34,"Se","Selenio",4,16,"−2; +4; +6","No metales",16,4],[35,"Br","Bromo",4,17,"−1; +1; +3; +5; +7","Halógenos",17,4],[36,"Kr","Kriptón",4,18,"0","Gases nobles",18,4],[37,"Rb","Rubidio",5,1,"+1","Alcalinos",1,5],[38,"Sr","Estroncio",5,2,"+2","Alcalinotérreos",2,5],[39,"Y","Itrio",5,3,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",3,5],[40,"Zr","Circonio",5,4,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",4,5],[41,"Nb","Niobio",5,5,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",5,5],[42,"Mo","Molibdeno",5,6,"+4; +6","Metales de transición",6,5],[43,"Tc","Tecnecio",5,7,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",7,5],[44,"Ru","Rutenio",5,8,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",8,5],[45,"Rh","Rodio",5,9,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",9,5],[46,"Pd","Paladio",5,10,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",10,5],[47,"Ag","Plata",5,11,"+1","Metales de transición",11,5],[48,"Cd","Cadmio",5,12,"+2","Metales de transición",12,5],[49,"In","Indio",5,13,"Consulta específica; no se trabaja en los ejercicios","Otros metales",13,5],[50,"Sn","Estaño",5,14,"+2; +4","Otros metales",14,5],[51,"Sb","Antimonio",5,15,"Consulta específica; no se trabaja en los ejercicios","Metaloides",15,5],[52,"Te","Telurio",5,16,"Consulta específica; no se trabaja en los ejercicios","Metaloides",16,5],[53,"I","Yodo",5,17,"−1; +1; +3; +5; +7","Halógenos",17,5],[54,"Xe","Xenón",5,18,"0; +2; +4; +6","Gases nobles",18,5],[55,"Cs","Cesio",6,1,"+1","Alcalinos",1,6],[56,"Ba","Bario",6,2,"+2","Alcalinotérreos",2,6],[72,"Hf","Hafnio",6,4,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",4,6],[73,"Ta","Tántalo",6,5,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",5,6],[74,"W","Wolframio",6,6,"+4; +6","Metales de transición",6,6],[75,"Re","Renio",6,7,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",7,6],[76,"Os","Osmio",6,8,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",8,6],[77,"Ir","Iridio",6,9,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",9,6],[78,"Pt","Platino",6,10,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",10,6],[79,"Au","Oro",6,11,"+1; +3","Metales de transición",11,6],[80,"Hg","Mercurio",6,12,"+1 (en Hg₂²⁺); +2","Metales de transición",12,6],[81,"Tl","Talio",6,13,"Consulta específica; no se trabaja en los ejercicios","Otros metales",13,6],[82,"Pb","Plomo",6,14,"+2; +4","Otros metales",14,6],[83,"Bi","Bismuto",6,15,"+3; +5","Otros metales",15,6],[84,"Po","Polonio",6,16,"Consulta específica; no se trabaja en los ejercicios","Otros metales",16,6],[85,"At","Astato",6,17,"Consulta específica; no se trabaja en los ejercicios","Halógenos",17,6],[86,"Rn","Radón",6,18,"Consulta específica; no se trabaja en los ejercicios","Gases nobles",18,6],[87,"Fr","Francio",7,1,"Consulta específica; no se trabaja en los ejercicios","Alcalinos",1,7],[88,"Ra","Radio",7,2,"Consulta específica; no se trabaja en los ejercicios","Alcalinotérreos",2,7],[104,"Rf","Rutherfordio",7,4,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",4,7],[105,"Db","Dubnio",7,5,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",5,7],[106,"Sg","Seaborgio",7,6,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",6,7],[107,"Bh","Bohrio",7,7,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",7,7],[108,"Hs","Hassio",7,8,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",8,7],[109,"Mt","Meitnerio",7,9,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",9,7],[110,"Ds","Darmstatio",7,10,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",10,7],[111,"Rg","Roentgenio",7,11,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",11,7],[112,"Cn","Copernicio",7,12,"Consulta específica; no se trabaja en los ejercicios","Metales de transición",12,7],[113,"Nh","Nihonio",7,13,"Consulta específica; no se trabaja en los ejercicios","Otros metales",13,7],[114,"Fl","Flerovio",7,14,"Consulta específica; no se trabaja en los ejercicios","Otros metales",14,7],[115,"Mc","Moscovio",7,15,"Consulta específica; no se trabaja en los ejercicios","Otros metales",15,7],[116,"Lv","Livermorio",7,16,"Consulta específica; no se trabaja en los ejercicios","Otros metales",16,7],[117,"Ts","Teneso",7,17,"Consulta específica; no se trabaja en los ejercicios","Halógenos",17,7],[118,"Og","Oganesón",7,18,"Consulta específica; no se trabaja en los ejercicios","Gases nobles",18,7],[57,"La","Lantano",8,3,"+3","Lantánidos",null,6],[58,"Ce","Cerio",8,4,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[59,"Pr","Praseodimio",8,5,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[60,"Nd","Neodimio",8,6,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[61,"Pm","Prometio",8,7,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[62,"Sm","Samario",8,8,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[63,"Eu","Europio",8,9,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[64,"Gd","Gadolinio",8,10,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[65,"Tb","Terbio",8,11,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[66,"Dy","Disprosio",8,12,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[67,"Ho","Holmio",8,13,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[68,"Er","Erbio",8,14,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[69,"Tm","Tulio",8,15,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[70,"Yb","Iterbio",8,16,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[71,"Lu","Lutecio",8,17,"Consulta específica; no se trabaja en los ejercicios","Lantánidos",null,6],[89,"Ac","Actinio",9,3,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[90,"Th","Torio",9,4,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[91,"Pa","Protactinio",9,5,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[92,"U","Uranio",9,6,"+4; +6","Actínidos",null,7],[93,"Np","Neptunio",9,7,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[94,"Pu","Plutonio",9,8,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[95,"Am","Americio",9,9,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[96,"Cm","Curio",9,10,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[97,"Bk","Berkelio",9,11,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[98,"Cf","Californio",9,12,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[99,"Es","Einstenio",9,13,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[100,"Fm","Fermio",9,14,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[101,"Md","Mendelevio",9,15,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[102,"No","Nobelio",9,16,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7],[103,"Lr","Laurencio",9,17,"Consulta específica; no se trabaja en los ejercicios","Actínidos",null,7]];
+const constructorAnions={
+ Binarios:[['O','óxido',-2],['Cl','cloruro',-1],['S','sulfuro',-2],['F','fluoruro',-1],['Br','bromuro',-1]],
+ Ternarios:[['OH','hidróxido',-1],['NO3','nitrato',-1],['SO4','sulfato',-2],['CO3','carbonato',-2],['PO4','fosfato',-3]],
+ Cuaternarios:[['HSO4','hidrogenosulfato',-1],['HCO3','hidrogenocarbonato',-1],['H2PO4','dihidrogenofosfato',-1],['HPO4','hidrogenofosfato',-2]]
+};
+function parseIonicCode(s){const m=s.match(/^([A-Z][a-z]?)([1-4])$/);return m?{el:m[1],q:+m[2]}:null}
+function buildNeutralFormula(m,anion,q){const d=gcd(m.q,-q),na=m.q/d,nm=-q/d;return m.el+(nm>1?nm:'')+(na>1&&anion.length>1?'('+anion+')'+na:anion+(na>1?na:''));}
+function possibleConstructor(){const m=parseIonicCode(state.builderMetal),a=(constructorAnions[state.category]||[]).find(x=>x[0]===state.builderAnion);if(!m||!a)return null;const expected=buildNeutralFormula(m,a[0],a[2]);const found=compounds.find(c=>c.category===state.category&&(c.formula===expected||(formulaAliases[c.formula]||[]).includes(expected)));return {m,a,expected,found};}
+function renderPeriodicTable(){
+ const el=periodicElements.find(x=>x[1]===state.elementFilter);
+ const names=Object.fromEntries(periodicElements.map(e=>[e[1],e[2]]));
+ const numberByElement={};for(const c of compounds){for(const sym of new Set(c.formula.match(/[A-Z][a-z]?/g)||[]))numberByElement[sym]=(numberByElement[sym]||0)+1;}
+ const types=[...new Set(periodicElements.map(e=>e[6]))];
+ return `<section class="reference-subpanel"><h3>Tabla periódica completa · 118 elementos</h3>
+ <p class="aside-note">Los <strong>118 elementos</strong> tienen nombre, símbolo y número atómico. Las dos filas separadas corresponden a lantánidos y actínidos. Los números de oxidación solo se muestran cuando hay información didáctica seleccionada; no constituyen una lista exhaustiva.</p>
+ <div class="periodic-tools"><label for="periodicSearch" class="tiny">Buscar un elemento</label><input id="periodicSearch" type="search" placeholder="Símbolo, nombre o número atómico" autocomplete="off" aria-label="Buscar en tabla periódica"><span class="tiny">Pulsa un elemento para filtrar los compuestos</span></div>
+ <div class="periodic-scroll"><div class="periodic-grid">
+ <div class="periodic-placeholder" style="grid-row:6;grid-column:3">57–71<span>↓</span></div><div class="periodic-placeholder" style="grid-row:7;grid-column:3">89–103<span>↓</span></div>
+ ${periodicElements.map(([z,sym,name,row,col,ox,group])=>`<button class="element-box ${state.elementFilter===sym?'active':''}" style="grid-row:${row};grid-column:${col}" data-action="element" data-value="${sym}" data-search="${normName(name)} ${sym.toLowerCase()} ${z}" title="${htmlEscape(name)} · ${z}" aria-label="${htmlEscape(name)}, elemento ${z}${numberByElement[sym]?', '+numberByElement[sym]+' sustancias en la biblioteca':''}" aria-pressed="${state.elementFilter===sym}"><small>${z}</small><strong>${sym}</strong>${numberByElement[sym]?'<i aria-hidden="true"></i>':''}</button>`).join('')}
+ </div></div>
+ <div class="periodic-legend"><span><i class="element-dot"></i> Punto verde: aparece en la biblioteca</span><span>Solo se generan ejercicios con sustancias registradas</span></div>
+ ${el?`<div class="element-info"><strong>${htmlEscape(el[2])} (${el[1]})</strong> · N.º atómico: ${el[0]} · Período ${el[8]}${el[7]?' · Grupo '+el[7]:''} · ${htmlEscape(el[6])}<div class="tiny" style="margin-top:5px">Números de oxidación: ${htmlEscape(el[5])}</div><div class="tiny" style="margin-top:5px">${numberByElement[el[1]]||0} sustancias o iones en el repertorio actual.</div><div style="margin-top:9px"><button class="btn small secondary" data-action="clear-element">Quitar filtro</button></div></div>`:'<p class="tiny">Selecciona un símbolo para ver su ficha y filtrar las fórmulas que lo contienen. Un elemento puede figurar en la tabla sin contar aún con compuestos de práctica.</p>'}
+ </section>`
+}
+function renderBuilder(){const list=constructorAnions[state.category];if(!list)return `<div class="empty">Los iones se consultan individualmente en la biblioteca. Selecciona Binarios, Ternarios o Cuaternarios para combinar un catión con un anión.</div>`;
+ if(!list.some(x=>x[0]===state.builderAnion))state.builderAnion=list[0][0];
+ const allMetals=Object.entries(metals).flatMap(([sym,m])=>m.charges.map(q=>({value:sym+q,label:m.name+' ('+q+'+)',el:sym,q})));
+ if(!allMetals.some(x=>x.value===state.builderMetal))state.builderMetal='Na1';
+ const c=possibleConstructor();if(!c)return '';
+ return `<section class="reference-subpanel"><h3>Constructor de fórmulas por neutralidad</h3><p class="aside-note">Selecciona dos iones para calcular la proporción de cargas. Solo se propone como ejercicio una especie incluida y revisada en la biblioteca.</p><div class="control-row"><div class="field"><label>Catión metálico</label><select data-setting="builderMetal">${allMetals.map(x=>`<option value="${x.value}" ${x.value===state.builderMetal?'selected':''}>${htmlEscape(x.label)}</option>`).join('')}</select></div><div class="field"><label>Anión</label><select data-setting="builderAnion">${list.map(x=>`<option value="${x[0]}" ${x[0]===state.builderAnion?'selected':''}>${htmlEscape(x[1])} (${x[2]}−)</option>`).join('')}</select></div></div><div class="build-result"><div class="tiny">Proporción eléctricamente neutra</div>${f(c.expected,'sm')}<p>${htmlEscape(c.m.el)}: +${c.m.q} · ${htmlEscape(c.a[1])}: ${c.a[2]} · suma de cargas = 0</p>${c.found?`<span class="pill mint">Incluido en la biblioteca</span><div class="actions" style="margin-top:12px"><button class="btn primary small" data-action="open-built" data-value="${c.found.id}">Ver denominaciones</button><button class="btn secondary small" data-action="practice-detail" data-value="formula:${c.found.id}">Practicar fórmula</button></div>`:`<div class="tip">Esta combinación no forma parte de las especies validadas para esta versión. Que las cargas cuadren <strong>no garantiza</strong> que exista una sustancia aislable con esta fórmula.</div>`}</div></section>`;
+}
+
+function renderExplore(el){const isLib=state.exploreTab==='biblioteca';el.innerHTML=`<section class="paper"><div class="eyebrow">🔎 Explorar <span class="pill mint">${htmlEscape(state.category)}</span></div><h2 class="h2">Explora las sustancias y sus reglas</h2><p class="lead">Consulta las nomenclaturas reconocidas, filtra con la tabla periódica o comprueba el equilibrio eléctrico al construir fórmulas.</p><div class="explore-tabs" role="group" aria-label="Herramientas de exploración">${[['biblioteca','📚 Biblioteca'],['periodica','⚛ Tabla periódica'],['constructor','🧩 Constructor']].map(([k,t])=>`<button class="chip ${state.exploreTab===k?'active':''}" data-action="explore-tab" data-value="${k}" aria-pressed="${state.exploreTab===k}">${t}</button>`).join('')}</div>
+ ${state.exploreTab==='periodica'?renderPeriodicTable():state.exploreTab==='constructor'?renderBuilder():''}
+ <div class="control-row"><div class="field"><label for="exploreSearch">Buscar en la biblioteca</label><input type="search" id="exploreSearch" placeholder="Ej.: hierro, Fe, sulfato…" value="${htmlEscape(state.search)}" autocomplete="off"></div><button class="btn secondary" data-action="random-explore">🎲 Al azar</button></div>
+ ${state.elementFilter?`<div class="tip blue">Filtro por elemento <strong>${htmlEscape(state.elementFilter)}</strong> · <button class="btn small secondary" data-action="clear-element">Limpiar</button></div>`:''}
+ <div class="chips">${perCategoryFamilies[state.category].map(fam=>`<button class="chip ${state.family===fam?'active':''}" data-action="family" data-value="${htmlEscape(fam)}">${htmlEscape(fam)}</button>`).join('')}</div><div id="explore-results"></div></section>`;renderExploreResults()}
+function renderExploreResults(){const place=document.getElementById('explore-results');if(!place)return;
+ const s=normName(state.search);const sf=normFormula(state.search);
+ const results=compounds.filter(c=>c.category===state.category&&(state.family==='Todas'||c.family===state.family)&&(!state.elementFilter||((c.formula.match(/[A-Z][a-z]?/g)||[]).includes(state.elementFilter)))&&(!s||normName(c.formula).includes(s)||normFormula(c.formula).toLowerCase().includes(sf.toLowerCase())||normName(c.family).includes(s)||c.names.some(n=>normName(n.text).includes(s))));
+ const visible=results.slice(0,state.showLimit);
+ let selected=compounds.find(c=>c.id===state.detailId);
+ if(!selected||!results.some(c=>c.id===selected.id))selected=visible[0];
+ place.innerHTML=`<div class="tiny" style="margin-top:16px">${results.length} resultado(s) · mostrando ${visible.length}</div>
+ ${results.length?`<div class="result-list">${visible.map(c=>`<button class="result ${selected?.id===c.id?'active':''}" data-action="detail" data-value="${c.id}">${f(c.formula,'sm')}<div class="resultname">${htmlEscape(c.names[0].text)}<br><span class="tiny">${htmlEscape(c.family)}</span></div></button>`).join('')}</div>`:'<div class="empty" style="margin-top:16px">Sin coincidencias en esta categoría. Prueba con otro nombre o fórmula.</div>'}
+ ${visible.length<results.length?`<div style="text-align:center;margin-top:12px"><button class="btn secondary" data-action="more">Mostrar más resultados (${results.length-visible.length} restantes)</button></div>`:''}
+ ${selected?`<div class="detail-card"><div class="eyebrow">Ficha del compuesto</div>${f(selected.formula)}<div class="chips" style="margin:13px 0"><span class="pill blue">${htmlEscape(selected.family)}</span><span class="pill gray">Nivel ${familyLevel(selected)}</span></div>
+ <h3 class="section-title">Nomenclaturas reconocidas</h3>${selected.names.map(n=>`<div class="name-row"><div><strong>${htmlEscape(n.text)}</strong>${n.note?`<div class="tiny">${htmlEscape(n.note)}</div>`:''}</div><span class="pill gray">${htmlEscape(n.kind)}</span></div>`).join('')}
+ <p class="aside-note">${htmlEscape(selected.explain)}</p><div class="actions"><button class="btn small primary" data-action="practice-detail" data-value="name:${selected.id}">✏️ Nombrar</button><button class="btn small secondary" data-action="practice-detail" data-value="formula:${selected.id}">⚗️ Formular</button></div></div>`:''}`;
+}
+function renderProgress(el){
+ const total=progress.correct+progress.wrong;
+ const pct=total?Math.round(100*progress.correct/total):0;
+ const famEntries=Object.entries(progress.byFamily).sort((a,b)=>(b[1].correct+b[1].wrong)-(a[1].correct+a[1].wrong));
+ el.innerHTML=`<section class="paper"><div class="eyebrow">📊 Tu aprendizaje</div><h2 class="h2">Progreso y resultados</h2><p class="lead">Los datos se guardan localmente en este navegador. No se necesita registro ni conexión a internet.</p>
+ <div class="stats-grid" style="margin-top:20px"><div class="stat"><strong>${progress.correct}</strong><small>Respuestas correctas</small></div><div class="stat"><strong>${progress.wrong}</strong><small>Intentos fallidos</small></div><div class="stat"><strong>${pct}%</strong><small>Acierto por intento</small></div></div>
+ <div class="stepbox"><div class="section-title">Precisión global</div><div class="progressbar"><span style="width:${pct}%"></span></div><div class="tiny">${total} comprobaciones realizadas; ${progress.skipped} ejercicios saltados.</div></div>
+ <div style="margin-top:22px"><h3 class="section-title">Progreso por familia</h3>${famEntries.length?famEntries.map(([name,v])=>{let t=v.correct+v.wrong,p=t?Math.round(v.correct/t*100):0;return `<div class="barrow"><div>${htmlEscape(name)}</div><div class="progressbar"><span style="width:${p}%"></span></div><div class="tiny" style="text-align:right">${p}%</div></div>`}).join(''):'<div class="empty">Todavía no hay ejercicios resueltos. Empieza en Nombrar o Formular.</div>'}</div>
+ <div class="line"></div><h3 class="section-title">¿Qué conceptos necesitas reforzar?</h3>
+ ${Object.keys(progress.errors).length?Object.entries(progress.errors).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([reason,n])=>`<div class="barrow"><div>${htmlEscape(reason)}</div><div class="progressbar"><span style="width:${Math.round(100*n/Math.max(1,progress.wrong))}%"></span></div><div class="tiny" style="text-align:right">${n}</div></div>`).join(''):'<div class="empty">Cuando revises errores aparecerán aquí agrupados por tipo.</div>'}
+ ${weakestFamily()?`<div class="tip blue"><span>🎯</span><span>Familia que conviene reforzar: <strong>${htmlEscape(weakestFamily().family)}</strong><div style="margin-top:10px"><button class="btn small primary" data-action="practice-hard">Practicar esta familia</button></div></span></div>`:''}
+ <div class="line"></div><h3 class="section-title">Lecciones superadas</h3><div class="stats-grid" style="grid-template-columns:1fr 1fr"><div class="stat"><strong>${progress.completedLessons.length}/${lessons.length}</strong><small>Mini retos correctos</small></div><div class="stat"><strong>${Math.round(100*progress.completedLessons.length/lessons.length)}%</strong><small>Itinerario completo</small></div></div>
+ <div class="line"></div><h3 class="section-title">Actividad reciente</h3>${progress.history.length?`<div class="stack">${progress.history.slice(0,10).map(h=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #e9eef4;padding:8px 0"><span>${f(h.formula,'xs')} <span class="tiny">· ${htmlEscape(h.family)} ${h.reason?'· '+htmlEscape(h.reason):''}</span></span><span class="pill ${h.status==='correct'?'mint':h.status==='wrong'?'amber':'gray'}">${h.status==='correct'?'Correcta':h.status==='wrong'?'Revisar':'Saltada'}</span></div>`).join('')}</div>`:'<div class="empty">Aún no hay historial.</div>'}
+ <div class="actions" style="margin-top:23px"><button class="btn danger" data-action="reset-progress">Borrar progreso local</button></div></section>`;
+}
+function setCategory(cat){if(!categories.some(c=>c[0]===cat))return;state.category=cat;state.family='Todas';state.search='';state.showLimit=16;state.detailId=null;state.exercise=null;state.elementFilter='';state.quizAnswers={};
+ const lessonsThere=getRelevantLessons();if(cat==='Iones')state.lesson=4;else if(cat==='Binarios')state.lesson=6;else if(cat==='Ternarios')state.lesson=14;else if(cat==='Cuaternarios')state.lesson=23;else state.lesson=0;
+ if(state.section==='progress'){}render();
+}
+function setModule(section){state.section=section;state.family='Todas';state.exercise=null;state.search='';state.detailId=null;state.showLimit=16;state.elementFilter='';
+ if(section==='learn')chooseLessonCategory();render();
+}
+function doInsert(value){const input=document.getElementById('answer');if(!input||state.locked)return;
+ const start=input.selectionStart??input.value.length,end=input.selectionEnd??input.value.length;
+ input.value=input.value.slice(0,start)+value+input.value.slice(end);state.entered=input.value;input.focus();input.setSelectionRange(start+value.length,start+value.length)}
+function detailPractice(val){const [module,id]=val.split(':');if(!['name','formula'].includes(module))return;
+ const c=compounds.find(c=>c.id===id);if(!c)return;state.section=module;state.category=c.category;state.family=c.family;state.level='Todos';state.promptScheme='Todas';state.exercise={id:c.id,prompt:promptName(c)};state.entered='';state.locked=false;state.answerState=null;state.hints=0;render();}
+document.addEventListener('click',event=>{
+ const btn=event.target.closest('[data-action]');if(!btn)return;
+ const act=btn.dataset.action,value=btn.dataset.value;
+ if(act==='module')setModule(value);
+ else if(act==='category')setCategory(value);
+ else if(act==='family'){state.family=value;state.detailId=null;state.showLimit=16;state.exercise=null;render();}
+ else if(act==='special'){state.specialCase=Number(value);renderMain()}
+ else if(act==='explore-tab'){state.exploreTab=value;renderMain()}
+ else if(act==='element'){state.elementFilter=state.elementFilter===value?'':value;state.detailId=null;state.showLimit=16;renderMain()}
+ else if(act==='clear-element'){state.elementFilter='';state.detailId=null;renderMain()}
+ else if(act==='open-built'){state.exploreTab='biblioteca';state.search='';state.elementFilter='';state.family='Todas';state.detailId=value;state.showLimit=compounds.filter(c=>c.category===state.category).findIndex(c=>c.id===value)+1;renderMain()}
+ else if(act==='practice-hard'){const worst=weakestFamily();if(worst){state.category=worst.category;state.family=worst.family;state.section='name';state.exercise=null;render()}}
+ else if(act==='lesson'){state.lesson=Number(value);render();}
+ else if(act==='quiz'){
+  const i=Number(value);state.quizAnswers[state.lesson]=i;
+  if(i===lessons[state.lesson].quiz[2]&&!progress.completedLessons.includes(state.lesson)){progress.completedLessons.push(state.lesson);persist()}
+  render();
+ }else if(act==='retry-quiz'){delete state.quizAnswers[state.lesson];renderMain()}
+ else if(act==='next'){state.exercise=null;newExercise();renderMain()}
+ else if(act==='hint'){state.hints=Math.min(3,state.hints+1);state.entered=document.getElementById('answer')?.value||state.entered;renderMain()}
+ else if(act==='reveal'){
+  if(!state.exercise||state.locked)return;const c=compounds.find(x=>x.id===state.exercise.id);
+  updateStats(c,'skipped');state.entered=document.getElementById('answer')?.value||state.entered;state.answerState={type:'reveal'};state.locked=true;render();
+ }else if(act==='insert')doInsert(value);
+ else if(act==='detail'){state.detailId=value;renderExploreResults()}
+ else if(act==='more'){state.showLimit+=16;renderExploreResults()}
+ else if(act==='random-explore'){
+  const pool=compounds.filter(c=>c.category===state.category&&(state.family==='Todas'||c.family===state.family));const candidate=choose(pool);
+  if(candidate){state.search='';state.detailId=candidate.id;state.showLimit=Math.max(16,pool.findIndex(c=>c.id===candidate.id)+1);renderMain()}
+ }else if(act==='practice-detail')detailPractice(value);
+ else if(act==='reset-progress'){
+  if(window.confirm('¿Borrar el progreso de formulación inorgánica guardado en este navegador?')){progress=blankProgress();state.quizAnswers={};persist();render()}
+ }
+});
+document.addEventListener('change',event=>{
+ const key=event.target.dataset.setting;if(!key)return;
+ state[key]=event.target.value;state.exercise=null;state.recent=[];renderMain();
+});
+document.addEventListener('input',event=>{
+ if(event.target.id==='periodicSearch'){
+  const q=normName(event.target.value.trim());
+  document.querySelectorAll('.element-box').forEach(el=>{el.classList.toggle('dimmed',!!q&&!normName(el.dataset.search).includes(q));});
+ }
+ if(event.target.id==='answer')state.entered=event.target.value;
+ if(event.target.id==='exploreSearch'){state.search=event.target.value;state.showLimit=16;state.detailId=null;renderExploreResults()}
+});
+document.addEventListener('submit',event=>{if(event.target.id==='answer-form'){event.preventDefault();checkAnswer()}});
+/* Comenzamos por los fundamentos, antes de aprender las familias. */
+state.lesson=0;
+render();
+</script>
+</body>
+</html>
