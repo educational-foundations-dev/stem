@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#12273a"><meta name="description" content="Aprende formulación y nomenclatura: hidrocarburos, ciclos, aromáticos y grupos funcionales. Funciona sin conexión."><title>Química Orgánica · Laboratorio v0.3.1</title><style>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#12273a"><meta name="description" content="Aprende formulación y nomenclatura: hidrocarburos, ciclos, aromáticos y grupos funcionales. Funciona sin conexión."><title>Química Orgánica · Laboratorio v0.4.1</title><style>
 :root {--navy:#12273a;--navy2:#1a354d;--teal:#008e91;--teal-light:#e2f4f2;--ink:#1e3448;--muted:#667a8a;--line:#dce6ec;--bg:#f3f6f9;--white:#fff;--green:#147d54;--red:#ad3e40;--amber:#966310;--shadow:0 8px 28px rgba(20,45,65,.045)}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.43;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #5ccbc5;outline-offset:2px}h1,h2,h3,p{margin-top:0}p{line-height:1.57}h1{font-size:clamp(1.65rem,3vw,2.4rem);letter-spacing:-.045em;line-height:1.14;margin-bottom:12px}h2{font-size:1.32rem;letter-spacing:-.03em;margin-bottom:10px}h3{font-size:1.04rem;letter-spacing:-.015em;margin-bottom:9px}.small{font-size:.84rem}.micro{font-size:.71rem}.muted{color:var(--muted)}.strong{font-weight:700}.eyebrow{text-transform:uppercase;letter-spacing:.13em;color:var(--teal);font-size:.69rem;font-weight:800}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.nowrap{white-space:nowrap}
 .shell{min-height:100vh;display:grid;grid-template-columns:238px minmax(0,1fr)}.sidebar{background:var(--navy);color:#fff;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:25px 15px}.logo{display:flex;align-items:center;gap:12px;padding:2px 10px 25px;border-bottom:1px solid #355065}.logo-icon{display:grid;place-items:center;width:39px;height:39px;border:1px solid #68c6c4;border-radius:12px;color:#83dfd6;font-size:26px}.logo-name{font-weight:800;letter-spacing:-.03em;line-height:1.1}.logo-sub{font-size:.68rem;color:#afc4d1;margin-top:4px}.side-caption{font-size:.67rem;font-weight:800;letter-spacing:.12em;color:#799aab;margin:26px 12px 10px}.nav{display:flex;flex-direction:column;gap:4px}.nav button{display:flex;align-items:center;gap:11px;width:100%;text-align:left;border:0;border-radius:10px;padding:12px;color:#c8d8e1;background:none;font-size:.91rem}.nav button:hover,.nav button.active{background:#28445a;color:#fff}.nav-icon{width:22px;text-align:center;color:#83d7d2;font-weight:750}.side-bottom{margin-top:auto;padding:16px 12px 5px;border-top:1px solid #355065;color:#9cb3c2;font-size:.77rem;line-height:1.5}.version{display:inline-block;background:#224d58;border-radius:100px;padding:3px 8px;color:#9ce3dc;font-size:.69rem;font-weight:800;margin-top:8px}
@@ -27,7 +27,7 @@
 .main-carbon:disabled{opacity:1;color:#203e50;background:#fff;cursor:default}.bond-btn:disabled{opacity:1;cursor:default}
 .selector-bar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.selector-bar .field{min-width:175px;max-width:260px}.mol-board{min-height:205px;display:grid;place-items:center;overflow-x:auto;background:#f8fbfd;border:1px solid var(--line);border-radius:12px;padding:12px}.chem-svg{height:auto;max-height:290px;max-width:100%;width:auto}.chem-layout{max-width:100%;overflow-x:auto;overflow-y:hidden}.semibox{padding:6px 8px}.chem-svg text{font-family:ui-sans-serif,system-ui,-apple-system,Arial,sans-serif}.panel-title{font-size:.77rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:750}.editor-cells{display:flex;gap:0;align-items:center;justify-content:center;min-width:max-content;padding:16px 6px}.edit-atom{min-width:56px;display:flex;flex-direction:column;align-items:center;gap:5px}.edit-atom .main-carbon{border:1px solid #c7dbe1;border-radius:8px;background:#fff;padding:8px;min-width:45px;font-weight:850;color:#204154}.edit-atom .main-carbon.chosen{background:#dff5ef;border-color:#1ba19b}.branch-btn{font-size:.72rem;border:1px dashed #adc9d3;border-radius:8px;background:#f5fafb;color:#537788;min-width:64px;min-height:30px;padding:5px}.branch-btn.on{color:#007c7e;background:#dff3f1;border-style:solid}.control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px}.mini-panel{background:#f8fbfd;border-radius:10px;border:1px solid var(--line);padding:14px}.mini-panel .field{margin-top:9px}.editor-tip{font-size:.77rem;color:#5b7281;line-height:1.45}.mol-facts{display:flex;gap:12px;flex-wrap:wrap}.mol-facts>span{background:#eaf5f5;padding:7px 10px;border-radius:8px;font-size:.78rem;color:#206772}.linkline{border-left:3px solid #4fb8b1;padding:8px 12px;margin:8px 0;background:#f3faf9}.lesson-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.lesson-card{padding:22px}.lesson-card ul{line-height:1.7;padding-left:19px;color:#506879;font-size:.86rem}.underl{margin:5px 0 12px;font-size:.82rem;color:#627888}.mono-chem{font-variant-numeric:tabular-nums}.result-big{font-size:clamp(1.35rem,2.5vw,1.95rem);font-weight:800;text-align:center;color:#183a4f}.answer-box{min-height:95px;display:grid;place-items:center;max-width:100%;overflow-x:auto}.stat-chip{font-size:.72rem;color:#49717e;background:#edf6f8;border-radius:999px;padding:6px 9px}.editor-lock{opacity:.75;pointer-events:none}.editor-layout{display:flex;flex-direction:column;gap:14px}.sketch-note{font-size:.75rem;color:#71848b}#mol3d{display:block;width:100%;height:320px;background:#f9fcfd;border-radius:10px;touch-action:none}.gallery-views{display:flex;flex-wrap:wrap;gap:6px}.detail-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:18px}.scenario{padding:17px;background:#f8fbfd;border-radius:12px;border:1px solid #e1ebf0}.scenario h3{margin:0 0 8px}.checklist{display:grid;gap:8px}.tip-pill{font-size:.7rem;color:#32717c;background:#e9f6f6;border-radius:6px;padding:5px 7px}.filter-count{font-size:.74rem;color:#657e8c}@media(max-width:900px){.detail-grid,.lesson-grid{grid-template-columns:1fr}}@media(max-width:700px){.control-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.selector-bar .field{min-width:135px}.editor-cells{justify-content:start}.chem-svg{max-height:240px}}
 
-/* v0.3.1: Guía progresiva restaurada y ampliada */
+/* v0.4: Guía progresiva restaurada y ampliada */
 .learn-jump{display:inline-block;margin-top:10px;font-size:.82rem;font-weight:750;text-decoration:none;color:#058789}
 .learn-jump:hover{text-decoration:underline}
 #grupos-funcionales{scroll-margin-top:90px}
@@ -60,6 +60,36 @@
 .learn-summary h3{margin:0 0 7px}.learn-summary p{margin:0;max-width:700px;color:var(--muted);font-size:.86rem;line-height:1.55}
 @media(max-width:1100px){.learn-flows{grid-template-columns:1fr}}
 @media(max-width:690px){.learn-section-head{flex-direction:column;gap:8px}.learn-card{padding:18px}.learn-example{padding:10px 12px}.learn-flows{grid-template-columns:1fr}}
+
+/* v0.4 · editor avanzado y biblioteca */
+.advanced-shell{display:grid;gap:14px;min-width:0}.advanced-intro{display:grid;gap:5px;font-size:.84rem;color:#526d7b;background:#eaf7f6;padding:14px 16px;border-radius:10px}.advanced-intro strong{color:#0a6467}.advanced-size{max-width:260px}.adv-scroll{overflow-x:auto;padding-bottom:9px}.advanced-cells{display:flex;align-items:stretch;gap:9px;width:max-content;min-width:100%}.advanced-cell{border:1px solid #d9e6ed;border-radius:11px;background:#fff;padding:11px;min-width:163px;max-width:180px;display:grid;gap:9px;align-content:start}.advanced-num{font-size:.8rem;font-weight:850;background:#e9f4f5;color:#13787c;padding:6px 9px;border-radius:7px;text-align:center}.advanced-cell .field{gap:4px}.advanced-cell .field label{font-size:.72rem}.advanced-cell .field select{padding:8px 7px;min-height:37px;font-size:.75rem;width:100%}.library-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.library-card{min-width:0;display:flex;flex-direction:column;gap:12px}.library-card h3{margin:0}.library-preview{background:#f8fbfd;border:1px solid #e8eff4;border-radius:11px;min-height:150px;display:flex;align-items:center;justify-content:center;overflow-x:auto}.library-card .mol-facts{margin-top:auto}.library-card .btn-row{margin-top:5px}.library-card .chem-svg{max-height:175px}.library-card .chem-layout{max-width:100%;overflow-x:auto} .advanced-shell .mol-board{min-width:0;overflow-x:auto}.advanced-shell .mini-panel{min-width:0}
+@media(max-width:850px){.library-grid{grid-template-columns:1fr}.advanced-cell{min-width:154px}}
+
+/* v0.4.1 — catálogo completo paginado y tabla de propiedades */
+.library-filter-wrap{margin-bottom:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.library-filter-wrap h3{margin-bottom:6px}.library-filter-wrap>p{margin-bottom:15px}
+.library-filter-grid{display:grid;grid-template-columns:minmax(220px,1.4fr) repeat(3,minmax(145px,1fr)) minmax(145px,1fr);gap:12px;align-items:end}
+.library-filter-grid .field{min-width:0}.library-filter-grid select,.library-filter-grid input{min-width:0;width:100%}
+.library-filter-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:17px;padding-top:15px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+.library-filter-meta strong{color:var(--ink)}.library-hint{font-size:.78rem;color:var(--muted);margin:11px 0 0}
+.library-card .eyebrow{overflow-wrap:anywhere}.library-card .library-name{overflow-wrap:anywhere}
+.library-pagination{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0}
+.library-pagination .pagination-label{font-size:.82rem;font-weight:750;color:#3d6476;padding:7px}
+.library-empty{text-align:center;padding:45px 20px}.library-empty p{color:var(--muted)}
+.prop-intro{margin-bottom:17px}.prop-toolbar{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.prop-toolbar .field{min-width:200px}.prop-table-scroll{overflow:auto;max-width:100%;border:1px solid var(--line);border-radius:13px}
+.prop-table{border-collapse:collapse;width:100%;min-width:760px;font-size:.86rem;line-height:1.55}
+.prop-table th{background:#e8f2f5;color:#264d60;text-align:left;font-size:.78rem;letter-spacing:.02em;position:sticky;top:0;z-index:1}
+.prop-table th,.prop-table td{padding:14px 16px;border-bottom:1px solid #e3edf2;vertical-align:top}
+.prop-table tbody tr:nth-child(even){background:#f8fbfc}.prop-table tbody tr:last-child td{border-bottom:0}
+.prop-table .prop-family{min-width:155px;font-weight:800;color:#153e50}.prop-table .prop-use{color:#365a69}
+.prop-note{background:#f0f7f7;border-left:3px solid #299994;padding:14px 17px;border-radius:0 8px 8px 0;line-height:1.55;color:#376170;margin:17px 0}
+.principle-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:15px}
+.principle{background:#f8fbfc;border:1px solid var(--line);border-radius:12px;padding:17px}
+.principle h3{font-size:.95rem;margin:0 0 8px}.principle p{margin:0;color:#587080;font-size:.83rem}
+@media(max-width:1180px){.library-filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.library-filter-grid .field:first-child{grid-column:span 2}}
+@media(max-width:740px){.library-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.library-filter-grid .field:first-child{grid-column:span 2}.principle-grid{grid-template-columns:1fr}.prop-table th,.prop-table td{padding:12px}}
+@media(max-width:420px){.library-filter-grid{grid-template-columns:1fr}.library-filter-grid .field:first-child{grid-column:span 1}}
 </style></head>
 <body>
 <div class="shell">
@@ -72,24 +102,31 @@
 <button data-page="nombrar"><span class="nav-icon">A↗</span><span class="nav-label">Nombrar</span></button>
 <button data-page="formular"><span class="nav-icon">⬡</span><span class="nav-label">Formular</span></button>
 <button data-page="explorar"><span class="nav-icon">◎</span><span class="nav-label">Explorar</span></button>
+<button data-page="biblioteca"><span class="nav-icon">▤</span><span class="nav-label">Biblioteca</span></button>
+<button data-page="propiedades"><span class="nav-icon">◈</span><span class="nav-label">Propiedades y aplicaciones</span></button>
 <button data-page="progreso"><span class="nav-icon">▥</span><span class="nav-label">Progreso</span></button>
 </nav>
-<div class="side-bottom">Hidrocarburos y grupos funcionales.<br><span class="version">VERSIÓN 0.3.1</span></div>
+<div class="side-bottom">Hidrocarburos, compuestos funcionales, propiedades y ejemplos del libro.<br><span class="version">VERSIÓN 0.4.1</span></div>
 </aside>
-<div class="main"><header class="topbar"><div class="breadcrumb">Laboratorio / <strong id="crumb">Inicio</strong></div><div class="top-right"><span class="dot"></span> Funciona sin conexión · <strong>v0.3.1</strong></div></header><main class="content" id="app" tabindex="-1"></main></div>
+<div class="main"><header class="topbar"><div class="breadcrumb">Laboratorio / <strong id="crumb">Inicio</strong></div><div class="top-right"><span class="dot"></span> Funciona sin conexión · <strong>v0.4.1</strong></div></header><main class="content" id="app" tabindex="-1"></main></div>
 </div>
 
 <script>
 'use strict';
-/* Química Orgánica v0.3.1 — generador paramétrico y corrector por conectividad.
+/* Química Orgánica v0.4.1 — generador paramétrico y corrector por conectividad.
    Repertorio DIDÁCTICO: compuestos monofuncionales sencillos, hidrocarburos,
    ciclos, aromáticos y ramificaciones controladas; no es un nomenclador IUPAC universal. */
 const ROOT=['','met','et','prop','but','pent','hex','hept','oct','non','dec'];
-const KIND={alkane:'Alcanos',alkene:'Alquenos',alkyne:'Alquinos',branched:'Ramificados',cyclo:'Cicloalcanos',benzene:'Aromáticos',alcohol:'Alcoholes',phenol:'Fenoles',aldehyde:'Aldehídos',ketone:'Cetonas',acid:'Ácidos carboxílicos',ether:'Éteres',ester:'Ésteres',amine:'Aminas',amide:'Amidas',nitrile:'Nitrilos',halo:'Derivados halogenados'};
-const ORDER=Object.keys(KIND);
+const KIND={book:'Selección del libro',polyol:'Dioles y trioles',polyen:'Dienos y polienos',enyn:'Eninos y diinos',carbonyls:'Carbonilos múltiples',aminesN:'Aminas sustituidas',unsatfun:'Funciones e insaturaciones',mixed:'Grupos combinados',alkane:'Alcanos',alkene:'Alquenos',alkyne:'Alquinos',branched:'Ramificados',cyclo:'Cicloalcanos',benzene:'Aromáticos',alcohol:'Alcoholes',phenol:'Fenoles',aldehyde:'Aldehídos',ketone:'Cetonas',acid:'Ácidos carboxílicos',ether:'Éteres',ester:'Ésteres',amine:'Aminas',amide:'Amidas',nitrile:'Nitrilos',halo:'Derivados halogenados'};
+// Secuencia didáctica: de las familias sencillas a combinaciones avanzadas.
+// El libro se mantiene al final porque es una colección transversal, no una familia.
+const ORDER=['alkane','alkene','alkyne','branched','cyclo','benzene',
+ 'halo','alcohol','phenol','ether','aldehyde','ketone','acid','ester',
+ 'amine','amide','nitrile','polyol','polyen','enyn','carbonyls','aminesN',
+ 'unsatfun','mixed','book'];
 const VALENCE={C:4,O:2,N:3,F:1,Cl:1,Br:1};
 const ELEM_COLORS={C:'#2d4350',O:'#d85654',N:'#3979bf',F:'#3a9b73',Cl:'#3c9b75',Br:'#9a5a32',H:'#71879a'};
-const NAMES={inicio:'Inicio',aprender:'Aprender',nombrar:'Nombrar',formular:'Formular',explorar:'Explorar',progreso:'Progreso'};
+const NAMES={inicio:'Inicio',aprender:'Aprender',nombrar:'Nombrar',formular:'Formular',explorar:'Explorar',biblioteca:'Biblioteca',propiedades:'Propiedades y aplicaciones',progreso:'Progreso'};
 const KEY='qorganica_v01_progreso';
 const $=x=>document.getElementById(x);
 const sub=n=>n>1?`<sub>${n}</sub>`:'';
@@ -130,7 +167,7 @@ function canonical(m){m=clone(m);if(m.kind==='phenol'){m.branches=m.branches.map
  return [loc,...bs,...byAlpha].map(z=>String(z).padStart(2,'0')).join('|');}
  return orientScore(r)<orientScore(m)?r:m;
 }
-function nameOf(raw){const m=canonical(raw),r=ROOT[m.n]||'?',prefix=groupPrefix(m.branches),branch=prefix?prefix+'-':'';
+function nameOf(raw){if(raw.kind==='extended')return raw.givenName;const m=canonical(raw),r=ROOT[m.n]||'?',prefix=groupPrefix(m.branches),branch=prefix?prefix+'-':'';
  if(m.kind==='alkane')return branch+r+'ano';
  if(m.kind==='alkene'||m.kind==='alkyne'){let suf=m.kind==='alkene'?'eno':'ino';return branch+(m.n<=3?r+suf:`${r}-${m.loc}-${suf}`);}
  if(m.kind==='cyclo')return (m.branches.length===1?groupPrefix(m.branches,false):prefix?(prefix+'-'):'')+'ciclo'+r+'ano';
@@ -148,7 +185,7 @@ function nameOf(raw){const m=canonical(raw),r=ROOT[m.n]||'?',prefix=groupPrefix(
  if(m.kind==='ester')return ROOT[m.n]+'anoato de '+({1:'metilo',2:'etilo',3:'propilo',4:'butilo'}[m.aux]);
  return '—';
 }
-function equivalents(raw,m){const text=norm(raw),target=norm(nameOf(m));if(!text)return false;if(text===target)return true;
+function equivalents(raw,m){const text=norm(raw),target=norm(nameOf(m));if(!text)return false;if(text===target)return true;if(m.kind==='extended')return (m.aliases||[]).some(a=>norm(a)===text);
  let canonicalName=nameOf(m);
  // «1-buteno» y «3-metil-1-buteno» como variantes docentes habituales.
  let match=canonicalName.match(/^(.*?)(met|et|prop|but|pent|hex|hept|oct|non|dec)-(\d+)-(eno|ino)$/);
@@ -157,7 +194,7 @@ function equivalents(raw,m){const text=norm(raw),target=norm(nameOf(m));if(!text
  if(m.kind==='benzene'&&!m.branches.length&&text==='benzol')return false; // No aceptar nombres obsoletos por accidente.
  return false;
 }
-function graph(m){let nodes=[],edges=[];
+function graph(m){if(m.kind==='extended')return extendedGraph(m);let nodes=[],edges=[];
  function node(el,role='main',main=-1){let i=nodes.length;nodes.push({el,role,main});return i;}
  function bond(a,b,o=1){edges.push({a,b,o});}
  let ring=['cyclo','benzene','phenol'].includes(m.kind);
@@ -180,7 +217,7 @@ function graph(m){let nodes=[],edges=[];
  return {m,nodes,edges,h};
 }
 function valid(g){const sums=g.h.every(x=>Math.abs(x-Math.round(x))<.001&&x>=0&&x<=4);
- if(!sums||g.nodes.length>28||!g.nodes.length)return false;
+ if(!sums||g.nodes.length>44||!g.nodes.length)return false;
  let seen=new Set([0]),changed=true;
  while(changed){changed=false;for(let e of g.edges){if(seen.has(e.a)&&!seen.has(e.b)){seen.add(e.b);changed=true;}if(seen.has(e.b)&&!seen.has(e.a)){seen.add(e.a);changed=true;}}}
  return seen.size===g.nodes.length;
@@ -231,9 +268,161 @@ function generate(){let candidates=[],seen=new Set();
  for(let n=1;n<=8;n++)for(let aux=1;aux<=4;aux++)add(model('ester',n,1,[],{aux}));
  return candidates;
 }
-const LIB=generate();
-const familiesOf=m=>m.branches.length&&['alkane','alkene','alkyne'].includes(m.kind)?[m.kind,'branched']:[m.kind];
+
+/* v0.4 · Estructuras complejas: grafo químico real, editor libre por carbonos.
+   Los nombres se generan para familias acotadas con reglas revisadas.
+   Los ejemplos de libro se identifican aparte de las variaciones propias. */
+function extendedGraph(m){
+ let nodes=[],edges=[];const node=(el,role='main',main=-1)=>{let i=nodes.length;nodes.push({el,role,main});return i;};
+ const bond=(a,b,o=1)=>edges.push({a,b,o}),attach=(el,to,o=1,role='group')=>{const i=node(el,role,to);bond(to,i,o);return i;};
+ const n=Math.max(1,Math.floor(m.n||1));for(let i=0;i<n;i++)node('C','main',i);
+ for(let i=0;i<n-1;i++)bond(i,i+1,(m.bonds||[])[i]||1);
+ for(let b of m.branches||[]){let p=b.pos-1;if(p<0||p>=n)continue;for(let j=0;j<b.len;j++){let x=node('C','branch',p);bond(p,x);p=x;}}
+ for(let g of m.groups||[]){let pos=g.pos-1;if(pos<0||pos>=n)continue;
+  if(g.type==='OH')attach('O',pos);
+  if(g.type==='oxo')attach('O',pos,2);
+  if(g.type==='acid'||g.type==='amide'||g.type==='ester'){
+   attach('O',pos,2);
+   if(g.type==='acid')attach('O',pos);
+   if(g.type==='amide')attach('N',pos);
+   if(g.type==='ester'){let p=attach('O',pos);for(let k=0;k<(g.len||1);k++){let c=node('C','external',pos);bond(p,c);p=c;}}
+  }
+  if(g.type==='amino'||g.type==='amineN'){
+   const N=attach('N',pos);for(let len of g.alkyls||[]){let p=N;for(let k=0;k<len;k++){let c=node('C','external',pos);bond(p,c);p=c;}}
+  }
+  if(g.type==='Cl'||g.type==='Br'||g.type==='F')attach(g.type,pos);
+  if(g.type==='nitrile')attach('N',pos,3);
+ }
+ let h=nodes.map((v,i)=>VALENCE[v.el]-edges.filter(e=>e.a===i||e.b===i).reduce((s,e)=>s+e.o,0));
+ return {m,nodes,edges,h};
+}
+function makeExtended(){
+ const out=[],seen=new Set(generate().map(nameOf));
+ function add(n,name,family,bonds=[],groups=[],branches=[],source='generado',level='avanzado',aliases=[]){
+  let m={kind:'extended',n,branches:clone(branches),bonds:Array.from({length:n-1},(_,i)=>bonds[i]||1),groups:clone(groups),givenName:name,family,source,level,aliases};
+  if(seen.has(name))return;
+  let G=extendedGraph(m);if(!valid(G))return;
+  if(branches.length&&maxCPath(G)>n&&source!=='libro')return;
+  seen.add(name);out.push(m);
+ }
+ const G=(pos,type,extra={})=>({pos,type,...extra});
+ const B=(pos,len=1)=>({pos,len});
+ const orders=(n,items)=>{let x=Array(n-1).fill(1);for(let [pos,o] of items)x[pos-1]=o;return x;};
+ // NÚCLEO DE REFERENCIA: ejemplos legibles tomados de las fotografías (o su nomenclatura normalizada).
+ add(2,'etano-1,2-diol','polyol',[],[G(1,'OH'),G(2,'OH')],[],'libro','medio');
+ add(3,'propano-1,2-diol','polyol',[],[G(1,'OH'),G(2,'OH')],[],'libro','medio');
+ add(7,'heptano-3,4-diol','polyol',[],[G(3,'OH'),G(4,'OH')],[],'libro','avanzado');
+ add(3,'propano-1,2,3-triol','polyol',[],[G(1,'OH'),G(2,'OH'),G(3,'OH')],[],'libro','medio');
+ add(7,'hepta-3,5-diino-2-ol','unsatfun',orders(7,[[3,3],[5,3]]),[G(2,'OH')],[],'libro','avanzado');
+ add(3,'prop-2-en-1-ol','unsatfun',orders(3,[[2,2]]),[G(1,'OH')],[],'libro','medio',['prop-2-enol']);
+ add(2,'etenol','unsatfun',orders(2,[[1,2]]),[G(1,'OH')],[],'libro','avanzado',['eten-1-ol']);
+ add(5,'pentano-2,4-diona','carbonyls',[],[G(2,'oxo'),G(4,'oxo')],[],'libro','medio',['pentan-2,4-diona']);
+ add(3,'propano-1,3-dial','carbonyls',[],[G(1,'oxo'),G(3,'oxo')],[],'libro','medio',['propanodial']);
+ add(3,'propanodiamida','carbonyls',[],[G(1,'amide'),G(3,'amide')],[],'libro','avanzado');
+ add(3,'propa-1,2-dieno','polyen',orders(3,[[1,2],[2,2]]),[],[],'libro','medio',['propadieno']);
+ add(4,'but-3-en-2-ona','unsatfun',orders(4,[[3,2]]),[G(2,'oxo')],[],'libro','medio');
+ add(3,'ácido prop-2-enoico','unsatfun',orders(3,[[2,2]]),[G(1,'acid')],[],'libro','medio',['ácido propenoico']);
+ add(3,'prop-2-eno-1,3-diol','unsatfun',orders(3,[[2,2]]),[G(1,'OH'),G(3,'OH')],[],'libro','avanzado');
+ add(4,'3-metilbut-2-en-2-ol','unsatfun',orders(4,[[2,2]]),[G(2,'OH')],[B(3)],'libro','avanzado');
+ add(4,'2,3-dimetilbutano','mixed',[],[],[B(2),B(3)],'generado','medio');
+ add(5,'2,3-dimetilpentano','mixed',[],[],[B(2),B(3)],'libro','medio');
+ add(6,'hex-2-eno-1,6-dial','carbonyls',orders(6,[[2,2]]),[G(1,'oxo'),G(6,'oxo')],[],'libro','avanzado',['hex-2-endial']);
+ add(3,'dipropilamina','aminesN',[],[G(1,'amineN',{alkyls:[3]})],[],'libro','medio',['N-propilpropan-1-amina']);
+ add(4,'dibutilamina','aminesN',[],[G(1,'amineN',{alkyls:[4]})],[],'libro','avanzado',['N-butilbutan-1-amina']);
+ add(1,'trimetilamina','aminesN',[],[G(1,'amineN',{alkyls:[1,1]})],[],'libro','medio',['N,N-dimetilmetanamina']);
+ add(7,'2-etil-4-metilhepta-1,3-dien-6-ino','enyn',orders(7,[[1,2],[3,2],[6,3]]),[],[B(2,2),B(4)],'libro','avanzado');
+ add(5,'3-metilpent-2-enamida','unsatfun',orders(5,[[2,2]]),[G(1,'amide')],[B(3)],'libro','avanzado');
+ add(5,'3-etilpent-2-enamida','unsatfun',orders(5,[[2,2]]),[G(1,'amide')],[B(3,2)],'generado','avanzado');
+ add(7,'4-etilhepta-1,6-dieno','polyen',orders(7,[[1,2],[6,2]]),[],[B(4,2)],'libro','avanzado');
+ add(6,'2,4-dimetilhexa-1,5-dien-3-ol','unsatfun',orders(6,[[1,2],[5,2]]),[G(3,'OH')],[B(2),B(4)],'libro','avanzado');
+ add(6,'3,4-dimetilhex-3-eno','mixed',orders(6,[[3,2]]),[],[B(3),B(4)],'libro','avanzado',['3-metil-2-etilpent-2-eno']);
+ add(3,'propilamina','aminesN',[],[G(1,'amino')],[],'libro','medio',['propan-1-amina']);
+ add(3,'prop-2-enal','unsatfun',orders(3,[[2,2]]),[G(1,'oxo')],[],'libro','medio',['propenal']);
+ add(2,'trietilamina','aminesN',[],[G(1,'amineN',{alkyls:[2,2]})],[],'libro','avanzado',['N,N-dietiletanamina']);
+ add(4,'ácido 2,3-dimetilbutanoico','mixed',[],[G(1,'acid')],[B(2),B(3)],'libro','avanzado');
+ add(5,'3-etilpenta-1,4-dieno','polyen',orders(5,[[1,2],[4,2]]),[],[B(3,2)],'generado','avanzado');
+ // Variaciones propias: polialcoholes con 2 y 3 hidroxilos.
+ for(let n=2;n<=9;n++)for(let p=1;p<=n;p++)for(let q=p+1;q<=n;q++){
+  if(p+q>n+1)continue;let locs=[p,q],name=`${ROOT[n]}ano-${locs.join(',')}-diol`;
+  add(n,name,'polyol',[],locs.map(i=>G(i,'OH')),[],'generado',n<=4?'medio':'avanzado');
+ }
+ for(let n=3;n<=7;n++)for(let p=1;p<=n-2;p++)for(let q=p+1;q<=n-1;q++)for(let r=q+1;r<=n;r++){
+  if(p+r>n+1)continue;let locs=[p,q,r];add(n,`${ROOT[n]}ano-${locs.join(',')}-triol`,'polyol',[],locs.map(i=>G(i,'OH')),[],'generado','avanzado');
+ }
+ // Dos o más insaturaciones. Numeración canónica: conjunto de localizadores mínimo;
+ // se evita mezclar ramificaciones con selección ambigua de cadena principal.
+ for(let n=3;n<=10;n++)for(let p=1;p<n;p++)for(let q=p+1;q<n;q++){
+  if(p+q>n)continue;
+  add(n,`${ROOT[n]}a-${p},${q}-dieno`,'polyen',orders(n,[[p,2],[q,2]]),[] ,[],'generado',n<=5?'medio':'avanzado');
+  if(q-p>=2){
+   add(n,`${ROOT[n]}a-${p},${q}-diino`,'enyn',orders(n,[[p,3],[q,3]]),[],[],'generado','avanzado');
+   add(n,`${ROOT[n]}a-${p}-en-${q}-ino`,'enyn',orders(n,[[p,2],[q,3]]),[],[],'generado','avanzado');
+   add(n,`${ROOT[n]}a-${q}-en-${p}-ino`,'enyn',orders(n,[[p,3],[q,2]]),[],[],'generado','avanzado');
+  }
+ }
+ // Cetonas y aldehídos dobles; diamidas; ácidos dicarboxílicos.
+ for(let n=3;n<=9;n++){
+  add(n,`${ROOT[n]}ano-1,${n}-dial`,'carbonyls',[],[G(1,'oxo'),G(n,'oxo')],[],'generado',n<=4?'medio':'avanzado');
+  add(n,`${ROOT[n]}anodiamida`,'carbonyls',[],[G(1,'amide'),G(n,'amide')],[],'generado','avanzado');
+  add(n,`ácido ${ROOT[n]}anodioico`,'carbonyls',[],[G(1,'acid'),G(n,'acid')],[],'generado','avanzado');
+  for(let p=2;p<n;p++)for(let q=p+1;q<n;q++){
+   if(p+q>n+1)continue;add(n,`${ROOT[n]}ano-${p},${q}-diona`,'carbonyls',[],[G(p,'oxo'),G(q,'oxo')],[],'generado','avanzado');
+  }
+ }
+ // Alcoholes con alquenos o alquinos: al nombrar, el grupo –OH fija la prioridad de numeración.
+ for(let n=3;n<=9;n++)for(let p=1;p<=Math.ceil(n/2);p++)for(let link=1;link<n;link++)for(let order of [2,3]){
+  if(p===n+1-p&&link>n-link)continue;
+  if(order===3&&n<4)continue;
+  let suf=order===2?'en':'in',name=`${ROOT[n]}-${link}-${suf}-${p}-ol`;
+  add(n,name,'unsatfun',orders(n,[[link,order]]),[G(p,'OH')],[],'generado',n<=4&&order===2?'medio':'avanzado');
+ }
+ // Cetonas insaturadas: el carbonilo no puede compartir una doble/triple C-C.
+ for(let n=4;n<=9;n++)for(let k=2;k<n;k++)for(let p=1;p<n;p++){
+  if(k>n+1-k||k===n+1-k&&p>n-p)continue;
+  add(n,`${ROOT[n]}-${p}-en-${k}-ona`,'unsatfun',orders(n,[[p,2]]),[G(k,'oxo')],[],'generado',n<=5?'medio':'avanzado');
+ }
+ // Ácidos y amidas insaturadas: el C1 funcional no participa de C=C.
+ for(let n=3;n<=9;n++)for(let p=2;p<n;p++)for(let typ of ['acid','amide']){
+  let nm=typ==='acid'?`ácido ${ROOT[n]}-${p}-enoico`:`${ROOT[n]}-${p}-enamida`;
+  add(n,nm,'unsatfun',orders(n,[[p,2]]),[G(1,typ)],[],'generado',n<=5?'medio':'avanzado');
+ }
+ // Aminas secundarias y terciarias con distintos tamaños de cadenas.
+ for(let n=1;n<=7;n++)for(let aux=1;aux<=4;aux++){
+  if(aux>n)continue;
+  let name=n===aux?`di${ROOT[n]}ilamina`:`N-${ROOT[aux]}il${ROOT[n]}an-1-amina`;
+  add(n,name,'aminesN',[],[G(1,'amineN',{alkyls:[aux]})],[],'generado','avanzado');
+  if(aux===1&&n>1){add(n,`N,N-dimetil${ROOT[n]}an-1-amina`,'aminesN',[],[G(1,'amineN',{alkyls:[1,1]})],[],'generado','avanzado');}
+ }
+ // Diinos con –OH, derivados del ejercicio de la fotografía (dos triples + alcohol).
+ for(let n=6;n<=10;n++)for(let p=1;p<=3;p++)for(let i=2;i<n-2;i++)for(let j=i+2;j<n;j++){
+  add(n,`${ROOT[n]}a-${i},${j}-diino-${p}-ol`,'unsatfun',orders(n,[[i,3],[j,3]]),[G(p,'OH')],[],'generado','avanzado');
+ }
+ // Hidrocarburos ramificados con doble y triple, de complejidad similar al libro.
+ for(let n=7;n<=10;n++)for(let pos=3;pos<=n-2;pos++){
+  add(n,`${pos}-metil${ROOT[n]}a-1-en-${n-1}-ino`,'enyn',orders(n,[[1,2],[n-1,3]]),[],[B(pos)],'generado','avanzado');
+  add(n,`${pos}-etil${ROOT[n]}a-1,${n-1}-dieno`,'polyen',orders(n,[[1,2],[n-1,2]]),[],[B(pos,2)],'generado','avanzado');
+ }
+ // Otras combinaciones de funciones (hidroxicetonas, cetoácidos, haloalcoholes).
+ for(let n=4;n<=8;n++)for(let k=2;k<n;k++)for(let p=1;p<=n;p++){
+  if(k>n+1-k||k===n+1-k&&p>n+1-p)continue;
+  if(p!==k)add(n,`${p}-hidroxi${ROOT[n]}an-${k}-ona`,'mixed',[],[G(p,'OH'),G(k,'oxo')],[],'generado','avanzado');
+  if(k!==1&&p===1)add(n,`ácido ${k}-oxo${ROOT[n]}anoico`,'mixed',[],[G(1,'acid'),G(k,'oxo')],[],'generado','avanzado');
+ }
+ for(let n=4;n<=9;n++)for(let k=2;k<n;k++)add(n,`ácido ${k}-oxo${ROOT[n]}anoico`,'mixed',[],[G(1,'acid'),G(k,'oxo')],[],'generado','avanzado');
+ for(let n=2;n<=7;n++)for(let p=1;p<=n;p++)for(let q=1;q<=n;q++){
+  if(p===q||p>n+1-p||p===n+1-p&&q>n+1-q)continue;add(n,`${q}-cloro${ROOT[n]}an-${p}-ol`,'mixed',[],[G(p,'OH'),G(q,'Cl')],[],'generado','avanzado');
+ }
+ return out;
+}
+
+const BASE=generate();
+const SOURCE_NAMES=new Set(['pentan-1-ol','propan-2-ol','3-metilbutan-2-ol','3-metilbutanal','2-metilbutano','propeno','propano-1-amina','etanoato de propilo','etanoato de metilo','etanamida','pentan-2-ona','butan-2-ona','propanal','ácido propanoico','2,3-dimetilpentano','but-1-eno']);
+for(let m of BASE)if(SOURCE_NAMES.has(nameOf(m)))m.source='libro';
+const LIB=BASE.concat(makeExtended());
+const BOOK=LIB.filter(m=>m.source==='libro');
+const familiesOf=m=>{const f=m.kind==='extended'?[m.family,'extended']:m.branches.length&&['alkane','alkene','alkyne'].includes(m.kind)?[m.kind,'branched']:[m.kind];if(m.source==='libro')f.push('book');return f;};
 function rank(m){
+ if(m.kind==='extended')return m.level||'avanzado';
  const simple=!m.branches.length;
  if(simple&&(m.kind==='benzene'||m.kind==='phenol'||m.kind==='cyclo'&&m.n<=5||m.kind==='ester'&&m.n<=2&&m.aux===1))return 'basico';
  if(simple&&m.n<=3&&(!['ketone'].includes(m.kind)||m.loc===2)&&(!['ether'].includes(m.kind)||m.aux===1))return 'basico';
@@ -246,7 +435,7 @@ const ranknum={basico:0,medio:1,avanzado:2};
 function candidatesFor(filter,level){let max=ranknum[level];return LIB.filter(m=>(filter==='all'||familiesOf(m).includes(filter))&&ranknum[rank(m)]<=max);}
 function pick(filter,level,exclude=[]){let pool=candidatesFor(filter,level);if(!pool.length)pool=candidatesFor(filter,'avanzado');
  let choices=pool.filter(x=>!exclude.includes(nameOf(x)));if(!choices.length)choices=pool;
- if(filter==='all'){let fams=unique(choices.map(m=>m.branches.length&&['alkane','alkene','alkyne'].includes(m.kind)?'branched':m.kind));let selected=one(fams);choices=choices.filter(m=>(m.branches.length&&['alkane','alkene','alkyne'].includes(m.kind)?'branched':m.kind)===selected);}
+ if(filter==='all'){let fams=unique(choices.map(m=>m.kind==='extended'?m.family:m.branches.length&&['alkane','alkene','alkyne'].includes(m.kind)?'branched':m.kind==='extended'?m.family:m.kind));let selected=one(fams);choices=choices.filter(m=>(m.kind==='extended'?m.family:m.branches.length&&['alkane','alkene','alkyne'].includes(m.kind)?'branched':m.kind)===selected);}
  return clone(one(choices));
 }
 // Isomorfismo elemental de grafos: corrige el dibujo, sin depender del sentido u orientación.
@@ -362,26 +551,26 @@ let drag=null;
 function init3D(){const canvas=$('mol3d');if(!canvas)return;paint3D();canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!drag)return;state.rot.y+=(e.clientX-drag.x)*.013;state.rot.x+=(e.clientY-drag.y)*.013;drag={x:e.clientX,y:e.clientY};paint3D()});canvas.addEventListener('pointerup',()=>drag=null);canvas.addEventListener('pointercancel',()=>drag=null);canvas.addEventListener('wheel',e=>{e.preventDefault();state.rot.zoom=Math.max(.65,Math.min(2,state.rot.zoom+(e.deltaY<0?.09:-.09)));paint3D()},{passive:false});}
 function loadRecords(){try{return (JSON.parse(localStorage.getItem(KEY))||[]).slice(-700).map(x=>({...x,revealed:x.revealed??x.reveal??false,family:x.family||x.kind||'alkane'}))}catch(e){return []}}
 function storeRecords(){try{localStorage.setItem(KEY,JSON.stringify(state.records.slice(-700)))}catch(e){}}
-const state={view:'inicio',nameFamily:'all',formFamily:'all',nameLevel:'basico',formLevel:'basico',nameRep:'semi',exploreRep:'semi',exploreFamily:'alcohol',explore:null,records:loadRecords(),recents:[],name:null,form:null,rot:{x:-.24,y:.37,zoom:1}};
-function blankEditor(){return model('alkane',3);}
+const state={view:'inicio',nameFamily:'all',formFamily:'all',nameLevel:'basico',formLevel:'basico',nameRep:'semi',exploreRep:'semi',exploreFamily:'book',explore:null,libraryFamily:'all',librarySource:'all',libraryLevel:'all',librarySort:'easy',libraryQuery:'',libraryPage:1,propertyCategory:'all',records:loadRecords(),recents:[],name:null,form:null,rot:{x:-.24,y:.37,zoom:1}};
+function blankEditor(target=null){return target?.kind==='extended'?{kind:'extended',n:3,bonds:[1,1],branches:[],groups:[]}:model('alkane',3);}
 function newTask(mode){const pre=mode==='name'?'name':'form',target=pick(state[pre+'Family'],state[pre+'Level'],state.recents.slice(-22));
  state.recents.push(nameOf(target));if(state.recents.length>80)state.recents.shift();
- state[mode]={target,editor:blankEditor(),draft:'',attempts:0,hints:0,solved:false,revealed:false,logged:false,feedback:''};
+ state[mode]={target,editor:blankEditor(target),draft:'',attempts:0,hints:0,solved:false,revealed:false,logged:false,feedback:''};
 }
-newTask('name');newTask('form');state.explore=pick('alcohol','medio');
+newTask('name');newTask('form');state.explore=pick('book','avanzado');
 const button=(text,action,klass='')=>`<button type="button" class="btn ${klass}" data-action="${action}">${text}</button>`;
-const familyOptions=(sel,all=true)=>`${all?`<option value="all" ${sel==='all'?'selected':''}>Todas las familias</option>`:''}${ORDER.filter(x=>x!=='branched'||all).map(k=>`<option value="${k}" ${sel===k?'selected':''}>${KIND[k]}</option>`).join('')}`;
+const familyOptions=(sel,all=true)=>`${all?`<option value="all" ${sel==='all'?'selected':''}>Todas las familias</option>`:''}${ORDER.map(k=>`<option value="${k}" ${sel===k?'selected':''}>${KIND[k]}</option>`).join('')}`;
 const levelOptions=s=>[['basico','Inicial'],['medio','Intermedio'],['avanzado','Avanzado']].map(([k,lab])=>`<option value="${k}" ${k===s?'selected':''}>${lab}</option>`).join('');
-const head=(title,subtitle,eyebrow='LABORATORIO DE FORMULACIÓN')=>`<div class="section-header"><div><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p>${subtitle}</p></div><span class="pill teal">Generador de ${LIB.length} compuestos · v0.3.1</span></div>`;
+const head=(title,subtitle,eyebrow='LABORATORIO DE FORMULACIÓN')=>`<div class="section-header"><div><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p>${subtitle}</p></div><span class="pill teal">Banco de ${LIB.length} compuestos · v0.4.1</span></div>`;
 const msg=(text,good=false)=>text?`<div class="feedback ${good?'good':'note'}" role="status">${text}</div>`:'';
 const nameM=m=>esc(nameOf(m));
 function home(){const count=state.records.length;
- return `<div class="hero"><div><div class="eyebrow">LABORATORIO DE NOMENCLATURA</div><h1>Aprende a nombrar.<br>Aprende a formular.</h1><p class="hero-text">Hidrocarburos y grupos funcionales. Aprende a interpretar la estructura, construirla y escribir su nombre mediante ejercicios generados por familias y dificultad.</p><div class="btn-row" style="margin-top:24px">${button('Comenzar a nombrar →','to-name','primary')}${button('Comenzar a formular','to-form')}${button('Aprender las reglas','to-learn')}</div></div><div class="hero-panel"><div class="eyebrow">NOVEDADES · V0.3.1</div><strong>${LIB.length} compuestos diferentes.</strong><p>Ejercicios generados mediante reglas: alcoholes, aldehídos, cetonas, ácidos, éteres, ésteres, aminas, amidas, nitrilos y halogenados, además de los hidrocarburos.</p></div></div>
+ return `<div class="hero"><div><div class="eyebrow">LABORATORIO DE NOMENCLATURA</div><h1>Aprende a nombrar.<br>Aprende a formular.</h1><p class="hero-text">Hidrocarburos y grupos funcionales. Aprende a interpretar la estructura, construirla y escribir su nombre mediante ejercicios generados por familias y dificultad.</p><div class="btn-row" style="margin-top:24px">${button('Comenzar a nombrar →','to-name','primary')}${button('Comenzar a formular','to-form')}${button('Aprender las reglas','to-learn')}</div></div><div class="hero-panel"><div class="eyebrow">NOVEDADES · V0.4.1</div><strong>${LIB.length} compuestos diferentes.</strong><p>Ejercicios generados mediante reglas: alcoholes, aldehídos, cetonas, ácidos, éteres, ésteres, aminas, amidas, nitrilos y halogenados, además de los hidrocarburos.</p></div></div>
  <div class="grid-3">
   <div class="card clickable" data-go="nombrar" role="button" tabindex="0"><div class="number">01</div><h3>Nombrar</h3><p>Observa una molécula en distintas representaciones y escribe su nombre.</p><small>Fórmula → nombre · practicar →</small></div>
   <div class="card clickable" data-go="formular" role="button" tabindex="0"><div class="number">02</div><h3>Formular</h3><p>Construye la estructura eligiendo la cadena, el grupo, la posición y los enlaces.</p><small>Nombre → fórmula · practicar →</small></div>
   <div class="card clickable" data-go="explorar" role="button" tabindex="0"><div class="number">03</div><h3>Explorar</h3><p>Compara fórmula molecular, semidesarrollada, esquelética, desarrollada y modelo 3D orientativo.</p><small>Visor molecular →</small></div>
- </div><div class="card" style="margin-top:18px"><div class="mini-toolbar"><div class="pill teal">Tu progreso</div><span class="small">${count} actividades registradas en este navegador · Elige tu familia y dificultad en cada modo.</span></div></div>`;
+ </div><div class="card" style="margin-top:18px"><div class="mini-toolbar"><div><b>Nuevo: biblioteca del libro y retos ampliados</b> · <span class="muted small">Dioles, trioles, enlaces múltiples, dicetonas, diamidas y aminas sustituidas.</span></div>${button('Ver biblioteca →','to-library','sm')}</div></div><div class="card" style="margin-top:18px"><div class="mini-toolbar"><div class="pill teal">Tu progreso</div><span class="small">${count} actividades registradas en este navegador · Elige tu familia y dificultad en cada modo.</span></div></div>`;
 }
 function lessons(){
  const example=(body)=>`<div class="learn-example">${body}</div>`;
@@ -464,11 +653,11 @@ function lessons(){
 function filterBar(mode){const pre=mode==='name'?'name':'form',family=state[pre+'Family'],level=state[pre+'Level'],avail=candidatesFor(family,level).length;
  return `<div class="tool-top"><div class="selector-bar"><div class="field"><label for="${pre}Family">Familia</label><select id="${pre}Family" data-setting="${pre}Family">${familyOptions(family)}</select></div><div class="field"><label for="${pre}Level">Dificultad</label><select id="${pre}Level" data-setting="${pre}Level">${levelOptions(level)}</select></div><div class="filter-count">${avail} compuestos posibles con estos filtros</div></div><span class="stat-chip">${state[mode].attempts} intentos · ${state[mode].hints} pistas</span></div>`;
 }
-function hintName(m,step){if(step===1){let mapping={alcohol:'Busca un grupo –OH.',acid:'Localiza el grupo –COOH.',aldehyde:'Busca el grupo terminal –CHO.',ketone:'Busca un grupo carbonilo situado dentro de la cadena.',ester:'Identifica el fragmento –COO–.',ether:'Identifica el oxígeno entre dos carbonos.',amine:'Localiza el grupo –NH₂.',amide:'Localiza –CONH₂.',nitrile:'Localiza un triple enlace C≡N.',halo:'Busca un halógeno unido a la cadena.',phenol:'Busca –OH directamente unido al anillo bencénico.'};return mapping[m.kind]||'Identifica la cadena o anillo principal y comprueba si hay enlaces múltiples.';}
+function hintName(m,step){if(m.kind==='extended'){if(step===1)return 'Localiza las funciones, los enlaces dobles o triples y los sustituyentes sin decidir todavía la cadena.';if(step===2)return `La estructura tiene ${m.n} carbonos en su cadena de referencia. Prioriza el grupo principal.`;return 'Analiza los localizadores y los prefijos di-, tri- o N-, si aparecen.';}if(step===1){let mapping={alcohol:'Busca un grupo –OH.',acid:'Localiza el grupo –COOH.',aldehyde:'Busca el grupo terminal –CHO.',ketone:'Busca un grupo carbonilo situado dentro de la cadena.',ester:'Identifica el fragmento –COO–.',ether:'Identifica el oxígeno entre dos carbonos.',amine:'Localiza el grupo –NH₂.',amide:'Localiza –CONH₂.',nitrile:'Localiza un triple enlace C≡N.',halo:'Busca un halógeno unido a la cadena.',phenol:'Busca –OH directamente unido al anillo bencénico.'};return mapping[m.kind]||'Identifica la cadena o anillo principal y comprueba si hay enlaces múltiples.';}
  if(step===2)return `El esqueleto principal del nombre tiene <b>${m.n} carbonos</b>${m.kind==='ester'?' en su parte ácida':''}. Distingue los sustituyentes de la cadena.`;
  return m.branches.length?'Numera la cadena o el anillo y ordena alfabéticamente los sustituyentes.':`Comprueba el grupo funcional y el localizador${['alcohol','ketone','amine','halo','ether','alkene','alkyne'].includes(m.kind)?' de su posición':''}.`;
 }
-function hintForm(m,step){if(step===1)return `Comienza con ${m.n} carbonos en el esqueleto principal${['cyclo','benzene','phenol'].includes(m.kind)?' (anillo)':''}.`;
+function hintForm(m,step){if(m.kind==='extended'){if(step===1)return 'Identifica la cadena principal a partir del nombre, incluidos sus carbonos terminales funcionales.';if(step===2)return 'Coloca primero los enlaces dobles y triples; después, los grupos funcionales prioritarios.';return 'Comprueba si debes añadir varias funciones iguales, sustituyentes en N o ramificaciones.';}if(step===1)return `Comienza con ${m.n} carbonos en el esqueleto principal${['cyclo','benzene','phenol'].includes(m.kind)?' (anillo)':''}.`;
  if(step===2)return `La familia es <strong>${KIND[m.kind]}</strong>. Usa su grupo característico, si lo hay.`;
  return m.branches.length?`Se necesitan ${m.branches.length} ramificaciones sobre la estructura principal.`:m.kind==='ester'||m.kind==='ether'?`La segunda cadena tiene ${m.aux} carbono${m.aux===1?'':'s'}.`:'Fíjate en los localizadores y comprueba las valencias.';
 }
@@ -504,26 +693,27 @@ function editAtomPreview(e,lock){let g=graph(e),isRing=['cyclo','benzene','pheno
 }
 function editorPanel(e,locked){editorClean(e);let G=graph(e),good=valid(G),isRing=['cyclo','benzene','phenol'].includes(e.kind),alkoxy=['ether','ester'].includes(e.kind),canBranches=['alkane','alkene','alkyne','cyclo','benzene','phenol','alcohol','acid','aldehyde'].includes(e.kind);
  return `<div class="editor-layout ${locked?'editor-lock':''}"><div class="control-grid">
-  <div class="field"><label for="editKind">Familia o grupo funcional</label><select id="editKind" data-setting="editKind" ${locked?'disabled':''}>${ORDER.filter(k=>k!=='branched').map(k=>`<option value="${k}" ${k===e.kind?'selected':''}>${KIND[k]}</option>`).join('')}</select></div>
+  <div class="field"><label for="editKind">Familia o grupo funcional</label><select id="editKind" data-setting="editKind" ${locked?'disabled':''}>${ORDER.filter(k=>!['branched','book','polyol','polyen','enyn','carbonyls','aminesN','unsatfun','mixed'].includes(k)).map(k=>`<option value="${k}" ${k===e.kind?'selected':''}>${KIND[k]}</option>`).join('')}</select></div>
   <div class="field"><label for="editSize">Carbonos del esqueleto</label><select id="editSize" data-setting="editSize" ${locked||['benzene','phenol'].includes(e.kind)?'disabled':''}>${Array.from({length:10},(_,i)=>i+1).filter(n=>n>=(['ketone','cyclo'].includes(e.kind)?3:['alkene','alkyne','nitrile'].includes(e.kind)?2:1)).map(n=>`<option ${n===e.n?'selected':''} value="${n}">${n} · ${ROOT[n]}</option>`).join('')}</select></div>
   ${alkoxy?`<div class="field"><label for="editAux">Carbonos de la segunda cadena</label><select id="editAux" data-setting="editAux" ${locked?'disabled':''}>${Array.from({length:e.kind==='ester'?4:Math.min(2,e.n)},(_,i)=>i+1).map(n=>`<option value="${n}" ${e.aux===n?'selected':''}>${n} carbono${n>1?'s':''}</option>`).join('')}</select></div>`:''}
   ${e.kind==='halo'?`<div class="field"><label for="editHalogen">Halógeno</label><select id="editHalogen" data-setting="editHalogen" ${locked?'disabled':''}>${[['Cl','Cloro'],['Br','Bromo'],['F','Fluoro']].map(([v,l])=>`<option value="${v}" ${e.halogen===v?'selected':''}>${l}</option>`).join('')}</select></div>`:''}
   ${!FIXED_POSITION.includes(e.kind)?`<div class="field"><label for="editLoc">${['alkene','alkyne'].includes(e.kind)?'Inicio del enlace múltiple':'Carbono del grupo funcional'}</label><select id="editLoc" data-setting="editLoc" ${locked?'disabled':''}>${Array.from({length:e.n},(_,i)=>i+1).filter(v=>['alkene','alkyne'].includes(e.kind)?v<e.n:e.kind==='ketone'?v>1&&v<e.n:true).map(x=>`<option value="${x}" ${e.loc===x?'selected':''}>Carbono ${x}</option>`).join('')}</select></div>`:''}
  </div>
- <div class="mini-panel"><div class="panel-title">Editor de estructura ${isRing?'— anillo':'— cadena principal'}</div>${editAtomPreview(e,locked)}${!canBranches?'<div class="sketch-note">Esta familia se trabaja sin ramificaciones adicionales en la v0.3.1.</div>':''}</div>
+ <div class="mini-panel"><div class="panel-title">Editor de estructura ${isRing?'— anillo':'— cadena principal'}</div>${editAtomPreview(e,locked)}${!canBranches?'<div class="sketch-note">Esta familia se trabaja sin ramificaciones adicionales en la v0.4.</div>':''}</div>
  <div class="mini-panel"><div class="panel-title">Representación de tu molécula</div><div class="mol-board" style="margin-top:10px;min-height:160px">${good?structure(G,'semi'):'<span class="feedback bad">Hay una valencia no permitida; modifica los enlaces o las ramas.</span>'}</div><div class="mol-facts" style="margin-top:12px">${good?`<span>Fórmula: <b>${formula(G)}</b></span><span>Carbonos: <b>${counts(G).C}</b></span>`:'<span>Corrige la valencia para poder comprobar.</span>'}</div></div></div>`;
 }
 function formPage(){let s=state.form,m=s.target,g=graph(m),locked=s.solved||s.revealed;
- return `${head('Aprende a formular','Lee el nombre propuesto y construye su estructura. La comprobación analiza los átomos y sus enlaces.','PRÁCTICA · NOMBRE → FÓRMULA')}<div class="card">${filterBar('form')}<div class="challenge-layout"><div class="stack"><div class="board"><div class="board-head"><span>NOMBRE PROPUESTO</span><span class="pill teal">Construye la molécula</span></div><div class="answer-box"><div class="answer-name" style="text-align:center">${nameM(m)}</div></div>${editorPanel(s.editor,locked)}</div>
+ return `${head('Aprende a formular','Lee el nombre propuesto y construye su estructura. La comprobación analiza los átomos y sus enlaces.','PRÁCTICA · NOMBRE → FÓRMULA')}<div class="card">${filterBar('form')}<div class="challenge-layout"><div class="stack"><div class="board"><div class="board-head"><span>NOMBRE PROPUESTO</span><span class="pill teal">Construye la molécula</span></div><div class="answer-box"><div class="answer-name" style="text-align:center">${nameM(m)}</div></div>${m.kind==='extended'?advancedEditor(s.editor,locked):editorPanel(s.editor,locked)}</div>
  <div class="btn-row"><button class="btn primary" data-action="form-check" ${locked?'disabled':''}>Comprobar fórmula</button><button class="btn" data-action="form-hint" ${locked||s.hints>=3?'disabled':''}>Pista</button><button class="btn" data-action="form-reveal" ${locked?'disabled':''}>Ver solución</button>${button('Otro ejercicio →','form-next')}</div>
  ${hintCards(m,s,'form')}${msg(s.feedback,s.solved)}${locked?`<div class="mini-panel"><b>Solución de referencia</b> · ${formula(g)}<div class="mol-board" style="margin-top:10px">${structure(g,'semi')}</div></div>`:''}</div>
  <aside class="card right-panel"><h3>Construcción guiada</h3><div class="concept"><strong>1 · Elige la familia</strong><p>Selecciona el tipo de compuesto y el grupo funcional correspondiente.</p></div><div class="concept"><strong>2 · Dibuja el esqueleto</strong><p>Escoge la longitud y sitúa el enlace múltiple si existe.</p></div><div class="concept"><strong>3 · Completa los detalles</strong><p>Indica la posición del grupo funcional y añade las ramificaciones.</p></div><div class="concept"><strong>4 · Comprueba la estructura</strong><p>Las moléculas equivalentes son correctas aunque las hayas dibujado en sentido contrario.</p></div></aside></div></div>`;
 }
-function explorePage(){let m=state.explore,G=graph(m),rep=state.exploreRep,kind=state.exploreFamily,pool=candidatesFor(kind,'avanzado');
+function explorePool(kind){return candidatesFor(kind,'avanzado').sort((a,b)=>ranknum[rank(a)]-ranknum[rank(b)]||(a.n||0)-(b.n||0)||(a.branches?.length||0)-(b.branches?.length||0)||nameOf(a).localeCompare(nameOf(b),'es'));}
+function explorePage(){let m=state.explore,G=graph(m),rep=state.exploreRep,kind=state.exploreFamily,pool=explorePool(kind);
  return `${head('Explorador molecular','Alterna entre representaciones de una misma molécula. El modelo 3D es esquemático.','VISUALIZACIÓN DE MOLÉCULAS')}<div class="detail-grid">
- <div class="card stack"><div class="selector-bar"><div class="field"><label for="exploreFamily">Familia</label><select id="exploreFamily" data-setting="exploreFamily">${familyOptions(kind,false)}</select></div><div class="field"><label for="exploreSelect">Ejemplo</label><select id="exploreSelect" data-setting="exploreSelect">${pool.map((x,i)=>({x,i})).filter(({x,i})=>i<125||nameOf(m)===nameOf(x)).map(({x,i})=>`<option value="${i}" ${nameOf(m)===nameOf(x)?'selected':''}>${nameM(x)}</option>`).join('')}</select></div>${button('Generar otro','explore-next','sm')}</div>
+ <div class="card stack"><div class="selector-bar"><div class="field"><label for="exploreFamily">Familia</label><select id="exploreFamily" data-setting="exploreFamily">${familyOptions(kind)}</select></div><div class="field"><label for="exploreSelect">Compuestos · fácil a complejo</label><select id="exploreSelect" data-setting="exploreSelect">${pool.map((x,i)=>`<option value="${i}" ${nameOf(m)===nameOf(x)?'selected':''}>${nameM(x)}</option>`).join('')}</select></div>${button('Generar otro','explore-next','sm')}</div>
  ${tabs(rep,'explore',['semi','skeletal','developed','molecular','spatial'])}<div class="viewer" style="min-height:290px;display:grid;place-items:center;overflow:hidden">${rep==='spatial'?'<canvas id="mol3d" role="img" aria-label="Modelo 3D didáctico"></canvas>':structure(G,rep)}</div><div class="mini-toolbar"><span class="pill teal">${nameM(m)}</span><span class="sketch-note">${rep==='spatial'?'Arrastra para girar; usa la rueda para acercar. No representa geometría optimizada.':rep==='developed'?'Incluye todos los hidrógenos.':'La representación es la misma molécula.'}</span>${rep==='spatial'?button('Restablecer','3d-reset','sm'):''}</div></div>
- <div class="stack"><div class="card"><h3>Identidad molecular</h3><div class="facts"><div class="fact"><small>Nombre</small><strong>${nameM(m)}</strong></div><div class="fact"><small>Fórmula molecular</small><strong>${formula(G)}</strong></div><div class="fact"><small>Familia</small><strong>${KIND[m.kind]}</strong></div><div class="fact"><small>Átomos de carbono</small><strong>${counts(G).C}</strong></div><div class="fact"><small>Hidrógenos</small><strong>${counts(G).H}</strong></div></div></div><div class="card"><h3>Un mismo compuesto, varias vistas</h3><p class="small muted">La fórmula molecular por sí sola no determina la conectividad. Dos compuestos distintos pueden tener idéntica fórmula molecular.</p><p class="small muted">La vista espacial es una aproximación didáctica; no es una predicción de conformaciones o ángulos reales.</p></div></div></div>`;
+ <div class="stack"><div class="card"><h3>Identidad molecular</h3><div class="facts"><div class="fact"><small>Nombre</small><strong>${nameM(m)}</strong></div><div class="fact"><small>Fórmula molecular</small><strong>${formula(G)}</strong></div><div class="fact"><small>Familia</small><strong>${KIND[m.kind==='extended'?m.family:m.kind]}</strong></div><div class="fact"><small>Átomos de carbono</small><strong>${counts(G).C}</strong></div><div class="fact"><small>Hidrógenos</small><strong>${counts(G).H}</strong></div></div></div><div class="card"><h3>Un mismo compuesto, varias vistas</h3><p class="small muted">La fórmula molecular por sí sola no determina la conectividad. Dos compuestos distintos pueden tener idéntica fórmula molecular.</p><p class="small muted">La vista espacial es una aproximación didáctica; no es una predicción de conformaciones o ángulos reales.</p></div></div></div>`;
 }
 function progressPage(){let arr=state.records,a=arr.filter(r=>r.mode==='name'),b=arr.filter(r=>r.mode==='form');const block=(title,list)=>`<div class="card"><h3>${title}</h3><div class="stat-number">${list.length}</div><p class="small muted">Ejercicios finalizados</p><div class="facts"><div class="fact"><small>Sin mostrar solución</small><strong>${list.filter(x=>!x.revealed).length}</strong></div><div class="fact"><small>Primera respuesta sin pistas</small><strong>${list.filter(x=>x.first).length}</strong></div></div></div>`;
  const fams=Object.entries(KIND).map(([k,v])=>{let list=arr.filter(x=>x.family===k),ok=list.filter(x=>!x.revealed);return {k,v,list,ok};}).filter(x=>x.list.length).sort((x,y)=>y.list.length-x.list.length).slice(0,10);
@@ -564,10 +754,10 @@ function setEditor(key,value){let s=state.form,e=s.editor;if(s.solved||s.reveale
 }
 function navigate(page){state.view=page;render();window.scrollTo({top:0,behavior:'instant'});}
 function render(){const app=$('app');$('crumb').textContent=NAMES[state.view];document.querySelectorAll('[data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===state.view);b.setAttribute('aria-current',b.dataset.page===state.view?'page':'false');});
- app.innerHTML=({inicio:home,aprender:lessons,nombrar:namePage,formular:formPage,explorar:explorePage,progreso:progressPage})[state.view]();
+ app.innerHTML=({inicio:home,aprender:lessons,nombrar:namePage,formular:formPage,explorar:explorePage,biblioteca:libraryPage,propiedades:propertiesPage,progreso:progressPage})[state.view]();
  if(state.view==='explorar'&&state.exploreRep==='spatial')requestAnimationFrame(init3D);
 }
-function act(a,el){if(a.startsWith('to-')){navigate(({ 'to-name':'nombrar','to-form':'formular','to-learn':'aprender','to-explore':'explorar'})[a]);return;}
+function act(a,el){if(a.startsWith('to-')){navigate(({ 'to-name':'nombrar','to-form':'formular','to-learn':'aprender','to-explore':'explorar','to-library':'biblioteca','to-properties':'propiedades'})[a]);return;}
  if(a==='name-next'||a==='form-next'){newTask(a.startsWith('name')?'name':'form');render();return;}
  if(a==='name-hint'||a==='form-hint'){const s=state[a.startsWith('name')?'name':'form'];s.hints=Math.min(3,s.hints+1);render();return;}
  if(a==='name-reveal'||a==='form-reveal'){
@@ -575,6 +765,17 @@ function act(a,el){if(a.startsWith('to-')){navigate(({ 'to-name':'nombrar','to-f
   if(mode==='form')s.editor=clone(s.target);logTask(mode,true);render();return;
  }
  if(a==='form-check'){formCheck();return;}
+ if(a==='library-clear'){state.libraryFamily='all';state.librarySource='all';state.libraryLevel='all';state.librarySort='easy';state.libraryQuery='';state.libraryPage=1;render();return;}
+ if(['lib-first','lib-prev','lib-next','lib-last'].includes(a)){const total=Math.max(1,Math.ceil(libraryChoices().length/LIBRARY_SIZE));
+  state.libraryPage=a==='lib-first'?1:a==='lib-last'?total:a==='lib-prev'?Math.max(1,state.libraryPage-1):Math.min(total,state.libraryPage+1);
+  render();document.querySelector('.library-filter-wrap')?.scrollIntoView({block:'start',behavior:'instant'});return;}
+ if(a.startsWith('lib-name-')||a.startsWith('lib-form-')||a.startsWith('lib-explore-')){
+  let [_,mode,index]=a.split('-'),item=LIB[Number(index)];if(!item)return;
+  if(mode==='explore'){state.exploreFamily=item.source==='libro'?'book':(item.kind==='extended'?item.family:item.kind);state.explore=clone(item);navigate('explorar');return;}
+  let md=mode==='name'?'name':'form';state[md]={target:clone(item),editor:blankEditor(item),draft:'',attempts:0,hints:0,solved:false,revealed:false,logged:false,feedback:''};navigate(md==='name'?'nombrar':'formular');return;
+ }
+ if(a==='library-name'||a==='library-form'){let mode=a==='library-name'?'name':'form';state[mode+'Family']='book';state[mode+'Level']='avanzado';newTask(mode);navigate(mode==='name'?'nombrar':'formular');return;}
+ if(a.startsWith('book-')){let parts=a.split('-'),item=BOOK[Number(parts[2])];if(!item)return;if(parts[1]==='explore'){state.exploreFamily='book';state.explore=clone(item);navigate('explorar');return;}let md=parts[1]==='name'?'name':'form';state[md]={target:clone(item),editor:blankEditor(item),draft:'',attempts:0,hints:0,solved:false,revealed:false,logged:false,feedback:''};navigate(md==='name'?'nombrar':'formular');return;}
  if(['branch-pos','bond-pos','group-pos'].includes(a)){updateEditor(a,el);return;}
  if(a==='explore-next'){state.explore=pick(state.exploreFamily,'avanzado',[nameOf(state.explore)]);render();return;}
  if(a==='3d-reset'){state.rot={x:-.24,y:.37,zoom:1};paint3D();return;}
@@ -587,17 +788,146 @@ $('app').addEventListener('click',e=>{
 });
 $('app').addEventListener('keydown',e=>{const link=e.target.closest('[data-go]');if(link&&(e.key==='Enter'||e.key===' ')){e.preventDefault();navigate(link.dataset.go);}});
 $('app').addEventListener('submit',e=>{if(e.target.id==='nameForm'){e.preventDefault();nameCheck();}});
-$('app').addEventListener('input',e=>{if(e.target.id==='answerName')state.name.draft=e.target.value;});
+$('app').addEventListener('input',e=>{
+ if(e.target.id==='answerName'){state.name.draft=e.target.value;return;}
+ if(e.target.id==='libraryQuery'){
+  const caret=e.target.selectionStart, value=e.target.value;
+  state.libraryQuery=value;state.libraryPage=1;render();
+  const input=$('libraryQuery');if(input){input.focus({preventScroll:true});try{input.setSelectionRange(caret,caret);}catch(_){}}
+ }
+});
 $('app').addEventListener('change',e=>{
  const key=e.target.dataset.setting,val=e.target.value;if(!key)return;
+ if(['libraryFamily','librarySource','libraryLevel','librarySort','propertyCategory'].includes(key)){
+  state[key]=val;if(key!=='propertyCategory')state.libraryPage=1;render();return;
+ }
  if(key==='nameFamily'||key==='nameLevel'){state[key]=val;newTask('name');render();return;}
  if(key==='formFamily'||key==='formLevel'){state[key]=val;newTask('form');render();return;}
  if(key==='exploreFamily'){state.exploreFamily=val;state.explore=pick(val,'avanzado');render();return;}
- if(key==='exploreSelect'){let pool=candidatesFor(state.exploreFamily,'avanzado');state.explore=clone(pool[Number(val)]||pool[0]);render();return;}
+ if(key==='exploreSelect'){let pool=explorePool(state.exploreFamily);state.explore=clone(pool[Number(val)]||pool[0]);render();return;}
+ if(key.startsWith('adv')){setAdvanced(key,val);return;}
  if(key.startsWith('edit')){setEditor(key,val);return;}
 });
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.page)));
 window.addEventListener('resize',()=>{if(state.view==='explorar'&&state.exploreRep==='spatial')paint3D();});
+
+function advancedGroupOptions(v){const opts=[['none','Sin grupo'],['OH','–OH · alcohol'],['oxo','=O · carbonilo'],['acid','–COOH · ácido'],['amide','–CONH₂ · amida'],['ester1','–COO–CH₃ · éster'],['ester2','–COO–CH₂CH₃ · éster'],['amino','–NH₂ · amina'],['amine1','–NH–CH₃ · metilamina N'],['amine2','–N(CH₃)₂ · dimetilamina N'],['amine3','–NH–CH₂CH₃'],['amine4','–NH–CH₂CH₂CH₃'],['amine5','–NH–(CH₂)₃CH₃'],['amine6','–N(CH₂CH₃)₂'],['Cl','–Cl'],['Br','–Br'],['F','–F']];return opts.map(([k,t])=>`<option value="${k}" ${v===k?'selected':''}>${t}</option>`).join('');}
+function codeGroup(g){if(!g)return 'none';if(g.type==='ester')return 'ester'+(g.len||1);if(g.type==='amineN')return (g.alkyls||[]).length===2?((g.alkyls[0]===2&&g.alkyls[1]===2)?'amine6':'amine2'):'amine'+({1:1,2:3,3:4,4:5}[g.alkyls?.[0]]||1);return g.type;}
+function parseGroup(v,pos){if(v==='none')return null;if(v==='ester1'||v==='ester2')return {pos,type:'ester',len:Number(v.at(-1))};if(v.startsWith('amine')&&v!=='amino'){let z=Number(v.slice(5));return {pos,type:'amineN',alkyls:z===2?[1,1]:z===6?[2,2]:[z===1?1:z===3?2:z===4?3:4]};}return {pos,type:v};}
+function advancedEditor(e,locked){let g=graph(e),good=valid(g),n=e.n;
+ return `<div class="advanced-shell"><div class="advanced-intro"><strong>Constructor avanzado de estructuras</strong><span>Selecciona los enlaces entre carbonos y los grupos sobre cada carbono. Comprueba valencias antes de validar.</span></div>
+ <div class="field advanced-size"><label for="advSize">Carbonos de la cadena principal</label><select id="advSize" data-setting="advSize" ${locked?'disabled':''}>${Array.from({length:10},(_,i)=>i+1).map(v=>`<option value="${v}" ${n===v?'selected':''}>${v} carbonos</option>`).join('')}</select></div>
+ <div class="adv-scroll"><div class="advanced-cells">${Array.from({length:n},(_,i)=>{
+ const j=i+1,b=e.branches.filter(x=>x.pos===j),branch=b.length===2?'2m':b.length===1?String(b[0].len):'0';
+ const group=e.groups.find(x=>x.pos===j),gt=codeGroup(group);
+ return `<div class="advanced-cell"><div class="advanced-num">C${j}</div>
+  <div class="field"><label for="advGroup${j}">Grupo</label><select id="advGroup${j}" data-setting="advGroup${j}" ${locked?'disabled':''}>${advancedGroupOptions(gt)}</select></div>
+  <div class="field"><label for="advBranch${j}">Rama</label><select id="advBranch${j}" data-setting="advBranch${j}" ${locked?'disabled':''}><option value="0" ${branch==='0'?'selected':''}>Ninguna</option><option value="1" ${branch==='1'?'selected':''}>Metil</option><option value="2" ${branch==='2'?'selected':''}>Etil</option><option value="2m" ${branch==='2m'?'selected':''}>2 metil</option></select></div>
+  ${i<n-1?`<div class="field"><label for="advBond${j}">Enlace C${j}–C${j+1}</label><select id="advBond${j}" data-setting="advBond${j}" ${locked?'disabled':''}>${[[1,'Simple —'],[2,'Doble ='],[3,'Triple ≡']].map(([v,l])=>`<option value="${v}" ${e.bonds[i]===v?'selected':''}>${l}</option>`).join('')}</select></div>`:''}</div>`;
+ }).join('')}</div></div><div class="mini-panel"><div class="panel-title">Vista previa de tu estructura</div>
+  ${good?`<div class="mol-board">${structure(g,'semi')}</div><div class="mol-facts"><span>Fórmula: <b>${formula(g)}</b></span><span>Carbonos: <b>${counts(g).C}</b></span></div>`:`<div class="feedback bad">Hay carbonos que superan cuatro enlaces, o nitrógenos y oxígenos con valencia incompatible. Revisa grupos, ramificaciones y enlaces.</div>`}</div></div>`;
+}
+function setAdvanced(key,value){const s=state.form,e=s.editor;if(s.solved||s.revealed||e.kind!=='extended')return;
+ if(key==='advSize'){e.n=Math.min(10,Math.max(1,Number(value)));e.bonds=Array.from({length:e.n-1},(_,i)=>e.bonds[i]||1);e.branches=e.branches.filter(b=>b.pos<=e.n);e.groups=e.groups.filter(g=>g.pos<=e.n);}
+ else{let match=key.match(/^adv(Bond|Group|Branch)(\d+)$/);if(!match)return;let [_,what,point]=match,idx=Number(point),at=idx-1;
+ if(what==='Bond')e.bonds[at]=Number(value);
+ if(what==='Group'){e.groups=e.groups.filter(g=>g.pos!==idx);let g=parseGroup(value,idx);if(g)e.groups.push(g);}
+ if(what==='Branch'){e.branches=e.branches.filter(b=>b.pos!==idx);if(value==='1'||value==='2')e.branches.push({pos:idx,len:Number(value)});if(value==='2m')e.branches.push({pos:idx,len:1},{pos:idx,len:1});}
+ }s.feedback='';render();
+}
+// Banco íntegro y estable: se muestran 24 estructuras por página para no saturar la pantalla.
+const LIBRARY_SIZE=24;
+const LIBRARY_ITEMS=LIB.map((m,index)=>({m,index,name:nameOf(m),search:norm(nameOf(m)),
+ category:m.kind==='extended'?m.family:m.kind,level:rank(m),source:m.source==='libro'?'libro':'generado',
+ families:familiesOf(m),complexity:(m.n||0)+(m.branches?.length||0)*2+
+ (m.groups?.length||0)*3+(m.bonds||[]).filter(x=>x>1).length*3}));
+const LEVEL_LABEL={basico:'Inicial',medio:'Intermedio',avanzado:'Avanzado'};
+function libraryChoices(){const f=state.libraryFamily,src=state.librarySource,lvl=state.libraryLevel,q=norm(state.libraryQuery);
+ const arr=LIBRARY_ITEMS.filter(x=>(f==='all'||x.families.includes(f))&&(src==='all'||x.source===src)&&
+ (lvl==='all'||x.level===lvl)&&(!q||x.search.includes(q)||norm(KIND[x.category]||'').includes(q)||
+ (x.m.aliases||[]).some(y=>norm(y).includes(q))));
+ if(state.librarySort==='alpha')arr.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+ else if(state.librarySort==='family')arr.sort((a,b)=>ORDER.indexOf(a.category)-ORDER.indexOf(b.category)||ranknum[a.level]-ranknum[b.level]||a.complexity-b.complexity||a.name.localeCompare(b.name,'es'));
+ else arr.sort((a,b)=>ranknum[a.level]-ranknum[b.level]||ORDER.indexOf(a.category)-ORDER.indexOf(b.category)||a.complexity-b.complexity||a.name.localeCompare(b.name,'es'));
+ return arr;
+}
+function libraryPage(){const results=libraryChoices(),pages=Math.max(1,Math.ceil(results.length/LIBRARY_SIZE));
+ state.libraryPage=Math.min(Math.max(1,state.libraryPage),pages);
+ const from=(state.libraryPage-1)*LIBRARY_SIZE,current=results.slice(from,from+LIBRARY_SIZE);
+ const opt=(k,v,now)=>`<option value="${k}" ${k===now?'selected':''}>${v}</option>`;
+ const selector=`<section class="library-filter-wrap"><h3>Encuentra lo que quieres practicar</h3><p class="small muted">Todos los compuestos del generador están disponibles aquí, incluidos los ejemplos del libro. Selecciona una familia o combina varios filtros.</p>
+ <div class="library-filter-grid">
+ <div class="field"><label for="libraryQuery">Buscar por nombre</label><input id="libraryQuery" type="search" placeholder="Ej.: propan, diol, metil…" value="${esc(state.libraryQuery)}" autocomplete="off"></div>
+ <div class="field"><label for="libraryFamily">Tipo de compuesto</label><select id="libraryFamily" data-setting="libraryFamily">${familyOptions(state.libraryFamily)}</select></div>
+ <div class="field"><label for="librarySource">Origen</label><select id="librarySource" data-setting="librarySource">${[['all','Todos'],['libro','Fotografías del libro'],['generado','Banco generado']].map(([k,v])=>opt(k,v,state.librarySource)).join('')}</select></div>
+ <div class="field"><label for="libraryLevel">Dificultad</label><select id="libraryLevel" data-setting="libraryLevel">${[['all','Todas'],['basico','Inicial'],['medio','Intermedio'],['avanzado','Avanzado']].map(([k,v])=>opt(k,v,state.libraryLevel)).join('')}</select></div>
+ <div class="field"><label for="librarySort">Ordenar</label><select id="librarySort" data-setting="librarySort">${[['easy','De fácil a complejo'],['family','Por familia'],['alpha','Nombre (A–Z)']].map(([k,v])=>opt(k,v,state.librarySort)).join('')}</select></div>
+ </div><div class="library-filter-meta"><span><strong>${results.length}</strong> de ${LIB.length} compuestos · <strong>${BOOK.length}</strong> identificados como ejemplos del libro</span><div class="btn-row">${button('Quitar filtros','library-clear','sm')}${button('Practicar el libro · Nombrar','library-name','sm')}${button('Practicar el libro · Formular','library-form','sm')}</div></div></section>`;
+ const cards=current.map(x=>{let G=graph(x.m),family=KIND[x.category]||'Combinado';return `<article class="card library-card"><div class="eyebrow">${esc(family)} · ${LEVEL_LABEL[x.level]} · ${x.source==='libro'?'Del libro':'Generado'}</div><h3 class="library-name">${esc(x.name)}</h3><div class="library-preview">${structure(G,'semi')}</div><div class="mol-facts"><span>${formula(G)}</span><span>${counts(G).C} C · ${LEVEL_LABEL[x.level]}</span></div><div class="btn-row">${button('Nombrar','lib-name-'+x.index,'sm')}${button('Formular','lib-form-'+x.index,'sm')}${button('Explorar','lib-explore-'+x.index,'sm')}</div></article>`;}).join('');
+ const pagination=pages<=1?'':`<nav class="library-pagination" aria-label="Páginas de biblioteca">${button('« Primera','lib-first','sm')}${button('‹ Anterior','lib-prev','sm')}<span class="pagination-label">Página ${state.libraryPage} de ${pages} · ${from+1}–${Math.min(from+LIBRARY_SIZE,results.length)}</span>${button('Siguiente ›','lib-next','sm')}${button('Última »','lib-last','sm')}</nav>`;
+ return `${head('Biblioteca de compuestos','Consulta y practica el banco completo. Filtra por familia, origen y dificultad y elige un compuesto concreto.','CATÁLOGO · 4.º ESO / 1.º BACHILLERATO')}${selector}${results.length?`${pagination}<div class="library-grid">${cards}</div>${pagination}`:'<div class="card library-empty"><h3>No hay coincidencias</h3><p>Prueba con otra familia, un nivel diferente o un término de búsqueda más corto.</p>'+button('Mostrar todos los compuestos','library-clear','primary')+'</div>'}`;
+}
+
+// «Propiedades generales | Ejemplos y usos» procede de la tabla previamente trabajada.
+// Los apartados avanzados de 0.4 se incorporan aquí como ampliación didáctica.
+const PROPERTIES=[
+ ['Hidrocarburos','alkane','Alcanos','Apolares, poco reactivos en condiciones normales, insolubles en agua e inflamables. Su punto de ebullición suele aumentar al crecer la cadena.','Metano (gas natural), propano y butano (combustibles), parafinas (velas).'],
+ ['Hidrocarburos','alkene','Alquenos','Apolares y con enlaces C=C que participan en reacciones de adición y polimerización. Suelen ser poco solubles en agua.','Eteno (polietileno; regulación de maduración de frutas), propeno (polipropileno).'],
+ ['Hidrocarburos','alkyne','Alquinos','Apolares; el enlace C≡C puede sufrir adiciones. Generalmente poco solubles en agua.','Etino o acetileno (soldadura y corte; materia prima industrial).'],
+ ['Hidrocarburos','branched','Hidrocarburos ramificados','La ramificación modifica propiedades físicas como el punto de ebullición; en isómeros de alcanos, una mayor ramificación suele reducirlo.','Isobutano / 2-metilpropano (refrigerante y propelente); isooctano (referencia del índice de octano).'],
+ ['Hidrocarburos','cyclo','Cicloalcanos','Apolares y normalmente insolubles en agua. Sus propiedades dependen del tamaño y tensión del anillo.','Ciclohexano (disolvente y fabricación de nailon); ciclopropano (uso histórico como anestésico).'],
+ ['Hidrocarburos','benzene','Aromáticos','Sus anillos presentan estabilidad aromática; reaccionan frecuentemente por sustitución. Muchos son poco solubles en agua y algunos, como el benceno, son peligrosos para la salud.','Benceno (materia prima industrial), tolueno (disolventes y síntesis de productos químicos).'],
+ ['Halogenados','halo','Derivados halogenados','La sustitución de H por halógenos modifica polaridad, densidad, volatilidad y reactividad. Sus propiedades ambientales y toxicológicas varían mucho.','Cloruro de vinilo (PVC para tuberías y cables), tetrafluoroeteno (PTFE/Teflón para recubrimientos).'],
+ ['Oxigenados','alcohol','Alcoholes','Contienen –OH; los de baja masa molecular forman puentes de hidrógeno y suelen mezclarse bien con agua. Algunos se oxidan; muchos son inflamables.','Etanol (desinfectantes y bebidas), propan-2-ol (limpieza), glicerina (cosmética).'],
+ ['Oxigenados','phenol','Fenoles','El –OH está unido a un anillo aromático. Son más ácidos que los alcoholes alifáticos; pueden formar puentes de hidrógeno.','Fenol (resinas y plásticos), timol (productos antisépticos).'],
+ ['Oxigenados','ether','Éteres','Tienen R–O–R y son moderadamente polares. Aceptan puentes de hidrógeno del agua, pero no los donan; muchos son volátiles e inflamables.','Éter dietílico (disolvente), dimetiléter (propelente de aerosoles).'],
+ ['Oxigenados','aldehyde','Aldehídos','El carbonilo terminal –CHO es polar y suele reaccionar con facilidad en oxidaciones y adiciones. Los de cadena corta presentan cierta solubilidad en agua.','Metanal / formaldehído (fabricación de resinas), benzaldehído (aroma de almendra).'],
+ ['Oxigenados','ketone','Cetonas','El carbonilo interno C=O es polar. Las pequeñas son miscibles o bastante solubles en agua y suelen ser buenos disolventes.','Propanona / acetona (disolvente y quitaesmaltes), butanona (disolvente industrial).'],
+ ['Oxigenados','acid','Ácidos carboxílicos','El grupo –COOH es ácido y muy polar; forma puentes de hidrógeno. Los de cadena corta se mezclan bien con agua y reaccionan con bases.','Ácido etanoico / acético (vinagre), ácido benzoico (conservante alimentario).'],
+ ['Oxigenados','ester','Ésteres','Tienen –COO–, son moderadamente polares y pueden hidrolizarse. Muchos presentan olores característicos, aunque no todos.','Etanoato de etilo (disolvente), acetato de isoamilo (aroma de plátano), triglicéridos (aceites y grasas).'],
+ ['Nitrogenados','amine','Aminas','Generalmente básicas por el par libre del nitrógeno; las de cadena corta suelen ser solubles en agua. Algunas tienen olores intensos.','Etilamina (síntesis farmacéutica), anilina (fabricación de colorantes).'],
+ ['Nitrogenados','amide','Amidas','Grupo –CON– muy polar; fuertes interacciones intermoleculares. Son mucho menos básicas que las aminas.','Urea (fertilizantes y cremas), poliamidas como el nailon (fibras).'],
+ ['Nitrogenados','nitrile','Nitrilos','El grupo –C≡N es polar; pueden transformarse por hidrólisis en derivados de ácidos carboxílicos.','Acetonitrilo (disolvente de laboratorio), acrilonitrilo (fibras y plásticos).'],
+ ['Ampliaciones','polyol','Dioles y trioles','Dos o más grupos –OH permiten formar abundantes puentes de hidrógeno; suelen aumentar viscosidad, punto de ebullición y afinidad por el agua.','Etano-1,2-diol (anticongelantes; tóxico), propano-1,2,3-triol o glicerol (humectante y cosmética).'],
+ ['Ampliaciones','polyen','Dienos y polienos','Varios enlaces C=C proporcionan más posiciones reactivas. Los sistemas conjugados presentan propiedades electrónicas particulares y participan en polimerizaciones.','Buta-1,3-dieno (cauchos sintéticos), isopreno (elastómeros), carotenoides (pigmentos naturales).'],
+ ['Ampliaciones','enyn','Eninos y diinos','Combinan C=C y C≡C, o varios C≡C. Son especies reactivas en síntesis y no suelen tener aplicaciones domésticas directas.','Eninos y diinos como intermediarios en síntesis orgánica y química de materiales.'],
+ ['Ampliaciones','carbonyls','Carbonilos múltiples, dialdehídos y diamidas','Al aumentar los grupos C=O generalmente crecen la polaridad y las posibilidades de interacción; su reactividad depende de si son aldehídos, cetonas o amidas.','Pentano-2,4-diona (ligando en complejos), glutaraldehído (desinfección profesional), oxamida (intermedio químico).'],
+ ['Ampliaciones','aminesN','Aminas secundarias y terciarias','Su basicidad y capacidad de formar puentes de hidrógeno dependen de cuántos grupos carbonados sustituyen los H del nitrógeno.','Dimetilamina (síntesis química), trietilamina (base utilizada en laboratorio e industria).'],
+ ['Ampliaciones','unsatfun','Funciones con insaturaciones','Combinan el comportamiento del grupo funcional (–OH, C=O, –COOH, –CONH₂…) con reacciones del enlace múltiple C=C o C≡C.','Ácido prop-2-enoico / acrílico (polímeros acrílicos), acroleína o propenal (intermedio industrial).'],
+ ['Ampliaciones','mixed','Grupos combinados y polifuncionales','Varias funciones pueden modificar mucho la polaridad, la acidez/basicidad y la reactividad; el grupo principal determina el sufijo del nombre.','Ácido láctico (alimentos y bioplásticos), hidroxiácidos (cosmética), aminoácidos (proteínas).'],
+ ['Consulta','nitro','Nitrocompuestos (ampliación teórica)','El grupo –NO₂ es muy polar y modifica la reactividad del esqueleto; no debe confundirse con las aminas.','Nitrobenceno (intermedio para obtener anilina). No hay ejercicios de nitrocompuestos en el generador actual.']
+];
+const PRINCIPLES=[
+ ['Solubilidad','Los grupos polares y los puentes de hidrógeno favorecen la solubilidad en agua, especialmente en moléculas pequeñas.','Etanol y acetona se mezclan con agua; hidrocarburos como el hexano, no.'],
+ ['Longitud de cadena','Al aumentar la parte hidrocarbonada, normalmente disminuye la solubilidad acuosa y aumentan las fuerzas de dispersión y el punto de ebullición.','El metanol es miscible en agua, mientras que alcoholes de cadena larga lo son mucho menos.'],
+ ['Puentes de hidrógeno','Alcoholes, ácidos y amidas con grupos N–H u O–H pueden establecer interacciones fuertes; los éteres y cetonas solo pueden aceptarlas.','El etanol hierve a mayor temperatura que el dimetiléter, pese a compartir fórmula molecular.'],
+ ['Reactividad','Los enlaces múltiples suelen sufrir adiciones; los carbonilos y otros grupos funcionales tienen reacciones características.','El eteno se adiciona y polimeriza; los aldehídos pueden oxidarse a ácidos.'],
+ ['Acidez','Los ácidos carboxílicos suelen ser más ácidos que los fenoles, y estos, que los alcoholes comunes.','El ácido acético reacciona con bicarbonato; el etanol no lo hace de forma comparable.'],
+ ['Basicidad','Las aminas suelen ser bases; las amidas son bases mucho más débiles por deslocalización del par del nitrógeno.','La etilamina reacciona con ácidos para formar sales de amonio.']
+];
+function propertiesPage(){const cats=['all','Hidrocarburos','Halogenados','Oxigenados','Nitrogenados','Ampliaciones','Consulta'];
+ const list=PROPERTIES.filter(p=>state.propertyCategory==='all'||p[0]===state.propertyCategory);
+ const option=cats.map(k=>`<option value="${k}" ${state.propertyCategory===k?'selected':''}>${k==='all'?'Todas las familias':k==='Consulta'?'Otras familias (consulta)':k}</option>`).join('');
+ return `${head('Propiedades y aplicaciones','Resumen de las propiedades generales, ejemplos cotidianos y aplicaciones industriales de las familias orgánicas, incluido el repertorio avanzado.','GUÍA DE CONSULTA · QUÍMICA ORGÁNICA')}
+ <div class="card prop-intro"><h3>Cómo interpretar esta tabla</h3><p>Las propiedades indicadas son <strong>tendencias generales</strong>, no reglas absolutas para cualquier molécula. El tamaño, la estructura, las interacciones intermoleculares y los grupos funcionales presentes pueden cambiar mucho su comportamiento.</p><div class="prop-toolbar"><div class="field"><label for="propertyCategory">Mostrar categorías</label><select id="propertyCategory" data-setting="propertyCategory">${option}</select></div><span class="stat-chip">${list.length} familias o subfamilias</span></div>
+ <div class="prop-table-scroll"><table class="prop-table"><thead><tr><th>Familia</th><th>Propiedades generales</th><th>Ejemplos y aplicaciones habituales</th></tr></thead><tbody>${list.map(([cat,key,title,properties,examples])=>`<tr><td class="prop-family">${esc(title)}<div class="micro muted" style="font-weight:500">${esc(cat)}</div></td><td>${esc(properties)}</td><td class="prop-use">${esc(examples)}</td></tr>`).join('')}</tbody></table></div>
+ <p class="prop-note"><strong>Nota didáctica:</strong> los ejemplos se presentan para relacionar química y aplicaciones reales. Que una sustancia tenga un uso industrial no implica que sea segura para manipular en el aula. Los nitrocompuestos se incluyen solo como información, no como ejercicios del generador.</p></div>
+ <div class="card"><div class="eyebrow">CLAVES PARA COMPRENDER LAS PROPIEDADES</div><h2>Seis ideas fundamentales</h2><div class="principle-grid">${PRINCIPLES.map(([title,rule,example])=>`<section class="principle"><h3>${esc(title)}</h3><p>${esc(rule)} <strong>Ejemplo:</strong> ${esc(example)}</p></section>`).join('')}</div></div>`;
+}
+
+const lessonPrevious = lessons;
+lessons=function(){return lessonPrevious()+`<div class="learn-section-head learn-next"><div class="pill teal">BLOQUE 3</div><div><h2>Nomenclatura con varias funciones e insaturaciones</h2><p>Ampliación para resolver ejercicios del libro que combinan varias reglas a la vez.</p></div></div><div class="lesson-grid">
+ <section class="card learn-card"><div class="eyebrow">17 · VARIOS –OH</div><h2>Dioles y trioles</h2><div class="learn-content"><p>Dos grupos hidroxilo se nombran con <strong>–diol</strong>; tres, con <strong>–triol</strong>. Indica las posiciones de todos.</p><div class="learn-example">HO–CH₂–CH₂–OH → <strong>etano-1,2-diol</strong><br>HO–CH₂–CH(OH)–CH₂–OH → <strong>propano-1,2,3-triol</strong></div><p>Un grupo –OH en el nombre no es un ion hidróxido: está unido covalentemente al carbono.</p></div></section>
+ <section class="card learn-card"><div class="eyebrow">18 · MÁS DE UNA INSATURACIÓN</div><h2>Dienos, diinos y eninos</h2><div class="learn-content"><p>Si hay dos dobles enlaces se usa <strong>–dieno</strong>; dos triples, <strong>–diino</strong>. Cuando aparecen ambos tipos se indican todos sus localizadores.</p><div class="learn-example">CH₂=C=CH₂ → <strong>propa-1,2-dieno</strong><br>CH₂=CH–CH=CH₂ → <strong>buta-1,3-dieno</strong></div><p>Comprueba la tetravalencia del carbono: no todas las combinaciones de dobles y triples enlaces son posibles.</p></div></section>
+ <section class="card learn-card"><div class="eyebrow">19 · FUNCIONES REPETIDAS</div><h2>Dicetonas, dialdehídos y diamidas</h2><div class="learn-content"><p>La terminación cambia según el número de funciones principales. La misma cadena puede contener varios carbonilos.</p><div class="learn-example">CH₃–CO–CH₂–CO–CH₃ → <strong>pentano-2,4-diona</strong><br>OHC–CH₂–CHO → <strong>propano-1,3-dial</strong><br>H₂N–CO–CH₂–CO–NH₂ → <strong>propanodiamida</strong></div></div></section>
+ <section class="card learn-card"><div class="eyebrow">20 · FUNCIÓN PRINCIPAL Y SUFIJOS</div><h2>Prioridad y numeración</h2><div class="learn-content"><p>En un compuesto con varias funciones, identifica la <strong>función principal</strong>. Esta determina el sufijo; otras aparecen como prefijos. En estos ejercicios, por ejemplo, ácido carboxílico y amida tienen prioridad sobre alcohol.</p><div class="learn-example">CH₂=CH–COOH → <strong>ácido prop-2-enoico</strong><br>CH₃–CO–CH=CH₂ → <strong>but-3-en-2-ona</strong></div><p>Comprueba también la cadena principal: el nombre impreso en algunos ejercicios puede seguir convenciones de numeración diferentes.</p></div></section>
+ <section class="card learn-card"><div class="eyebrow">21 · AMINAS SECUNDARIAS Y TERCIARIAS</div><h2>Sustituyentes unidos al nitrógeno</h2><div class="learn-content"><p>Una amina secundaria tiene dos fragmentos carbonados unidos al N; una terciaria, tres. En nomenclatura sustitutiva se usan localizadores <strong>N-</strong> y <strong>N,N-</strong>.</p><div class="learn-example">CH₃–NH–CH₃ → <strong>dimetilamina</strong><br>N(CH₃)₃ → <strong>trimetilamina</strong></div><p>No confundas la amina (N sin carbonilo) con la amida (–CONH₂).</p></div></section>
+ <section class="card learn-card"><div class="eyebrow">22 · MÉTODO PARA RETOS COMBINADOS</div><h2>Descompón antes de nombrar</h2><div class="learn-content"><ol><li>Detecta grupos funcionales y su prioridad.</li><li>Selecciona la cadena principal adecuada.</li><li>Numera según la función principal y las reglas de insaturaciones.</li><li>Cuenta dobles/triples enlaces y funciones repetidas.</li><li>Ordena ramificaciones y construye el nombre.</li></ol><p>Practica estos pasos con los ejemplos en <strong>Biblioteca</strong>.</p></div></section>
+ </div><div class="card learn-summary"><div><h3>Practica los compuestos del libro</h3><p>También puedes elegir las familias nuevas dentro de Nombrar y Formular, con niveles intermedio y avanzado.</p></div>${button('Abrir biblioteca →','to-library','primary')}</div>`;};
+
+// El acceso directo desde Inicio acompaña al apartado del menú lateral.
+const homeV04=home;
+home=function(){return homeV04()+`<div class="card" style="margin-top:19px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap"><div><div class="eyebrow">NUEVA GUÍA</div><h3 style="margin:6px 0">Propiedades y aplicaciones</h3><p class="small muted" style="margin:0">De los alcanos a los compuestos polifuncionales: características, ejemplos y usos habituales.</p></div>${button('Consultar propiedades →','to-properties','primary')}</div>`;};
 render();
 
 </script>
